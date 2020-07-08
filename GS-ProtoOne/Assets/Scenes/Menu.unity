@@ -305,7 +305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a94d01b512627540a9fa2b0eb5fee61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  customisationSceneName: DefaultTransitionScene
+  customisationSceneName: WaydsScene
 --- !u!4 &907849871
 Transform:
   m_ObjectHideFlags: 0
@@ -327,6 +327,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 9144536877242839768, guid: 9a29f98e119dd634397ac8728fd5455a,
+        type: 3}
+      propertyPath: m_ChildAlignment
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9144536877242839769, guid: 9a29f98e119dd634397ac8728fd5455a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.0000076293945
+      objectReference: {fileID: 0}
+    - target: {fileID: 9144536877242839769, guid: 9a29f98e119dd634397ac8728fd5455a,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 673.2084
+      objectReference: {fileID: 0}
     - target: {fileID: 9144536877543213263, guid: 9a29f98e119dd634397ac8728fd5455a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -431,6 +446,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9144536877543213264, guid: 9a29f98e119dd634397ac8728fd5455a,
+        type: 3}
+      propertyPath: m_PixelPerfect
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9144536877543213265, guid: 9a29f98e119dd634397ac8728fd5455a,
+        type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9144536877543213267, guid: 9a29f98e119dd634397ac8728fd5455a,
         type: 3}
