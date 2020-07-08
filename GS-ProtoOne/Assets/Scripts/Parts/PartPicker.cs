@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Move this to event handler in future
+using UnityEngine.SceneManagement;
+
 public enum PartType
 {
     Head = 0,
@@ -11,6 +14,8 @@ public enum PartType
 
 public class PartPicker : MonoBehaviour
 {
+    public PlayerStats player;
+
     // Part Lists for Easy Reading
     public List<Part> Head;
     public List<Part> Arms;
@@ -132,5 +137,18 @@ public class PartPicker : MonoBehaviour
         // Set Header
         typeText.SetText(currentType.ToString());
         abilities.abilities[(int)currentType].SwitchPrefab(partList[(int)currentType][currentSelected]);
+    }
+
+    // Save Body and Continue
+    public void ReadyUp()
+    {
+        // Add in Save Selections or w.e
+        player.body.head = partList[0][0];
+        player.body.arms = partList[1][0];
+        player.body.legs = partList[2][0];
+
+        player.Setup();
+
+        SceneManager.LoadScene("GameplayScene");
     }
 }
