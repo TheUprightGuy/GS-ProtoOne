@@ -14,6 +14,7 @@ public class SceneManager : MonoBehaviour
 
     public void LoadCustomisationScene(string sceneName)
     {
+        AudioManager.Instance.PlaySound("hit");
         UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
     }
     
