@@ -121,6 +121,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &203974526 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 431797634585741306, guid: 9a29f98e119dd634397ac8728fd5455a,
+    type: 3}
+  m_PrefabInstance: {fileID: 252417165}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &214035649
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,6 +217,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 431797634585741306, guid: 9a29f98e119dd634397ac8728fd5455a,
+        type: 3}
+      propertyPath: m_Name
+      value: VolumeSlider
+      objectReference: {fileID: 0}
     - target: {fileID: 864632957781693255, guid: 9a29f98e119dd634397ac8728fd5455a,
         type: 3}
       propertyPath: m_AnchorMin.x
@@ -255,6 +266,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6970996918245004985, guid: 9a29f98e119dd634397ac8728fd5455a,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6970996918245004985, guid: 9a29f98e119dd634397ac8728fd5455a,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6970996918245004985, guid: 9a29f98e119dd634397ac8728fd5455a,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6970996918245004985, guid: 9a29f98e119dd634397ac8728fd5455a,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1766110407}
+    - target: {fileID: 6970996918245004985, guid: 9a29f98e119dd634397ac8728fd5455a,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnVolumeAdjusted
+      objectReference: {fileID: 0}
+    - target: {fileID: 6970996918245004985, guid: 9a29f98e119dd634397ac8728fd5455a,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8199109140686887742, guid: 9a29f98e119dd634397ac8728fd5455a,
         type: 3}
@@ -557,6 +598,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSources:
   - {fileID: 2135568773}
+  masterVolume: 1
+  volumeSlider: {fileID: 203974526}
 --- !u!4 &1766110408
 Transform:
   m_ObjectHideFlags: 0

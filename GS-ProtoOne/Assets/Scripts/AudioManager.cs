@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class AudioManager : MonoBehaviour
@@ -28,14 +29,18 @@ public class AudioManager : MonoBehaviour
 
     #endregion
 
-    private Dictionary<string, SoundInfo> _soundDictionary;
     public List<AudioSource> audioSources;
+    public float masterVolume = 1.0f;
 
+    private Dictionary<string, SoundInfo> _soundDictionary;
     private readonly List<AudioSource> _audioSources = new List<AudioSource>(); //Currently playing audio sources
-
+    [SerializeField] private GameObject volumeSlider;
+    private Slider _slider;
+    
     private void Start()
     {
         _soundDictionary = new Dictionary<string, SoundInfo>();
+        _slider = volumeSlider.GetComponent<Slider>();
         foreach (var audioSource in audioSources)
         {
             var soundName = audioSource.name;
@@ -46,22 +51,28 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void StopSound(string soundName)
-    {
-        _soundDictionary[soundName]
-            .AudioSource.Stop();
-    }
-
     public void PlaySound(string soundName)
     {
         _soundDictionary[soundName].Reset();
         PlaySound(_soundDictionary[soundName].AudioSource);
     }
 
+    public void StopSound(string soundName)
+    {
+        _soundDictionary[soundName]
+            .AudioSource.Stop();
+    }
+
+    public void OnVolumeAdjusted()
+    {
+        masterVolume = _slider.value;
+    }
+    
+
     private void PlaySound(AudioSource audioSource) //Only play sound if it's not already playing
     {
         audioSource.pitch *= (Random.value + 0.5f); //Pitch is default multiplied by random value between 0.5 and 1.5
-        //audioSource.volume *= Random.value;
+        audioSource.volume *= masterVolume;
         var shouldPlaySound = true;
         foreach (var aS in _audioSources.Where(aS => aS.clip.name == audioSource.clip.name))
         {
