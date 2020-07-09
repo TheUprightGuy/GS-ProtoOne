@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class EventHandler : MonoBehaviour
 {
+    #region Singleton
     public static EventHandler instance;
     private void Awake()
     {
@@ -20,16 +21,7 @@ public class EventHandler : MonoBehaviour
             instance = this;
         }
     }
-
-    public PartPicker pp1;
-    public PartPicker pp2;
-
-
-    private void Update()
-    {
-
-    }
-
+    #endregion Singleton
 
     // Start Button is Pressed
     public event Action<int> readyUp;
@@ -42,21 +34,22 @@ public class EventHandler : MonoBehaviour
     }
 
     // Part is Selected
-    public event Action<int> selectPart;
-    public void SelectPart(int _id)
+    public event Action<int, Part> selectPart;
+    public void SelectPart(int _id, Part _part)
     {
         if (selectPart != null)
         {
-            selectPart(_id);
+            selectPart(_id, _part);
         }
     }
 
-    public event Action setupPlayers;
-    public void SetupPlayers()
+    // Setup Players - Temporary Setup
+    public event Action toggleGravity;
+    public void ToggleGravity()
     {
-        if (setupPlayers != null)
+        if (toggleGravity != null)
         {
-            setupPlayers();
+            toggleGravity();
         }
     }
 }

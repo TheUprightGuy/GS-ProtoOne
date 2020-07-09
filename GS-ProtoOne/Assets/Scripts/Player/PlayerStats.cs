@@ -10,27 +10,51 @@ public struct Body
 }
 
 public class PlayerStats : MonoBehaviour
-{
-    public Body body;
-
+{   
+    [Header("Setup Fields")]
     public int id;
-    public Rigidbody rb;
+    private Body body;
+    private Rigidbody rb;
+    [HideInInspector] public List<MeshFilter> partMesh;
 
-    public List<MeshFilter> partMesh;
-
+    #region Setup
     void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
         rb = GetComponent<Rigidbody>();
+
+        foreach(Transform n in transform)
+        {
+            if (n.GetComponent<MeshFilter>())
+            {
+                partMesh.Add(n.GetComponent<MeshFilter>());
+            }
+        }
     }
 
-    public void Setup()
+    private void Start()
     {
-        rb.useGravity = true;
+        EventHandler.instance.selectPart += SetPart; 
+        EventHandler.instance.toggleGravity += ToggleGravity;
+    }
+    private void OnDestroy()
+    {
+        EventHandler.instance.selectPart -= SetPart;
+        EventHandler.instance.toggleGravity -= ToggleGravity;
     }
 
+    #endregion Setup
+
+    // Toggle Gravity
+    public void ToggleGravity()
+    {
+        rb.useGravity = !rb.useGravity;
+    }
+
+    // Update Loop
     public void Update()
     {
+        // Check for input
         if (Input.GetButtonDown("Start"))
         {
             // Ready Up
@@ -38,6 +62,7 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
+    // Set Part & Update Mesh
     public void SetPart(int _id, Part _part)
     {
         if (id == _id)

@@ -408,8 +408,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bac9348e722724439ba48f7fd6dd0bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pp1: {fileID: 341405582}
-  pp2: {fileID: 1778928197}
 --- !u!4 &163225649
 Transform:
   m_ObjectHideFlags: 0
@@ -699,7 +697,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc3e94259fa31fe4faba743282affa61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 374762356}
+  id: 1
   Head:
   - {fileID: 11400000, guid: d30d18b90995efa4ea9fec1288c76b1c, type: 2}
   - {fileID: 11400000, guid: 0869432efec51d8469436f88e2ca37c5, type: 2}
@@ -707,11 +705,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bacce8db76116be4a98fa3a944a0b75a, type: 2}
   Legs:
   - {fileID: 11400000, guid: f50ca41c08303824798b5def1f2faba7, type: 2}
-  currentType: 0
   partDisplayed: {fileID: 1409491276}
   typeText: {fileID: 177056093}
-  readyText: {fileID: 1863167503}
-  currentSelected: 0
   ability: {fileID: 1134293314}
 --- !u!1 &374762355
 GameObject:
@@ -747,11 +742,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1
-  rb: {fileID: 0}
-  partMesh:
-  - {fileID: 381331890}
-  - {fileID: 556632884}
-  - {fileID: 1313468446}
+  partMesh: []
 --- !u!23 &374762357
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -806,7 +797,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 374762355}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.77961123, z: 0, w: 0.6262638}
   m_LocalPosition: {x: 100, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -815,7 +806,7 @@ Transform:
   - {fileID: 1313468449}
   m_Father: {fileID: 0}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 102.45, z: 0}
 --- !u!54 &374762360
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3853,7 +3844,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 2
-  rb: {fileID: 0}
   partMesh: []
 --- !u!23 &1395901747
 MeshRenderer:
@@ -4463,7 +4453,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 341405582}
         m_MethodName: SelectPart
-        m_Mode: 3
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4814,7 +4804,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc3e94259fa31fe4faba743282affa61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 374762356}
+  id: 0
   Head:
   - {fileID: 11400000, guid: d30d18b90995efa4ea9fec1288c76b1c, type: 2}
   - {fileID: 11400000, guid: 0869432efec51d8469436f88e2ca37c5, type: 2}
@@ -4822,11 +4812,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bacce8db76116be4a98fa3a944a0b75a, type: 2}
   Legs:
   - {fileID: 11400000, guid: f50ca41c08303824798b5def1f2faba7, type: 2}
-  currentType: 0
   partDisplayed: {fileID: 902395689}
   typeText: {fileID: 571604808}
-  readyText: {fileID: 0}
-  currentSelected: 0
   ability: {fileID: 879193234}
 --- !u!224 &1778928198
 RectTransform:

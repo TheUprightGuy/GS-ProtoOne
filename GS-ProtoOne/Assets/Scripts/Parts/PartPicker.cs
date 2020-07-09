@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Enum for Part Slot
 public enum PartType
 {
     Head = 0,
@@ -11,36 +12,33 @@ public enum PartType
 
 public class PartPicker : MonoBehaviour
 {
-    public PlayerStats player;
+    [Header("Player ID")]
+    public int id;
 
-    // Part Lists for Easy Reading
+    [Header("Part Lists")]
     public List<Part> Head;
     public List<Part> Arms;
     public List<Part> Legs;
     // Actual List to Work from
-    public List<List<Part>> partList;
-  
+    [HideInInspector] public List<List<Part>> partList;
+
+    // Navigation
+    private PartType currentType = 0;
+    private int currentSelected = 0;
+    [Header("UI Elements")]
+    public PartScript partDisplayed;
+    public TMPro.TextMeshProUGUI typeText;
+    public AbilitiesUI ability;
+
+    #region Setup
     public void Awake()
     {
+        // Setup working ParkList
         partList = new List<List<Part>>();
-
         partList.Add(Head);
         partList.Add(Arms);
         partList.Add(Legs);
     }
-
-    // Current Part Type
-    public PartType currentType = 0;
-    // Reference to Display Part
-    public PartScript partDisplayed;
-    // Reference to Header Text
-    public TMPro.TextMeshProUGUI typeText;
-    // Reference to Ready Up text
-    public TMPro.TextMeshProUGUI readyText;
-    // Tracking
-    public int currentSelected = 0;
-    // AbilityUI References
-    public AbilitiesUI ability;
 
     private void Start()
     {
@@ -56,16 +54,9 @@ public class PartPicker : MonoBehaviour
         // Set Header
         typeText.SetText(currentType.ToString());
         ability.SwitchPrefab(partList[(int)currentType][currentSelected]);
-
-        EventHandler.instance.setupPlayers += SetupPlayers;
-        EventHandler.instance.selectPart += SelectPart;
     }
 
-    private void OnDestroy()
-    {
-        EventHandler.instance.setupPlayers -= SetupPlayers;
-        EventHandler.instance.selectPart -= SelectPart;
-    }
+    #endregion Setup
 
     // Go to Next Part
     public void NextPart()
@@ -101,7 +92,7 @@ public class PartPicker : MonoBehaviour
         partDisplayed.SwitchPrefab(partList[(int)currentType][currentSelected]);
         ability.SwitchPrefab(partList[(int)currentType][currentSelected]);
     }
-
+    // Go to Next Type
     public void NextType()
     {
         // At End - Loop to Start
@@ -122,7 +113,7 @@ public class PartPicker : MonoBehaviour
         typeText.SetText(currentType.ToString());
         ability.SwitchPrefab(partList[(int)currentType][currentSelected]);
     }
-    // Go to Previous Part
+    // Go to Previous Type
     public void PreviousType()
     {
         // At Start - Loop to End
@@ -144,20 +135,11 @@ public class PartPicker : MonoBehaviour
         ability.SwitchPrefab(partList[(int)currentType][currentSelected]);
     }
 
-    public void SelectPart(int _id)
+    // Set Part for Player
+    public void SelectPart()
     {
+        EventHandler.instance.SelectPart(id, partList[(int)currentType][currentSelected]);
         // Switch Based on ID Later
-        player.SetPart(_id, partList[(int)currentType][currentSelected]);
-    }
-
-    // Save Body and Continue
-    public void SetupPlayers()
-    {
-        // Add in Save Selections or w.e
-        player.body.head = partList[0][0];
-        player.body.arms = partList[1][0];
-        player.body.legs = partList[2][0];
-
-        player.Setup();
+        //player.SetPart(id, partList[(int)currentType][currentSelected]);
     }
 }
