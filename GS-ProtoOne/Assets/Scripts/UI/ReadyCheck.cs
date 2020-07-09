@@ -43,7 +43,7 @@ public class ReadyCheck : MonoBehaviour
             if (ready)
             {
                 // Temporary - 1p
-                EventHandler.instance.ToggleGravity();
+                EventHandler.instance.SetupCharacter();
                 SceneManager.LoadScene("GameplayScene");
             }
             else

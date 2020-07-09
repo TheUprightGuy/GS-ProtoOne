@@ -13,22 +13,24 @@ public enum AbilityName
 // Base Ability
 public interface Ability
 {
-    void Use();
+    void Use(GameObject _player);
 }
 
 // ABILITIES
 
 public class Charge : Ability
 {
-    public void Use()
+    public void Use(GameObject _player)
     {
         Debug.Log("Charge");
+        // As a demo
+        _player.transform.Translate(new Vector3(500, 0, 0));
     }
 }
 
 public class Headbutt : Ability
 {
-    public void Use()
+    public void Use(GameObject _player)
     {
         Debug.Log("Headbutt");
     }
@@ -36,7 +38,7 @@ public class Headbutt : Ability
 
 public class Punch : Ability
 {
-    public void Use()
+    public void Use(GameObject _player)
     {
         Debug.Log("Punch");
     }
@@ -44,7 +46,7 @@ public class Punch : Ability
 
 public class Kick : Ability
 {
-    public void Use()
+    public void Use(GameObject _player)
     {
         Debug.Log("Kick");
     }

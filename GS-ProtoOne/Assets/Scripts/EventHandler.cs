@@ -44,12 +44,12 @@ public class EventHandler : MonoBehaviour
     }
 
     // Setup Players - Temporary Setup
-    public event Action toggleGravity;
-    public void ToggleGravity()
+    public event Action setupCharacter;
+    public void SetupCharacter()
     {
-        if (toggleGravity != null)
+        if (setupCharacter != null)
         {
-            toggleGravity();
+            setupCharacter();
         }
     }
 }

@@ -13,6 +13,7 @@ public class Part : ScriptableObject
     public Mesh mesh;
     public Ability ability;
     public AbilityName abilityName;
+    [HideInInspector] public GameObject player;
     [Header("Part Stats")]
     public int maxIntegrity;
 
@@ -43,9 +44,14 @@ public class Part : ScriptableObject
         }
     }
 
+    public void SetParent(GameObject _player)
+    {
+        player = _player;
+    }
+
     public void UseAbility()
     {
-        ability.Use();
+        ability.Use(player);
     }
 }
 

@@ -17,6 +17,11 @@ public class PlayerStats : MonoBehaviour
     private Rigidbody rb;
     [HideInInspector] public List<MeshFilter> partMesh;
 
+    // Debug
+    public Part head;
+    public Part arms;
+    public Part legs;
+
     #region Setup
     void Awake()
     {
@@ -35,20 +40,33 @@ public class PlayerStats : MonoBehaviour
     private void Start()
     {
         EventHandler.instance.selectPart += SetPart; 
-        EventHandler.instance.toggleGravity += ToggleGravity;
+        EventHandler.instance.setupCharacter += SetupCharacter;
     }
     private void OnDestroy()
     {
         EventHandler.instance.selectPart -= SetPart;
-        EventHandler.instance.toggleGravity -= ToggleGravity;
+        EventHandler.instance.setupCharacter -= SetupCharacter;
     }
 
     #endregion Setup
 
-    // Toggle Gravity
-    public void ToggleGravity()
+    // Get Character Ready
+    public void SetupCharacter()
     {
-        rb.useGravity = !rb.useGravity;
+        rb.useGravity = true;
+
+        // Head
+        body.head = Object.Instantiate(body.head) as Part;
+        body.head.Setup();
+        body.head.SetParent(this.gameObject);
+        // Arms
+        body.arms = Object.Instantiate(body.arms) as Part;
+        body.arms.Setup();
+        body.arms.SetParent(this.gameObject);
+        // Legs
+        body.legs = Object.Instantiate(body.legs) as Part;
+        body.legs.Setup();
+        body.legs.SetParent(this.gameObject);
     }
 
     // Update Loop
@@ -62,7 +80,7 @@ public class PlayerStats : MonoBehaviour
         }
 
         // Debug - Checking these Work
-        /*if (Input.GetButtonDown("Submit"))
+        if (Input.GetKeyDown(KeyCode.X))
         {
             if (body.head)
             {
@@ -76,7 +94,7 @@ public class PlayerStats : MonoBehaviour
             {
                 body.legs.UseAbility();
             }
-        }*/
+        }
     }
 
     // Set Part & Update Mesh
