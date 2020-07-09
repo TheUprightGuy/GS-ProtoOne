@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Move this to event handler in future
-using UnityEngine.SceneManagement;
-
 public enum PartType
 {
     Head = 0,
@@ -38,6 +35,8 @@ public class PartPicker : MonoBehaviour
     public PartScript partDisplayed;
     // Reference to Header Text
     public TMPro.TextMeshProUGUI typeText;
+    // Reference to Ready Up text
+    public TMPro.TextMeshProUGUI readyText;
     // Tracking
     public int currentSelected = 0;
     // AbilityUI References
@@ -148,7 +147,5 @@ public class PartPicker : MonoBehaviour
         player.body.legs = partList[2][0];
 
         player.Setup();
-
-        SceneManager.LoadScene("GameplayScene");
     }
 }

@@ -12,6 +12,7 @@ public struct Body
 public class PlayerStats : MonoBehaviour
 {
     public Body body;
+    public int id;
 
     // Just for Debugging atm - check its working
     public Part head;
@@ -28,5 +29,14 @@ public class PlayerStats : MonoBehaviour
         head = body.head;
         arms = body.arms;
         legs = body.legs;
+    }
+
+    public void Update()
+    {
+        if (Input.GetButtonDown("Start"))
+        {
+            // Ready Up
+            EventHandler.instance.ReadyUp(id);
+        }
     }
 }
