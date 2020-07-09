@@ -60,6 +60,23 @@ public class PlayerStats : MonoBehaviour
             // Ready Up
             EventHandler.instance.ReadyUp(id);
         }
+
+        // Debug - Checking these Work
+        /*if (Input.GetButtonDown("Submit"))
+        {
+            if (body.head)
+            {
+                body.head.UseAbility();
+            }
+            if (body.arms)
+            {
+                body.arms.UseAbility();
+            }
+            if (body.legs)
+            {
+                body.legs.UseAbility();
+            }
+        }*/
     }
 
     // Set Part & Update Mesh

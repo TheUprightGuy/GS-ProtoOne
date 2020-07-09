@@ -38,6 +38,15 @@ public class PartPicker : MonoBehaviour
         partList.Add(Head);
         partList.Add(Arms);
         partList.Add(Legs);
+
+        // Setup all Parts
+        foreach (List<Part> list in partList)
+        {
+            foreach (Part part in list)
+            {
+                part.Setup();
+            }
+        }
     }
 
     private void Start()
