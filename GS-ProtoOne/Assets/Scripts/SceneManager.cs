@@ -1,14 +1,20 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneManager : MonoBehaviour
 {
-    [SerializeField] private string customisationSceneName = "DefaultTransitionScene";
-    public void LoadCustomisationScene()
+    public void Awake()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(customisationSceneName);
+        DontDestroyOnLoad(this);
+    }
+
+    public void LoadCustomisationScene(string sceneName)
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
     }
     
     public void QuitApplication()
