@@ -73,7 +73,13 @@ public class PlayerStats : MonoBehaviour
     public void Update()
     {
         // Check for input
-        if (Input.GetButtonDown("Start"))
+        /*if (Input.GetButtonDown("Start"))
+        {
+            // Ready Up
+            EventHandler.instance.ReadyUp(id);
+        }*/
+
+        if (Input.GetKeyDown(KeyCode.Z))
         {
             // Ready Up
             EventHandler.instance.ReadyUp(id);

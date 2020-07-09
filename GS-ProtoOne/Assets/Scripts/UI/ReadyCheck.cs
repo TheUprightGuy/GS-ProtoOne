@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 // Temporary
-using UnityEngine.SceneManagement;
 
 public class ReadyCheck : MonoBehaviour
 {
@@ -44,7 +43,7 @@ public class ReadyCheck : MonoBehaviour
             {
                 // Temporary - 1p
                 EventHandler.instance.SetupCharacter();
-                SceneManager.LoadScene("GameplayScene");
+                UnityEngine.SceneManagement.SceneManager.LoadScene("GameplayScene");
             }
             else
             {
