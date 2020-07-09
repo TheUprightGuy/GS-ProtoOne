@@ -12,13 +12,11 @@ public struct Body
 public class PlayerStats : MonoBehaviour
 {
     public Body body;
+
     public int id;
     public Rigidbody rb;
 
-    // Just for Debugging atm - check its working
-    public Part head;
-    public Part arms;
-    public Part legs;
+    public List<MeshFilter> partMesh;
 
     void Awake()
     {
@@ -28,10 +26,6 @@ public class PlayerStats : MonoBehaviour
 
     public void Setup()
     {
-        head = body.head;
-        arms = body.arms;
-        legs = body.legs;
-
         rb.useGravity = true;
     }
 
@@ -43,4 +37,33 @@ public class PlayerStats : MonoBehaviour
             EventHandler.instance.ReadyUp(id);
         }
     }
+
+    public void SetPart(int _id, Part _part)
+    {
+        if (id == _id)
+        {
+            switch (_part.partType)
+            {
+                case PartType.Head:
+                {
+                    body.head = _part;
+                    partMesh[0].mesh = body.head.mesh;
+                    break;
+                }
+                case PartType.Arms:
+                {
+                    body.arms = _part;
+                    partMesh[1].mesh = body.arms.mesh;
+                    break;
+                }
+                case PartType.Legs:
+                {
+                    body.legs = _part;
+                    partMesh[2].mesh = body.legs.mesh;
+                    break;
+                }
+            }
+        }
+    }
+
 }

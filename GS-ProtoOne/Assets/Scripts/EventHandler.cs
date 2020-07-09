@@ -41,6 +41,16 @@ public class EventHandler : MonoBehaviour
         }
     }
 
+    // Part is Selected
+    public event Action<int> selectPart;
+    public void SelectPart(int _id)
+    {
+        if (selectPart != null)
+        {
+            selectPart(_id);
+        }
+    }
+
     public event Action setupPlayers;
     public void SetupPlayers()
     {
