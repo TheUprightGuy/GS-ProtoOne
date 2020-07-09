@@ -12,7 +12,7 @@ public class SceneManager : MonoBehaviour
         DontDestroyOnLoad(this);
     }
 
-    public void LoadCustomisationScene(string sceneName)
+    public void LoadScene(string sceneName)
     {
         AudioManager.Instance.PlaySound("hit");
         UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
