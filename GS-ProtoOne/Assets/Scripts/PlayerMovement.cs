@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
-    Vector2 delta = Vector2.zero;
+    private float moveControlDelta = 0.0f;
     PlayerControls inputs;
     // Start is called before the first frame update
     void Start()
@@ -14,31 +14,19 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += new Vector3(delta.x, delta.y, 0.0f);
-        delta = Vector2.zero;
     }
     
    
-    public void OnUp(InputValue value)
+    public void OnJump()
     {
-        delta.y = 0.1f;
-        //DebugName();
     }
-    public void OnDown()
+    public void OnCrouch()
     {
-        delta.y = -0.1f;
-        //DebugName();
     }
 
-    public void OnLeft()
+    public void OnMove(InputValue value)
     {
-        delta.x = -0.1f;
-        //DebugName();
-    }
-    public void OnRight()
-    {
-        delta.x = 0.1f;
-        //DebugName();
+        moveControlDelta = value.Get<float>();
     }
 
     public void DebugName()

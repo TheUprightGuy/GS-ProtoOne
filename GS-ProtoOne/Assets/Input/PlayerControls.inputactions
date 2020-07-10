@@ -6,7 +6,7 @@
             "id": "107a80e2-70da-4db4-a05e-032ef752efdb",
             "actions": [
                 {
-                    "name": "Up",
+                    "name": "Jump",
                     "type": "Button",
                     "id": "90a8f6f9-d621-417c-9b39-9435aa3acb49",
                     "expectedControlType": "Button",
@@ -14,7 +14,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Down",
+                    "name": "Crouch",
                     "type": "Button",
                     "id": "936002d8-03d8-4b78-bdbb-8c5d22ee1440",
                     "expectedControlType": "Button",
@@ -22,17 +22,9 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Left",
+                    "name": "Move",
                     "type": "Button",
-                    "id": "cc2c4649-7935-44db-883c-00efd28b9631",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "Right",
-                    "type": "Button",
-                    "id": "840c5c24-2fe4-4420-bf71-c8f17f4a3adb",
+                    "id": "f82f3609-737d-40fa-9158-2c3af6a7244e",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -41,100 +33,12 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "e0324879-d860-4d76-bc53-0f1b4b31da61",
-                    "path": "<Gamepad>/dpad/left",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "XboxController",
-                    "action": "Left",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "43922d39-b6d6-4e80-87ec-13797922974d",
-                    "path": "<Keyboard>/a",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyBoardLeft",
-                    "action": "Left",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "a7295571-dda7-4b63-a855-c62d8d49f794",
-                    "path": "<Keyboard>/leftArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyBoardRight",
-                    "action": "Left",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "ff423838-444c-4d7e-b426-9efc3e408702",
-                    "path": "<Gamepad>/leftStick/left",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "XboxController",
-                    "action": "Left",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "a530e96b-a8e2-4f10-b54e-0a011144f100",
-                    "path": "<Gamepad>/dpad/right",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "XboxController",
-                    "action": "Right",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "ac4e5617-580b-49e8-aa01-75001a1d87dd",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyBoardLeft",
-                    "action": "Right",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "351f26a0-d413-446a-83d9-5819e4696ed4",
-                    "path": "<Keyboard>/rightArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyBoardRight",
-                    "action": "Right",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "165033e3-34b2-4685-9424-4718b632853b",
-                    "path": "<Gamepad>/leftStick/right",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "XboxController",
-                    "action": "Right",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "6aa88f17-91a0-42a3-bec6-b77cc674180b",
                     "path": "<Gamepad>/dpad/up",
                     "interactions": "",
                     "processors": "",
                     "groups": "XboxController",
-                    "action": "Up",
+                    "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -145,7 +49,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyBoardLeft",
-                    "action": "Up",
+                    "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -156,7 +60,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyBoardRight",
-                    "action": "Up",
+                    "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -167,7 +71,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "XboxController",
-                    "action": "Up",
+                    "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -178,7 +82,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "XboxController",
-                    "action": "Down",
+                    "action": "Crouch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -189,7 +93,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyBoardLeft",
-                    "action": "Down",
+                    "action": "Crouch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -200,7 +104,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyBoardRight",
-                    "action": "Down",
+                    "action": "Crouch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -211,9 +115,75 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "XboxController",
-                    "action": "Down",
+                    "action": "Crouch",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "Axis",
+                    "id": "f0f2c977-0ca0-42b9-9a4d-39c659d7ae28",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "a8b08a2b-8d35-403f-9f25-0193d615504f",
+                    "path": "<Gamepad>/leftStick/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "XboxController",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "f5032a91-a7b9-42ea-ac36-c57106211617",
+                    "path": "<Gamepad>/leftStick/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "XboxController",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Axis",
+                    "id": "034851ff-d737-4998-804a-b11b68f30607",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "5bd6e4d2-ad95-401b-9cb0-ca7ce253863b",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyBoardLeft",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "df28d795-b2b1-4086-897d-2e25c48e4602",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyBoardLeft",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }

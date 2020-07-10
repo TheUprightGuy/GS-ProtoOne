@@ -59,7 +59,7 @@ public class InputHandler : MonoBehaviour
         else if (keyboard != null)
         {
             //Debug.Log("KeyBoard" );
-            AllPlayers[QueryIndex - 1].ControlScheme = "KeyBoard";
+            AllPlayers[QueryIndex - 1].ControlScheme = "KeyBoardLeft";
         }
         else
         {
