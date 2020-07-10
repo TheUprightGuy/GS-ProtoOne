@@ -40,7 +40,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""id"": ""f82f3609-737d-40fa-9158-2c3af6a7244e"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Press(behavior=2)""
                 }
             ],
             ""bindings"": [
@@ -80,7 +80,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""50576159-db9c-40bc-a634-949c988290bb"",
-                    ""path"": ""<Gamepad>/leftStick/up"",
+                    ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""XboxController"",

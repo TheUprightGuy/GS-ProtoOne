@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+
 [RequireComponent(typeof(PlayerInput))]
 public class SetInput : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class SetInput : MonoBehaviour
     public int playerNo = 0;
     private GameObject InputHandler;
     private PlayerInput thisInput;
+
     void Start()
     {
         thisInput = GetComponent<PlayerInput>();
@@ -27,6 +29,13 @@ public class SetInput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //If input device not yet set
+        if (!thisInput.enabled || 
+            InputHandler.GetComponent<InputHandler>().AllPlayers[playerNo - 1].ControlScheme == "")
+        {
+            pullPlayerInfo();
+        }
+
         if (refreshInputs)
         {
             refreshInputs = false;
@@ -39,12 +48,12 @@ public class SetInput : MonoBehaviour
         InputData playerData = InputHandler.GetComponent<InputHandler>().AllPlayers[playerNo - 1];
         if (playerData.ControlScheme == "")
         {
-            Debug.LogError("Player " + playerNo.ToString() + " ControlScheme not found");
+            //Debug.LogError("Player " + playerNo.ToString() + " ControlScheme not found");
             return false;
         }
         if (playerData.RegisteredDevice == null)
         {
-            Debug.LogError("Player " + playerNo.ToString() + " RegisteredDevice not found");
+            //Debug.LogError("Player " + playerNo.ToString() + " RegisteredDevice not found");
             return false;
         }
         
