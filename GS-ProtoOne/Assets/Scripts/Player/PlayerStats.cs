@@ -119,19 +119,21 @@ public class PlayerStats : MonoBehaviour
                 case PartType.Head:
                 {
                     body.head = _part;
-                    partMesh[0].sharedMesh = body.head.mesh;
+                    partMesh[0].sharedMesh = body.head.leftMesh;
                     break;
                 }
                 case PartType.Arms:
                 {
                     body.arms = _part;
-                    partMesh[1].sharedMesh = body.arms.mesh;
+                    partMesh[1].sharedMesh = body.arms.leftMesh;
+                    partMesh[2].sharedMesh = body.arms.rightMesh;
                     break;
                 }
                 case PartType.Legs:
                 {
                     body.legs = _part;
-                    partMesh[2].sharedMesh = body.legs.mesh;
+                    partMesh[3].sharedMesh = body.legs.leftMesh;
+                    partMesh[4].sharedMesh = body.legs.rightMesh;
                     break;
                 }
             }

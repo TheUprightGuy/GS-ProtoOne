@@ -10,7 +10,8 @@ public class Part : ScriptableObject
     public Sprite sprite;
     public Sprite abilitySprite;
     public string abilityText;
-    public Mesh mesh;
+    public Mesh leftMesh;
+    public Mesh rightMesh;
     public Ability ability;
     public AbilityName abilityName;
     [HideInInspector] public GameObject player;
