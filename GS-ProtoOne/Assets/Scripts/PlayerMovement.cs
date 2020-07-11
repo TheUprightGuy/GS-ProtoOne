@@ -68,6 +68,11 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void OnBlock()
+    {
+
+    }
+
     public void DebugName()
     {
         Debug.Log(gameObject.name);

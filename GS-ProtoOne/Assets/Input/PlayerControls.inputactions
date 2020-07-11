@@ -28,6 +28,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Press(behavior=2)"
+                },
+                {
+                    "name": "ReadyUp",
+                    "type": "Button",
+                    "id": "445a91f4-b213-4ee6-8c0c-a4c96e689417",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=2)"
                 }
             ],
             "bindings": [
@@ -184,6 +192,17 @@
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "28c9d494-bbdb-41ff-a3ed-2342c712c52d",
+                    "path": "<Keyboard>/z",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyBoardLeft",
+                    "action": "ReadyUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

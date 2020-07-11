@@ -15,7 +15,8 @@ public class PlayerStats : MonoBehaviour
     public int id;
     private Body body;
     private Rigidbody rb;
-    [HideInInspector] public List<MeshFilter> partMesh;
+    //[HideInInspector]
+    public List<SkinnedMeshRenderer> partMesh;
 
     // Debug
     public Part head;
@@ -28,13 +29,13 @@ public class PlayerStats : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
         rb = GetComponent<Rigidbody>();
 
-        foreach(Transform n in transform)
+        /*foreach(Transform n in transform)
         {
             if (n.GetComponent<MeshFilter>())
             {
                 partMesh.Add(n.GetComponent<MeshFilter>());
             }
-        }
+        }*/
     }
 
     private void Start()
@@ -79,7 +80,7 @@ public class PlayerStats : MonoBehaviour
             EventHandler.instance.ReadyUp(id);
         }*/
 
-        if (Input.GetKeyDown(KeyCode.Z))
+       /* if (Input.GetKeyDown(KeyCode.Z))
         {
             // Ready Up
             EventHandler.instance.ReadyUp(id);
@@ -100,7 +101,12 @@ public class PlayerStats : MonoBehaviour
             {
                 body.legs.UseAbility();
             }
-        }
+        }*/
+    }
+
+    public void OnReadyUp()
+    {
+        EventHandler.instance.ReadyUp(id);
     }
 
     // Set Part & Update Mesh
@@ -113,19 +119,19 @@ public class PlayerStats : MonoBehaviour
                 case PartType.Head:
                 {
                     body.head = _part;
-                    partMesh[0].mesh = body.head.mesh;
+                    partMesh[0].sharedMesh = body.head.mesh;
                     break;
                 }
                 case PartType.Arms:
                 {
                     body.arms = _part;
-                    partMesh[1].mesh = body.arms.mesh;
+                    partMesh[1].sharedMesh = body.arms.mesh;
                     break;
                 }
                 case PartType.Legs:
                 {
                     body.legs = _part;
-                    partMesh[2].mesh = body.legs.mesh;
+                    partMesh[2].sharedMesh = body.legs.mesh;
                     break;
                 }
             }
