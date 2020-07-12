@@ -12,10 +12,12 @@ public class SetInput : MonoBehaviour
     public int playerNo = 0;
     private GameObject InputHandler;
     private PlayerInput thisInput;
-
+    private InputData LatestData;
     void Start()
     {
         thisInput = GetComponent<PlayerInput>();
+        thisInput.neverAutoSwitchControlSchemes = true;
+
         thisInput.enabled = false;
         InputHandler = GameObject.FindGameObjectWithTag("InputController");
         if (InputHandler == null)
@@ -29,9 +31,11 @@ public class SetInput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        InputData tempData = InputHandler.GetComponent<InputHandler>().AllPlayers[playerNo - 1];
+
         //If input device not yet set
-        if (!thisInput.enabled || 
-            InputHandler.GetComponent<InputHandler>().AllPlayers[playerNo - 1].ControlScheme == "")
+        if (!thisInput.enabled ||
+            tempData.RegisteredDevice != LatestData.RegisteredDevice)
         {
             pullPlayerInfo();
         }
@@ -59,7 +63,7 @@ public class SetInput : MonoBehaviour
         
         thisInput.enabled = true;
         thisInput.SwitchCurrentControlScheme(playerData.ControlScheme, playerData.RegisteredDevice);
-
+        LatestData = playerData;
         return true;
     }
 }
