@@ -6,6 +6,14 @@
             "id": "107a80e2-70da-4db4-a05e-032ef752efdb",
             "actions": [
                 {
+                    "name": "Move",
+                    "type": "Button",
+                    "id": "f82f3609-737d-40fa-9158-2c3af6a7244e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=2)"
+                },
+                {
                     "name": "Jump",
                     "type": "Button",
                     "id": "90a8f6f9-d621-417c-9b39-9435aa3acb49",
@@ -22,17 +30,49 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Move",
+                    "name": "Block",
                     "type": "Button",
-                    "id": "f82f3609-737d-40fa-9158-2c3af6a7244e",
+                    "id": "f1ff9337-5641-4e25-8a2c-cebe8b1b44b5",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Press(behavior=2)"
                 },
                 {
-                    "name": "ReadyUp",
+                    "name": "Punch",
                     "type": "Button",
-                    "id": "445a91f4-b213-4ee6-8c0c-a4c96e689417",
+                    "id": "3f0457d7-e84c-457d-a38b-1a7de328b3c0",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=2)"
+                },
+                {
+                    "name": "Kick",
+                    "type": "Button",
+                    "id": "7cbdd9c0-366e-4193-b5e5-6584e8f791b6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=2)"
+                },
+                {
+                    "name": "AbiltyLegs",
+                    "type": "Button",
+                    "id": "2a9ae43e-7e84-43ec-b248-be04ba6b015a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=2)"
+                },
+                {
+                    "name": "AbiltyArms",
+                    "type": "Button",
+                    "id": "dd3b392d-54ed-415d-a93c-47e3581305d8",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=2)"
+                },
+                {
+                    "name": "AbilityHead",
+                    "type": "Button",
+                    "id": "599d9464-05e2-40ca-a55b-42a28761ffdc",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Press(behavior=2)"
@@ -128,6 +168,39 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "",
+                    "id": "8c1f0060-e1bd-435a-b227-79f1eb4819c6",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Block",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8536d7dd-5309-403e-b21d-d1e49a97dc0e",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Punch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9c7ac1e2-5e95-417d-88a9-f61a85b91724",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Kick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
                     "name": "Axis",
                     "id": "f0f2c977-0ca0-42b9-9a4d-39c659d7ae28",
                     "path": "1DAxis",
@@ -195,12 +268,34 @@
                 },
                 {
                     "name": "",
-                    "id": "28c9d494-bbdb-41ff-a3ed-2342c712c52d",
-                    "path": "<Keyboard>/z",
+                    "id": "648e9622-4714-4372-8179-6fc6e43efc9c",
+                    "path": "",
                     "interactions": "",
                     "processors": "",
-                    "groups": "KeyBoardLeft",
-                    "action": "ReadyUp",
+                    "groups": "",
+                    "action": "AbiltyLegs",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "94158ae2-e694-452e-a0ca-182133e666a1",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AbiltyArms",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cb7c8a7c-d567-4af2-93aa-b49ec55df887",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AbilityHead",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
