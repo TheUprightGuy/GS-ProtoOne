@@ -336,6 +336,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: VolumeTextBox
       objectReference: {fileID: 0}
+    - target: {fileID: 6970996918245004985, guid: 9a29f98e119dd634397ac8728fd5455a,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6970996918245004985, guid: 9a29f98e119dd634397ac8728fd5455a,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6970996918245004985, guid: 9a29f98e119dd634397ac8728fd5455a,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6970996918245004985, guid: 9a29f98e119dd634397ac8728fd5455a,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1766110407}
+    - target: {fileID: 6970996918245004985, guid: 9a29f98e119dd634397ac8728fd5455a,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnVolumeAdjusted
+      objectReference: {fileID: 0}
+    - target: {fileID: 6970996918245004985, guid: 9a29f98e119dd634397ac8728fd5455a,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 9144536877543213263, guid: 9a29f98e119dd634397ac8728fd5455a,
         type: 3}
       propertyPath: m_LocalPosition.x
