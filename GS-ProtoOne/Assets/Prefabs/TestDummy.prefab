@@ -1018,6 +1018,7 @@ GameObject:
   - component: {fileID: 6393408336995055930}
   - component: {fileID: 6393408336995055931}
   - component: {fileID: 6393408336995055878}
+  - component: {fileID: 7066218469029050777}
   m_Layer: 0
   m_Name: TestDummy
   m_TagString: Untagged
@@ -1058,8 +1059,8 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6086785131033129873}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: ceb34a92e6aa64d4abc419e39d235c5e, type: 3}
-  m_Controller: {fileID: 9100000, guid: b5371f4c50a44024fa314f170cb86f86, type: 2}
+  m_Avatar: {fileID: 9000000, guid: 9a9a99e9dafdd6e4c9c7de2f1780da67, type: 3}
+  m_Controller: {fileID: 9100000, guid: cffcb2867dbf75a428b5fc80b3543f10, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1120,6 +1121,26 @@ MonoBehaviour:
   head: {fileID: 11400000, guid: 18e9917e41d5aff4fa7772a14f604ad6, type: 2}
   arms: {fileID: 11400000, guid: aee126df31a08b245a24c99184873ca4, type: 2}
   legs: {fileID: 11400000, guid: b9bee989bf438b84291252bb7e3bf966, type: 2}
+--- !u!114 &7066218469029050777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6086785131033129873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0e7766c216c565418e70fec64e2364e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blocking: 0
+  walking: 0
+  jumping: 0
+  punching: 0
+  kicking: 0
+  flinching: 0
+  dashforward: 0
+  dashbackward: 0
 --- !u!1 &6264894084014678671
 GameObject:
   m_ObjectHideFlags: 0
