@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -40,6 +41,11 @@ public class Part : ScriptableObject
             case AbilityName.Kick:
             {
                 ability = new Kick();
+                break;
+            }
+            case AbilityName.Grapple:
+            {
+                ability = new Grapple();
                 break;
             }
         }

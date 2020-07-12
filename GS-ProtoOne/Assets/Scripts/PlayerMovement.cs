@@ -73,6 +73,12 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+    public void OnReadyUp()
+    {
+        //Replace with call to readyup function
+        UnityEngine.SceneManagement.SceneManager.LoadScene("JacobScene");
+    }
+
     public void DebugName()
     {
         Debug.Log(gameObject.name);

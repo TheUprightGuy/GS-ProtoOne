@@ -7,7 +7,8 @@ public enum AbilityName
     Charge,
     Headbutt,
     Punch,
-    Kick
+    Kick,
+    Grapple,
 }
 
 // Base Ability
@@ -49,5 +50,24 @@ public class Kick : Ability
     public void Use(GameObject _player)
     {
         Debug.Log("Kick");
+    }
+}
+
+public class Grapple : Ability
+{
+    private LayerMask _layerMask = LayerMask.NameToLayer("Player");
+    private const float MaxDistance = 10.0f;
+
+    public void Use(GameObject _player)
+    {
+       bool grappleHit = Physics.Raycast(_player.transform.position, Vector3.right, MaxDistance, _layerMask);
+       if (grappleHit)
+       {
+           Debug.Log("grappleHit");
+       }
+       else
+       {
+           Debug.Log("grappleMissed");
+       }
     }
 }

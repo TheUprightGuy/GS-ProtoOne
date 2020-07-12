@@ -34,7 +34,7 @@ public class AudioManager : MonoBehaviour
 
     private Dictionary<string, SoundInfo> _soundDictionary;
     private readonly List<AudioSource> _audioSources = new List<AudioSource>(); //Currently playing audio sources
-    [SerializeField] private GameObject volumeSlider;
+    [SerializeField] private GameObject volumeSlider = null;
     private Slider _slider;
     
     private void Start()
