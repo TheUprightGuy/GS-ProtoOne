@@ -10,15 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 32f62a78e65fc944592a20dc0841eb66, type: 3}
-  m_Name: FrogHead
+  m_Name: TestArms
   m_EditorClassIdentifier: 
-  partType: 0
-  sprite: {fileID: 21300000, guid: ac825eb70a00ee547a66976c1e8be610, type: 3}
+  partType: 1
+  sprite: {fileID: 21300000, guid: 2eb449a62e5b2de4f98930b9d67b0fd4, type: 3}
   abilitySprite: {fileID: 21300000, guid: 861daaf731146a447af80d5f9ba204dd, type: 3}
-  abilityText: Frogface
-  leftMesh: {fileID: 6783418002724032721, guid: 994015e9f3292d6489ac023b90090b62,
+  abilityText: TestingArms
+  leftMesh: {fileID: -1296976969852645106, guid: ceb34a92e6aa64d4abc419e39d235c5e,
     type: 3}
-  rightMesh: {fileID: 0}
-  abilityName: 1
+  rightMesh: {fileID: 3487192314196417999, guid: ceb34a92e6aa64d4abc419e39d235c5e,
+    type: 3}
+  abilityName: 2
   player: {fileID: 0}
-  maxIntegrity: 50
+  maxIntegrity: 100

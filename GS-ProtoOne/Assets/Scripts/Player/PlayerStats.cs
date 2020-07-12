@@ -19,6 +19,8 @@ public class PlayerStats : MonoBehaviour
     public List<SkinnedMeshRenderer> partMesh;
 
     // Debug
+    [Header("Testing")]
+    public bool useDebugParts = false;
     public Part head;
     public Part arms;
     public Part legs;
@@ -42,6 +44,11 @@ public class PlayerStats : MonoBehaviour
     {
         EventHandler.instance.selectPart += SetPart; 
         EventHandler.instance.setupCharacter += SetupCharacter;
+
+        if (useDebugParts)
+        {
+            DebugToon();
+        }
     }
     private void OnDestroy()
     {
@@ -50,6 +57,16 @@ public class PlayerStats : MonoBehaviour
     }
 
     #endregion Setup
+
+    // Debug Toon
+    public void DebugToon()
+    {
+        SetPart(0, head);
+        SetPart(0, arms);
+        SetPart(0, legs);
+        SetupCharacter();
+    }
+
 
     // Get Character Ready
     public void SetupCharacter()
@@ -68,40 +85,6 @@ public class PlayerStats : MonoBehaviour
         body.legs = Object.Instantiate(body.legs) as Part;
         body.legs.Setup();
         body.legs.SetParent(this.gameObject);
-    }
-
-    // Update Loop
-    public void Update()
-    {
-        // Check for input
-        /*if (Input.GetButtonDown("Start"))
-        {
-            // Ready Up
-            EventHandler.instance.ReadyUp(id);
-        }*/
-
-       /* if (Input.GetKeyDown(KeyCode.Z))
-        {
-            // Ready Up
-            EventHandler.instance.ReadyUp(id);
-        }
-
-        // Debug - Checking these Work
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            if (body.head)
-            {
-                body.head.UseAbility();
-            }
-            if (body.arms)
-            {
-                body.arms.UseAbility();
-            }
-            if (body.legs)
-            {
-                body.legs.UseAbility();
-            }
-        }*/
     }
 
     public void OnReadyUp()
