@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -35,15 +34,24 @@ namespace Audio
         private Dictionary<string, SoundInfo> _soundDictionary;
         [SerializeField] private GameObject volumeSlider = null;
         private Slider _slider;
-    
+        private AudioSource _musicSource;
+        private float _musicDefaultVolume;
+
         private void Start()
         {
-            _soundDictionary = new Dictionary<string, SoundInfo>();
-            _slider = volumeSlider.GetComponent<Slider>();
+            InitialisePrivateVariables();
             foreach (var audioSource in audioSources)
             {
                 AddAudioSourceToDictionary(audioSource);
             }
+        }
+
+        private void InitialisePrivateVariables()
+        {
+            _soundDictionary = new Dictionary<string, SoundInfo>();
+            _slider = volumeSlider.GetComponent<Slider>();
+            _musicSource = this.GetComponent<AudioSource>();
+            _musicDefaultVolume = _musicSource.volume;
         }
 
         private void AddAudioSourceToDictionary(AudioSource audioSource)
@@ -69,6 +77,7 @@ namespace Audio
         public void OnVolumeAdjusted()
         {
             masterVolume = _slider.value;
+            _musicSource.volume = _musicDefaultVolume * masterVolume;
         }
     
 

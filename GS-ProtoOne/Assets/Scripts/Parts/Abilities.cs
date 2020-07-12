@@ -61,14 +61,11 @@ public class Grapple : Ability
     public void Use(GameObject _player)
     {
         Debug.Log("GrappleTriggered");
-       bool grappleHit = Physics.Raycast(_player.transform.position, _player.transform.right, MaxDistance, _layerMask);
-       if (grappleHit)
-       {
-           Debug.Log("grappleHit");
-       }
-       else
-       {
-           Debug.Log("grappleMissed");
-       }
+        var transform = _player.transform;
+        _player.transform.Translate(transform.worldToLocalMatrix.MultiplyVector(transform.forward));
+        var ray = transform.worldToLocalMatrix.MultiplyVector(transform.forward);
+        var position = _player.transform.position;
+        bool grappleHit = Physics.Raycast (position, ray, out var hit, 10.0f);
+        Debug.Log(grappleHit ? "grappleHit" : "grappleMissed");
     }
 }
