@@ -60,7 +60,8 @@ public class Grapple : Ability
 
     public void Use(GameObject _player)
     {
-       bool grappleHit = Physics.Raycast(_player.transform.position, Vector3.right, MaxDistance, _layerMask);
+        Debug.Log("GrappleTriggered");
+       bool grappleHit = Physics.Raycast(_player.transform.position, _player.transform.right, MaxDistance, _layerMask);
        if (grappleHit)
        {
            Debug.Log("grappleHit");

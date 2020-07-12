@@ -19,6 +19,6 @@ MonoBehaviour:
   leftMesh: {fileID: 6783418002724032721, guid: 994015e9f3292d6489ac023b90090b62,
     type: 3}
   rightMesh: {fileID: 0}
-  abilityName: 1
+  abilityName: 4
   player: {fileID: 0}
   maxIntegrity: 50

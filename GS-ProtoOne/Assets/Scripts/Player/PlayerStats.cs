@@ -123,4 +123,9 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
+    public void OnAbilityHead()
+    {
+        body.head.UseAbility();
+    }
+
 }
