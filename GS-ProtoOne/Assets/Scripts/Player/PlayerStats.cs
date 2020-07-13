@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public struct Body
 {
@@ -17,6 +18,7 @@ public class PlayerStats : MonoBehaviour
     private Rigidbody rb;
     //[HideInInspector]
     public List<SkinnedMeshRenderer> partMesh;
+    public PlayerMovement pm;
 
     // Debug
     [Header("Testing")]
@@ -30,14 +32,7 @@ public class PlayerStats : MonoBehaviour
     {
         DontDestroyOnLoad(this.gameObject);
         rb = GetComponent<Rigidbody>();
-
-        /*foreach(Transform n in transform)
-        {
-            if (n.GetComponent<MeshFilter>())
-            {
-                partMesh.Add(n.GetComponent<MeshFilter>());
-            }
-        }*/
+        pm = GetComponent<PlayerMovement>();
     }
 
     private void Start()
@@ -67,7 +62,6 @@ public class PlayerStats : MonoBehaviour
         SetupCharacter();
     }
 
-
     // Get Character Ready
     public void SetupCharacter()
     {
@@ -76,15 +70,15 @@ public class PlayerStats : MonoBehaviour
         // Head
         body.head = Object.Instantiate(body.head) as Part;
         body.head.Setup();
-        body.head.SetParent(this.gameObject);
+        body.head.SetParent(pm);
         // Arms
         body.arms = Object.Instantiate(body.arms) as Part;
         body.arms.Setup();
-        body.arms.SetParent(this.gameObject);
+        body.arms.SetParent(pm);
         // Legs
         body.legs = Object.Instantiate(body.legs) as Part;
         body.legs.Setup();
-        body.legs.SetParent(this.gameObject);
+        body.legs.SetParent(pm);
     }
 
     public void OnReadyUp()
@@ -125,7 +119,10 @@ public class PlayerStats : MonoBehaviour
 
     public void OnAbilityHead()
     {
-        body.head.UseAbility();
+        if (body.head)
+        {
+            body.head.UseAbility();
+        }
     }
 
 }

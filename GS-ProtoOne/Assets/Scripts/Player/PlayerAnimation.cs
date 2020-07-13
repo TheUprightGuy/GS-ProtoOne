@@ -1,26 +1,51 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerAnimation : MonoBehaviour
 {
     #region Setup
     private Animator animator;
+    private PlayerMovement pm;
+    [HideInInspector] public float jumpLength;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        pm = GetComponent<PlayerMovement>();
+        
+        foreach (AnimationClip ac in animator.runtimeAnimatorController.animationClips)
+        {
+            if (ac.name == "JumpStart")
+            {
+                jumpLength = ac.length;
+            }
+        }
     }
-    #endregion Setup
+#endregion Setup
 
-    public bool blocking = false;
-
-    public void Update()
+    // Update is called once per frame
+    void Update()
     {
-        AnimationState();
+        // Update Anim States
+        animator.SetBool("Grounded", pm.isGrounded);
+        animator.SetBool("isBlocking", pm.isBlocking);
+        animator.SetFloat("PosX", -pm.rb.velocity.x / pm.VelocityLimit);
     }
 
-    public void AnimationState()
+    public void Jump()
     {
-        animator.SetBool("isBlocking", blocking);
+        animator.SetTrigger("Jumping");
+    }
+
+    public void OnPunch()
+    {
+        animator.SetTrigger("Punching");
+    }
+
+    public void OnKick()
+    {
+        animator.SetTrigger("Kicking");
     }
 }
