@@ -15,7 +15,7 @@ public class Part : ScriptableObject
     public Mesh rightMesh;
     public Ability ability;
     public AbilityName abilityName;
-    [HideInInspector] public GameObject player;
+    [HideInInspector] public PlayerMovement player;
     [Header("Part Stats")]
     public int maxIntegrity;
 
@@ -51,7 +51,7 @@ public class Part : ScriptableObject
         }
     }
 
-    public void SetParent(GameObject _player)
+    public void SetParent(PlayerMovement _player)
     {
         player = _player;
     }

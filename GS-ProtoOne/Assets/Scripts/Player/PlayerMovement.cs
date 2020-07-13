@@ -5,56 +5,36 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Setup Fields")]
     public bool AllowControlInAir = false;
     public float moveDeadZone = 0.15f;
     public float thrust = 1.0f;
     public float jumpThrust = 1.0f;
-    public bool jumping = false;
-
     public float VelocityLimit = 4.0f;
-    public bool isGrounded = true;
 
-    private float moveControlDelta = 0.0f;
-    private Rigidbody rb;
-    private Animator animator;
-    private float jumpLength;
-    public bool isBlocking = false;
+    // Player Control Tracking
     private bool keyDown = false;
+    [HideInInspector] public float moveControlDelta = 0.0f;
+    // Public for Animator
+    [HideInInspector] public bool isBlocking = false;
+    [HideInInspector] public bool isGrounded = true;
 
-    public float dashing = 0.0f;
+    #region Setup
+    [HideInInspector] public Rigidbody rb;
+    private PlayerAnimation pa;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        animator = GetComponent<Animator>();
-
-        foreach (AnimationClip ac in animator.runtimeAnimatorController.animationClips)
-        {
-            if (ac.name == "JumpStart")
-            {
-                jumpLength = ac.length;
-            }
-        }
+        pa = GetComponent<PlayerAnimation>();
     }
+    #endregion Setup
 
     // Update is called once per frame
     void Update()
     {
-        animator.SetBool("Grounded", isGrounded);
-        animator.SetBool("isBlocking", isBlocking);
-
-        animator.SetFloat("PosX", -rb.velocity.x / VelocityLimit);
-        animator.SetFloat("PosY", dashing);
-
-        if (isBlocking)
-        {
-            VelocityLimit = 1.4f;
-        }
-        else
-        {
-            VelocityLimit = 4.0f;
-        }
+        VelocityLimit = isBlocking ? 1.4f : 4.0f;
     }
 
     private void FixedUpdate()
@@ -76,28 +56,26 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isGrounded)
         {
-            jumping = true;
             isBlocking = false;
-            animator.SetTrigger("Jumping");
+            pa.Jump();
 
-            Invoke("Jump", jumpLength);
+            Invoke("Jump", pa.jumpLength);
         }
     }
-
-    public void OnPunch()
-    {
-        animator.SetTrigger("Punching");
-    }
-
-    public void OnKick()
-    {
-        animator.SetTrigger("Kicking");
-    }
-
     public void Jump()
     {
         rb.AddForce((transform.up) * jumpThrust, ForceMode.Impulse);
         isGrounded = false;
+    }
+
+    public void OnPunch()
+    {
+
+    }
+
+    public void OnKick()
+    {
+
     }
 
     public void OnCrouch()
