@@ -20,6 +20,9 @@ public class PlayerMovement : MonoBehaviour
     private float jumpLength;
     public bool isBlocking = false;
     private bool keyDown = false;
+
+    public float dashing = 0.0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +43,9 @@ public class PlayerMovement : MonoBehaviour
     {
         animator.SetBool("Grounded", isGrounded);
         animator.SetBool("isBlocking", isBlocking);
+
+        animator.SetFloat("PosX", -rb.velocity.x / VelocityLimit);
+        animator.SetFloat("PosY", dashing);
     }
 
     private void FixedUpdate()
@@ -49,8 +55,12 @@ public class PlayerMovement : MonoBehaviour
             ((rb.velocity.x < VelocityLimit) && (rb.velocity.x > -VelocityLimit))) //Stops movement above Velocity limit
         {
 
-            rb.AddForce(((transform.forward ) * (thrust * moveControlDelta)));
+            rb.AddForce(((-transform.right ) * (thrust * moveControlDelta)));
         }
+    }
+
+    public void OnDashForward()
+    {
     }
 
     public void OnJump()
@@ -58,6 +68,7 @@ public class PlayerMovement : MonoBehaviour
         if (isGrounded)
         {
             jumping = true;
+            isBlocking = false;
             animator.SetTrigger("Jumping");
 
             Invoke("Jump", jumpLength);
@@ -99,7 +110,10 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnBlock()
     {
-        isBlocking = !isBlocking;
+        if (isGrounded)
+        {
+            isBlocking = !isBlocking;
+        }
     }
 
     public void OnReadyUp()

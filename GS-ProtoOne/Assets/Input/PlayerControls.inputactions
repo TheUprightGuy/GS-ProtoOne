@@ -76,6 +76,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Press(behavior=2)"
+                },
+                {
+                    "name": "DashForward",
+                    "type": "Button",
+                    "id": "23579aff-3bdd-4f6b-9bfe-3342f49110c5",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=2)"
                 }
             ],
             "bindings": [
@@ -296,6 +304,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "AbilityHead",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "de7fc55c-9160-47f9-9644-a0ddac855667",
+                    "path": "<Gamepad>/leftStick/right",
+                    "interactions": "MultiTap",
+                    "processors": "",
+                    "groups": "XboxController",
+                    "action": "DashForward",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

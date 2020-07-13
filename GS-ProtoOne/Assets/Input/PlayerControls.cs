@@ -89,6 +89,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": ""Press(behavior=2)""
+                },
+                {
+                    ""name"": ""DashForward"",
+                    ""type"": ""Button"",
+                    ""id"": ""23579aff-3bdd-4f6b-9bfe-3342f49110c5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press(behavior=2)""
                 }
             ],
             ""bindings"": [
@@ -311,6 +319,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""AbilityHead"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""de7fc55c-9160-47f9-9644-a0ddac855667"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
+                    ""interactions"": ""MultiTap"",
+                    ""processors"": """",
+                    ""groups"": ""XboxController"",
+                    ""action"": ""DashForward"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -362,6 +381,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Player_AbiltyLegs = m_Player.FindAction("AbiltyLegs", throwIfNotFound: true);
         m_Player_AbiltyArms = m_Player.FindAction("AbiltyArms", throwIfNotFound: true);
         m_Player_AbilityHead = m_Player.FindAction("AbilityHead", throwIfNotFound: true);
+        m_Player_DashForward = m_Player.FindAction("DashForward", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -420,6 +440,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_AbiltyLegs;
     private readonly InputAction m_Player_AbiltyArms;
     private readonly InputAction m_Player_AbilityHead;
+    private readonly InputAction m_Player_DashForward;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
@@ -433,6 +454,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @AbiltyLegs => m_Wrapper.m_Player_AbiltyLegs;
         public InputAction @AbiltyArms => m_Wrapper.m_Player_AbiltyArms;
         public InputAction @AbilityHead => m_Wrapper.m_Player_AbilityHead;
+        public InputAction @DashForward => m_Wrapper.m_Player_DashForward;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -469,6 +491,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @AbilityHead.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbilityHead;
                 @AbilityHead.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbilityHead;
                 @AbilityHead.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbilityHead;
+                @DashForward.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDashForward;
+                @DashForward.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDashForward;
+                @DashForward.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDashForward;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -500,6 +525,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @AbilityHead.started += instance.OnAbilityHead;
                 @AbilityHead.performed += instance.OnAbilityHead;
                 @AbilityHead.canceled += instance.OnAbilityHead;
+                @DashForward.started += instance.OnDashForward;
+                @DashForward.performed += instance.OnDashForward;
+                @DashForward.canceled += instance.OnDashForward;
             }
         }
     }
@@ -542,5 +570,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnAbiltyLegs(InputAction.CallbackContext context);
         void OnAbiltyArms(InputAction.CallbackContext context);
         void OnAbilityHead(InputAction.CallbackContext context);
+        void OnDashForward(InputAction.CallbackContext context);
     }
 }
