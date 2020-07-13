@@ -17,15 +17,20 @@ public class PlayerStats : MonoBehaviour
     private Body body;
     private Rigidbody rb;
     //[HideInInspector]
-    public List<SkinnedMeshRenderer> partMesh;
-    public PlayerMovement pm;
+    public List<GameObject> heads;
+    public List<GameObject> arms;
+    public List<GameObject> legs;
+
+
+    //public List<SkinnedMeshRenderer> partMesh;
+    private PlayerMovement pm;
 
     // Debug
     [Header("Testing")]
     public bool useDebugParts = false;
     public Part head;
-    public Part arms;
-    public Part legs;
+    public Part arm;
+    public Part leg;
 
     #region Setup
     void Awake()
@@ -56,16 +61,16 @@ public class PlayerStats : MonoBehaviour
     // Debug Toon
     public void DebugToon()
     {
-        SetPart(0, head);
-        SetPart(0, arms);
-        SetPart(0, legs);
+        //SetPart(0, head);
+        //SetPart(0, arms);
+        //SetPart(0, legs);
         SetupCharacter();
     }
 
     // Get Character Ready
     public void SetupCharacter()
     {
-        rb.useGravity = true;
+        //rb.useGravity = true;
 
         // Head
         body.head = Object.Instantiate(body.head) as Part;
@@ -96,26 +101,55 @@ public class PlayerStats : MonoBehaviour
                 case PartType.Head:
                 {
                     body.head = _part;
-                    partMesh[0].sharedMesh = body.head.leftMesh;
+                    for (int i = 0; i < heads.Count; i++)
+                    {
+                        if (i == (int)_part.set)
+                        {
+                            heads[i].SetActive(true);
+                        }
+                        else
+                        {
+                            heads[i].SetActive(false);
+                        }
+                    }
                     break;
                 }
                 case PartType.Arms:
                 {
                     body.arms = _part;
-                    partMesh[1].sharedMesh = body.arms.leftMesh;
-                    partMesh[2].sharedMesh = body.arms.rightMesh;
+                    for (int i = 0; i < arms.Count; i++)
+                    {
+                        if (i == (int)_part.set)
+                        {
+                            arms[i].SetActive(true);
+                        }
+                        else
+                        {
+                            arms[i].SetActive(false);
+                        }
+                    }
                     break;
                 }
                 case PartType.Legs:
                 {
                     body.legs = _part;
-                    partMesh[3].sharedMesh = body.legs.leftMesh;
-                    partMesh[4].sharedMesh = body.legs.rightMesh;
+                    for (int i = 0; i < legs.Count; i++)
+                    {
+                        if (i == (int)_part.set)
+                        {
+                            legs[i].SetActive(true);
+                        }
+                        else
+                        {
+                            legs[i].SetActive(false);
+                        }
+                    }
                     break;
                 }
             }
         }
     }
+    
 
     public void OnAbilityHead()
     {
@@ -125,4 +159,18 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
+    public void OnAbilityArms()
+    {
+        if (body.arms)
+        {
+            body.arms.UseAbility();
+        }
+    }
+    public void OnAbilityLegs()
+    {
+        if (body.legs)
+        {
+            body.legs.UseAbility();
+        }
+    }
 }

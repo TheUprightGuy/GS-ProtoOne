@@ -16,10 +16,7 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 2eb449a62e5b2de4f98930b9d67b0fd4, type: 3}
   abilitySprite: {fileID: 21300000, guid: 861daaf731146a447af80d5f9ba204dd, type: 3}
   abilityText: Froggy Fingers
-  leftMesh: {fileID: 6238585679135462926, guid: e663581e4c5620e4689cf9d757db3cff,
-    type: 3}
-  rightMesh: {fileID: 6238585679135462926, guid: e663581e4c5620e4689cf9d757db3cff,
-    type: 3}
+  set: 1
   abilityName: 2
   player: {fileID: 0}
   maxIntegrity: 100

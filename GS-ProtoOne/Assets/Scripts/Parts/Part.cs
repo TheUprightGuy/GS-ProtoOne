@@ -3,6 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum Set
+{
+    Human,
+    Frog,
+    Robot
+}
+
 [CreateAssetMenu(fileName = "Part", menuName = "Parts", order = 1)]
 public class Part : ScriptableObject
 {
@@ -11,8 +18,7 @@ public class Part : ScriptableObject
     public Sprite sprite;
     public Sprite abilitySprite;
     public string abilityText;
-    public Mesh leftMesh;
-    public Mesh rightMesh;
+    public Set set;
     public Ability ability;
     public AbilityName abilityName;
     [HideInInspector] public PlayerMovement player;

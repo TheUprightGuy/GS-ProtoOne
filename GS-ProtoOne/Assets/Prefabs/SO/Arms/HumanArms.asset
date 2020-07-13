@@ -16,10 +16,7 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 2eb449a62e5b2de4f98930b9d67b0fd4, type: 3}
   abilitySprite: {fileID: 21300000, guid: 861daaf731146a447af80d5f9ba204dd, type: 3}
   abilityText: Does human things.
-  leftMesh: {fileID: -1296976969852645106, guid: ceb34a92e6aa64d4abc419e39d235c5e,
-    type: 3}
-  rightMesh: {fileID: 3487192314196417999, guid: ceb34a92e6aa64d4abc419e39d235c5e,
-    type: 3}
+  mesh: {fileID: 4889536061818514836, guid: 9a9a99e9dafdd6e4c9c7de2f1780da67, type: 3}
   abilityName: 2
   player: {fileID: 0}
   maxIntegrity: 100
