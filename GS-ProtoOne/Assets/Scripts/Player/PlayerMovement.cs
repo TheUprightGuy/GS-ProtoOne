@@ -5,30 +5,41 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-
-    
-
     public bool AllowControlInAir = false;
     public float moveDeadZone = 0.15f;
     public float thrust = 1.0f;
     public float jumpThrust = 1.0f;
+    public bool jumping = false;
 
     public float VelocityLimit = 5.0f;
-    private bool isGrounded = true;
+    public bool isGrounded = true;
 
     private float moveControlDelta = 0.0f;
     private Rigidbody rb;
-
+    private Animator animator;
+    private float jumpLength;
+    public bool isBlocking = false;
     private bool keyDown = false;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
+
+        foreach (AnimationClip ac in animator.runtimeAnimatorController.animationClips)
+        {
+            if (ac.name == "JumpStart")
+            {
+                jumpLength = ac.length;
+            }
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        animator.SetBool("Grounded", isGrounded);
+        animator.SetBool("isBlocking", isBlocking);
     }
 
     private void FixedUpdate()
@@ -46,11 +57,29 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isGrounded)
         {
-            rb.AddForce((transform.up ) * jumpThrust, ForceMode.Impulse);
+            jumping = true;
+            animator.SetTrigger("Jumping");
 
-            isGrounded = false;
+            Invoke("Jump", jumpLength);
         }
     }
+
+    public void OnPunch()
+    {
+        animator.SetTrigger("Punching");
+    }
+
+    public void OnKick()
+    {
+        animator.SetTrigger("Kicking");
+    }
+
+    public void Jump()
+    {
+        rb.AddForce((transform.up) * jumpThrust, ForceMode.Impulse);
+        isGrounded = false;
+    }
+
     public void OnCrouch()
     {
     }
@@ -70,7 +99,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnBlock()
     {
-
+        isBlocking = !isBlocking;
     }
 
     public void OnReadyUp()

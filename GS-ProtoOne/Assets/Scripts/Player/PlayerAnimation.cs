@@ -7,12 +7,14 @@ public class PlayerAnimation : MonoBehaviour
     #region Setup
     private Animator animator;
     private Rigidbody rb;
-    private BoxCollider myCollider;
+    private CapsuleCollider myCollider;
+    private PlayerMovement pm;
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        pm = GetComponent<PlayerMovement>();
         animator = GetComponent<Animator>();
-        myCollider = GetComponent<BoxCollider>();
+        myCollider = GetComponent<CapsuleCollider>();
         distToGround = myCollider.bounds.extents.y;
     }
     #endregion Setup
@@ -24,11 +26,11 @@ public class PlayerAnimation : MonoBehaviour
 
     public void Update()
     {
-        animator.SetBool("Grounded", grounded);
+        animator.SetBool("Grounded", pm.isGrounded);
 
-        var localVelocity = Quaternion.Inverse(transform.rotation) * (rb.velocity / speed);
+        /*var localVelocity = Quaternion.Inverse(transform.rotation) * (rb.velocity / speed);
         animator.SetFloat("PosX", localVelocity.x);
-        animator.SetFloat("PosY", localVelocity.z);
+        animator.SetFloat("PosY", localVelocity.z);*/
 
         AnimationState();
     }
