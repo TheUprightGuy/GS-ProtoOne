@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpThrust = 1.0f;
     public bool jumping = false;
 
-    public float VelocityLimit = 5.0f;
+    public float VelocityLimit = 4.0f;
     public bool isGrounded = true;
 
     private float moveControlDelta = 0.0f;
@@ -46,6 +46,15 @@ public class PlayerMovement : MonoBehaviour
 
         animator.SetFloat("PosX", -rb.velocity.x / VelocityLimit);
         animator.SetFloat("PosY", dashing);
+
+        if (isBlocking)
+        {
+            VelocityLimit = 1.4f;
+        }
+        else
+        {
+            VelocityLimit = 4.0f;
+        }
     }
 
     private void FixedUpdate()
