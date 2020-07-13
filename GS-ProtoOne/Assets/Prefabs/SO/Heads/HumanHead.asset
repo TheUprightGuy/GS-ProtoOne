@@ -16,7 +16,7 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: ac825eb70a00ee547a66976c1e8be610, type: 3}
   abilitySprite: {fileID: 21300000, guid: 861daaf731146a447af80d5f9ba204dd, type: 3}
   abilityText: Does Human things.
-  mesh: {fileID: -8839368762345780380, guid: 9a9a99e9dafdd6e4c9c7de2f1780da67, type: 3}
-  abilityName: 1
+  set: 0
+  abilityName: 0
   player: {fileID: 0}
   maxIntegrity: 50
