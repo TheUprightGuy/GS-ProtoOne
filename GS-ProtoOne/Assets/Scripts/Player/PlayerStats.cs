@@ -61,9 +61,9 @@ public class PlayerStats : MonoBehaviour
     // Debug Toon
     public void DebugToon()
     {
-        //SetPart(0, head);
-        //SetPart(0, arms);
-        //SetPart(0, legs);
+        SetPart(1, head);
+        SetPart(1, arm);
+        SetPart(1, leg);
         SetupCharacter();
     }
 
@@ -149,8 +149,8 @@ public class PlayerStats : MonoBehaviour
             }
         }
     }
-    
 
+    #region AbilityUse
     public void OnAbilityHead()
     {
         if (body.head)
@@ -158,7 +158,6 @@ public class PlayerStats : MonoBehaviour
             body.head.UseAbility();
         }
     }
-
     public void OnAbilityArms()
     {
         if (body.arms)
@@ -173,4 +172,5 @@ public class PlayerStats : MonoBehaviour
             body.legs.UseAbility();
         }
     }
+    #endregion AbilityUse
 }

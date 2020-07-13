@@ -84,6 +84,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Press(behavior=2)"
+                },
+                {
+                    "name": "ReadyUp",
+                    "type": "Button",
+                    "id": "14b8a3d5-96c7-4184-9bad-22f6cc2b9756",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=2)"
                 }
             ],
             "bindings": [
@@ -383,6 +391,17 @@
                     "action": "AbiltyLegs",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "8a2f3aee-5a12-43ab-8e38-9803ac78c88a",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "XboxController",
+                    "action": "ReadyUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

@@ -97,6 +97,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": ""Press(behavior=2)""
+                },
+                {
+                    ""name"": ""ReadyUp"",
+                    ""type"": ""Button"",
+                    ""id"": ""14b8a3d5-96c7-4184-9bad-22f6cc2b9756"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press(behavior=2)""
                 }
             ],
             ""bindings"": [
@@ -396,6 +404,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""AbiltyLegs"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8a2f3aee-5a12-43ab-8e38-9803ac78c88a"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""XboxController"",
+                    ""action"": ""ReadyUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -448,6 +467,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Player_AbiltyArms = m_Player.FindAction("AbiltyArms", throwIfNotFound: true);
         m_Player_AbilityHead = m_Player.FindAction("AbilityHead", throwIfNotFound: true);
         m_Player_DashForward = m_Player.FindAction("DashForward", throwIfNotFound: true);
+        m_Player_ReadyUp = m_Player.FindAction("ReadyUp", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -507,6 +527,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_AbiltyArms;
     private readonly InputAction m_Player_AbilityHead;
     private readonly InputAction m_Player_DashForward;
+    private readonly InputAction m_Player_ReadyUp;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
@@ -521,6 +542,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @AbiltyArms => m_Wrapper.m_Player_AbiltyArms;
         public InputAction @AbilityHead => m_Wrapper.m_Player_AbilityHead;
         public InputAction @DashForward => m_Wrapper.m_Player_DashForward;
+        public InputAction @ReadyUp => m_Wrapper.m_Player_ReadyUp;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -560,6 +582,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @DashForward.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDashForward;
                 @DashForward.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDashForward;
                 @DashForward.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDashForward;
+                @ReadyUp.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnReadyUp;
+                @ReadyUp.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnReadyUp;
+                @ReadyUp.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnReadyUp;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -594,6 +619,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @DashForward.started += instance.OnDashForward;
                 @DashForward.performed += instance.OnDashForward;
                 @DashForward.canceled += instance.OnDashForward;
+                @ReadyUp.started += instance.OnReadyUp;
+                @ReadyUp.performed += instance.OnReadyUp;
+                @ReadyUp.canceled += instance.OnReadyUp;
             }
         }
     }
@@ -637,5 +665,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnAbiltyArms(InputAction.CallbackContext context);
         void OnAbilityHead(InputAction.CallbackContext context);
         void OnDashForward(InputAction.CallbackContext context);
+        void OnReadyUp(InputAction.CallbackContext context);
     }
 }

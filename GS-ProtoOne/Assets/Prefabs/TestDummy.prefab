@@ -198,10 +198,10 @@ MonoBehaviour:
   legs:
   - {fileID: 3531004681718550486}
   - {fileID: 3531004680571054084}
-  useDebugParts: 0
+  useDebugParts: 1
   head: {fileID: 11400000, guid: 18e9917e41d5aff4fa7772a14f604ad6, type: 2}
-  arm: {fileID: 0}
-  leg: {fileID: 0}
+  arm: {fileID: 11400000, guid: aee126df31a08b245a24c99184873ca4, type: 2}
+  leg: {fileID: 11400000, guid: b9bee989bf438b84291252bb7e3bf966, type: 2}
 --- !u!1 &3531004680512941952
 GameObject:
   m_ObjectHideFlags: 0
