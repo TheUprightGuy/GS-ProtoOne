@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     // Public for Animator
     [HideInInspector] public bool isBlocking = false;
     [HideInInspector] public bool isGrounded = true;
+    public bool active;
 
     #region Setup
     [HideInInspector] public Rigidbody rb;
@@ -42,10 +43,10 @@ public class PlayerMovement : MonoBehaviour
 
         if ((isGrounded || AllowControlInAir) && 
             ((rb.velocity.x < VelocityLimit) && (rb.velocity.x > -VelocityLimit))) //Stops movement above Velocity limit
-        {
+            {
 
-            rb.AddForce(((-transform.right ) * (thrust * moveControlDelta)));
-        }
+                rb.AddForce(((-transform.right ) * (thrust * moveControlDelta)));
+            }
     }
 
     public void OnDashForward()
@@ -54,12 +55,15 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnJump()
     {
-        if (isGrounded)
+        if (active)
         {
-            isBlocking = false;
-            pa.Jump();
+            if (isGrounded)
+            {
+                isBlocking = false;
+                pa.Jump();
 
-            Invoke("Jump", pa.jumpLength);
+                Invoke("Jump", pa.jumpLength);
+            }
         }
     }
     public void Jump()
@@ -70,43 +74,56 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnPunch()
     {
-
+        if (active)
+        {
+        }
     }
 
     public void OnKick()
     {
-
+        if (active)
+        {
+        }
     }
 
     public void OnCrouch()
     {
+        if (active)
+        {
+        }
     }
 
     public void OnMove(InputValue value)
     {
-        float delta = value.Get<float>();
-        moveControlDelta = (delta > moveDeadZone || delta < -moveDeadZone) ? (delta) : 0.0f;
-
-        keyDown = !keyDown;
-
-        if (!keyDown) //If released at all, stop movement
+        if (active)
         {
-            moveControlDelta = 0.0f;
+            float delta = value.Get<float>();
+            moveControlDelta = (delta > moveDeadZone || delta < -moveDeadZone) ? (delta) : 0.0f;
+
+            keyDown = !keyDown;
+
+            if (!keyDown) //If released at all, stop movement
+            {
+                moveControlDelta = 0.0f;
+            }
         }
     }
 
     public void OnBlock()
     {
-        if (isGrounded)
+        if (active)
         {
-            isBlocking = !isBlocking;
+            if (isGrounded)
+            {
+                isBlocking = !isBlocking;
+            }
         }
     }
 
     public void OnReadyUp()
     {
         //Replace with call to readyup function
-        UnityEngine.SceneManagement.SceneManager.LoadScene("JacobScene");
+        //UnityEngine.SceneManagement.SceneManager.LoadScene("JacobScene");
     }
 
     public void DebugName()

@@ -148,7 +148,5 @@ public class PartPicker : MonoBehaviour
     public void SelectPart()
     {
         EventHandler.instance.SelectPart(id, partList[(int)currentType][currentSelected]);
-        // Switch Based on ID Later
-        //player.SetPart(id, partList[(int)currentType][currentSelected]);
     }
 }

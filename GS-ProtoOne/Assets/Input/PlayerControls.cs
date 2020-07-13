@@ -409,7 +409,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""8a2f3aee-5a12-43ab-8e38-9803ac78c88a"",
                     ""path"": ""<Gamepad>/start"",
-                    ""interactions"": """",
+                    ""interactions"": ""Tap"",
                     ""processors"": """",
                     ""groups"": ""XboxController"",
                     ""action"": ""ReadyUp"",

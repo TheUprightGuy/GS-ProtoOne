@@ -15,7 +15,6 @@ public class PlayerStats : MonoBehaviour
     [Header("Setup Fields")]
     public int id;
     private Body body;
-    private Rigidbody rb;
     //[HideInInspector]
     public List<GameObject> heads;
     public List<GameObject> arms;
@@ -24,6 +23,7 @@ public class PlayerStats : MonoBehaviour
 
     //public List<SkinnedMeshRenderer> partMesh;
     private PlayerMovement pm;
+    private PlayerAnimation pa;
 
     // Debug
     [Header("Testing")]
@@ -36,14 +36,19 @@ public class PlayerStats : MonoBehaviour
     void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
-        rb = GetComponent<Rigidbody>();
         pm = GetComponent<PlayerMovement>();
+        pa = GetComponent<PlayerAnimation>();
     }
 
     private void Start()
     {
         EventHandler.instance.selectPart += SetPart; 
         EventHandler.instance.setupCharacter += SetupCharacter;
+        EventHandler.instance.moveCharacter += MoveCharacter;
+
+        SetPart(1, head);
+        SetPart(1, arm);
+        SetPart(1, leg);
 
         if (useDebugParts)
         {
@@ -54,23 +59,21 @@ public class PlayerStats : MonoBehaviour
     {
         EventHandler.instance.selectPart -= SetPart;
         EventHandler.instance.setupCharacter -= SetupCharacter;
+        EventHandler.instance.moveCharacter -= MoveCharacter;
     }
-
     #endregion Setup
 
     // Debug Toon
     public void DebugToon()
     {
-        SetPart(1, head);
-        SetPart(1, arm);
-        SetPart(1, leg);
         SetupCharacter();
     }
 
     // Get Character Ready
     public void SetupCharacter()
     {
-        //rb.useGravity = true;
+        pm.active = true;
+        pa.active = true;
 
         // Head
         body.head = Object.Instantiate(body.head) as Part;
@@ -86,9 +89,20 @@ public class PlayerStats : MonoBehaviour
         body.legs.SetParent(pm);
     }
 
+    // Ready Up in Lobby
     public void OnReadyUp()
     {
         EventHandler.instance.ReadyUp(id);
+    }
+
+    // Callback -> Moves Character to Location & Rotation
+    public void MoveCharacter(int _id, Transform _pos)
+    {
+        if (id == _id)
+        {
+            transform.position = _pos.position;
+            transform.rotation = _pos.rotation;
+        }
     }
 
     // Set Part & Update Mesh

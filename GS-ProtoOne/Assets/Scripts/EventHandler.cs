@@ -52,4 +52,14 @@ public class EventHandler : MonoBehaviour
             setupCharacter();
         }
     }
+
+    // Move Player Characters
+    public event Action<int, Transform> moveCharacter;
+    public void MoveCharacter(int _id, Transform _pos)
+    {
+        if (moveCharacter != null)
+        {
+            moveCharacter(_id, _pos);
+        }
+    }
 }

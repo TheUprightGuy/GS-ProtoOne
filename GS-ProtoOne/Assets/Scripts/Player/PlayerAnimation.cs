@@ -9,6 +9,7 @@ public class PlayerAnimation : MonoBehaviour
     private Animator animator;
     private PlayerMovement pm;
     [HideInInspector] public float jumpLength;
+    public bool active = false;
 
     private void Awake()
     {
@@ -36,16 +37,25 @@ public class PlayerAnimation : MonoBehaviour
 
     public void Jump()
     {
-        animator.SetTrigger("Jumping");
+        if (active)
+        {
+            animator.SetTrigger("Jumping");
+        }
     }
 
     public void OnPunch()
     {
-        animator.SetTrigger("Punching");
+        if (active)
+        {
+            animator.SetTrigger("Punching");
+        }
     }
 
     public void OnKick()
     {
-        animator.SetTrigger("Kicking");
+        if (active)
+        {
+            animator.SetTrigger("Kicking");
+        }
     }
 }

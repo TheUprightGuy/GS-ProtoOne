@@ -8,8 +8,11 @@ public class ReadyCheck : MonoBehaviour
 {
     [Header("Setup Fields")]
     public int id;
+    // Temporary
+    public string scene;
     private TMPro.TextMeshProUGUI readyText;
     private bool ready = false;
+    
 
     #region Setup
     private void Awake()
@@ -43,7 +46,7 @@ public class ReadyCheck : MonoBehaviour
             {
                 // Temporary - 1p
                 EventHandler.instance.SetupCharacter();
-                UnityEngine.SceneManagement.SceneManager.LoadScene("GameplayScene");
+                UnityEngine.SceneManagement.SceneManager.LoadScene(scene);
             }
             else
             {
