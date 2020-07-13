@@ -584,6 +584,11 @@ PrefabInstance:
     - target: {fileID: 7066218469029050777, guid: bc4af23b97aa59a4ba49e3923ed41284,
         type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7066218469029050777, guid: bc4af23b97aa59a4ba49e3923ed41284,
+        type: 3}
+      propertyPath: testBlend
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
