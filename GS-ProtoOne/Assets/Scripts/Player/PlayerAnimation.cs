@@ -35,6 +35,15 @@ public class PlayerAnimation : MonoBehaviour
         animator.SetFloat("PosX", -pm.rb.velocity.x / pm.VelocityLimit);
     }
 
+
+    public void Hit()
+    {
+        if (active)
+        {
+            animator.SetTrigger("Hit");
+        }
+    }
+
     public void Jump()
     {
         if (active)

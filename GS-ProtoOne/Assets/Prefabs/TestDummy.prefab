@@ -11,15 +11,15 @@ GameObject:
   - component: {fileID: 3531004680499709685}
   - component: {fileID: 3531004680499709684}
   - component: {fileID: 3531004680499709683}
-  - component: {fileID: 3531004680499709682}
   - component: {fileID: 3531004680499709681}
   - component: {fileID: 3531004680499709680}
   - component: {fileID: 3531004680499709695}
   - component: {fileID: 3531004680499709694}
   - component: {fileID: 3531004680499709693}
+  - component: {fileID: 8323016200564030619}
   m_Layer: 0
   m_Name: TestDummy
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83,20 +83,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!136 &3531004680499709682
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3531004680499709692}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.32857427
-  m_Height: 1.3984797
-  m_Direction: 1
-  m_Center: {x: -0.021844983, y: 0.6786288, z: 0.0072555244}
 --- !u!114 &3531004680499709681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,6 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpLength: 0
+  active: 0
 --- !u!114 &3531004680499709680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,6 +162,7 @@ MonoBehaviour:
   moveControlDelta: 0
   isBlocking: 0
   isGrounded: 0
+  active: 0
   rb: {fileID: 0}
 --- !u!114 &3531004680499709693
 MonoBehaviour:
@@ -198,10 +186,25 @@ MonoBehaviour:
   legs:
   - {fileID: 3531004681718550486}
   - {fileID: 3531004680571054084}
+  health: 0
+  maxHealth: 0
   useDebugParts: 1
   head: {fileID: 11400000, guid: 18e9917e41d5aff4fa7772a14f604ad6, type: 2}
   arm: {fileID: 11400000, guid: aee126df31a08b245a24c99184873ca4, type: 2}
   leg: {fileID: 11400000, guid: b9bee989bf438b84291252bb7e3bf966, type: 2}
+--- !u!65 &8323016200564030619
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3531004680499709692}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.2727148, y: 0.017715454, z: 0.5448974}
+  m_Center: {x: 0.12599799, y: 0.010795593, z: 0.047220744}
 --- !u!1 &3531004680512941952
 GameObject:
   m_ObjectHideFlags: 0
@@ -213,6 +216,7 @@ GameObject:
   - component: {fileID: 3531004680512941953}
   - component: {fileID: 3531004680512941955}
   - component: {fileID: 3531004680512941954}
+  - component: {fileID: 4837757205615311602}
   m_Layer: 0
   m_Name: RoboPlayerSpine2
   m_TagString: Untagged
@@ -282,6 +286,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &4837757205615311602
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3531004680512941952}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.37065738, y: 0.13806224, z: 0.24848205}
+  m_Center: {x: -0.1853292, y: 0.044901054, z: 0.009041875}
 --- !u!1 &3531004680542438114
 GameObject:
   m_ObjectHideFlags: 0
@@ -465,6 +482,7 @@ GameObject:
   - component: {fileID: 3531004680592558551}
   - component: {fileID: 3531004680592558569}
   - component: {fileID: 3531004680592558568}
+  - component: {fileID: 5557667796036264660}
   m_Layer: 0
   m_Name: RoboPlayerHead
   m_TagString: Untagged
@@ -533,6 +551,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!135 &5557667796036264660
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3531004680592558550}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.09
+  m_Center: {x: -0.032262716, y: 0.03229943, z: -0.000000003849239}
 --- !u!1 &3531004680665468709
 GameObject:
   m_ObjectHideFlags: 0
@@ -544,6 +575,7 @@ GameObject:
   - component: {fileID: 3531004680665468710}
   - component: {fileID: 3531004680665468728}
   - component: {fileID: 3531004680665468711}
+  - component: {fileID: 851010187977731389}
   m_Layer: 0
   m_Name: RoboPlayerRPalm
   m_TagString: Untagged
@@ -612,6 +644,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!135 &851010187977731389
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3531004680665468709}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.06451388
+  m_Center: {x: -0.06450631, y: 0.000007627972, z: 0.0000019045199}
 --- !u!1 &3531004680778789996
 GameObject:
   m_ObjectHideFlags: 0
@@ -725,8 +770,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3531004680958165264}
   m_LocalRotation: {x: 0.060153175, y: -0.036868572, z: -0.8430727, w: 0.5331517}
-  m_LocalPosition: {x: -0.37501094, y: -0.000000029802322, z: -0.000000023841858}
-  m_LocalScale: {x: 0.99999684, y: 1.0000043, z: 1.0000006}
+  m_LocalPosition: {x: -0.37501094, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3531004682275066752}
   m_Father: {fileID: 3531004682178650292}
@@ -870,6 +915,7 @@ GameObject:
   - component: {fileID: 3531004681011599717}
   - component: {fileID: 3531004681011599719}
   - component: {fileID: 3531004681011599718}
+  - component: {fileID: 8325548864826209896}
   m_Layer: 0
   m_Name: RoboPlayerRUpperarm
   m_TagString: Untagged
@@ -939,6 +985,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &8325548864826209896
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3531004681011599716}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.25926876, y: 0.11251725, z: 0.04826036}
+  m_Center: {x: -0.11772616, y: -0.0012394577, z: -0.0000019043674}
 --- !u!1 &3531004681014967130
 GameObject:
   m_ObjectHideFlags: 0
@@ -1486,6 +1545,7 @@ GameObject:
   - component: {fileID: 3531004681728232724}
   - component: {fileID: 3531004681728232726}
   - component: {fileID: 3531004681728232725}
+  - component: {fileID: 7230551228020300283}
   m_Layer: 0
   m_Name: RoboPlayerLForearm
   m_TagString: Untagged
@@ -1555,6 +1615,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &7230551228020300283
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3531004681728232723}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.20396814, y: 0.09822262, z: 0.048261028}
+  m_Center: {x: -0.1203171, y: 0.0029887166, z: -0.0000017865552}
 --- !u!1 &3531004681802480556
 GameObject:
   m_ObjectHideFlags: 0
@@ -1566,6 +1639,7 @@ GameObject:
   - component: {fileID: 3531004681802480557}
   - component: {fileID: 3531004681802480559}
   - component: {fileID: 3531004681802480558}
+  - component: {fileID: 173663212073715987}
   m_Layer: 0
   m_Name: RoboPlayerRThigh
   m_TagString: Untagged
@@ -1635,6 +1709,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &173663212073715987
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3531004681802480556}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.3422939, y: 0.0925855, z: 0.03474743}
+  m_Center: {x: -0.1711507, y: -0.0023483655, z: 0.0000038015296}
 --- !u!1 &3531004681824867757
 GameObject:
   m_ObjectHideFlags: 0
@@ -1646,6 +1733,7 @@ GameObject:
   - component: {fileID: 3531004681824867758}
   - component: {fileID: 3531004681824867744}
   - component: {fileID: 3531004681824867759}
+  - component: {fileID: 1440508797445778812}
   m_Layer: 0
   m_Name: RoboPlayerLDigit11
   m_TagString: Untagged
@@ -1714,6 +1802,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!135 &1440508797445778812
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3531004681824867757}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.05
+  m_Center: {x: 0.01, y: -0.01, z: -0.0000000056378724}
 --- !u!1 &3531004681834007658
 GameObject:
   m_ObjectHideFlags: 0
@@ -1821,6 +1922,7 @@ GameObject:
   - component: {fileID: 3531004681856815284}
   - component: {fileID: 3531004681856815286}
   - component: {fileID: 3531004681856815285}
+  - component: {fileID: 909620066955821730}
   m_Layer: 0
   m_Name: RoboPlayerLCalf
   m_TagString: Untagged
@@ -1890,6 +1992,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &909620066955821730
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3531004681856815283}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.3750111, y: 0.06493371, z: 0.037401773}
+  m_Center: {x: -0.18750547, y: -0.0025950882, z: -0.00000007554934}
 --- !u!1 &3531004681887036965
 GameObject:
   m_ObjectHideFlags: 0
@@ -1989,6 +2104,7 @@ GameObject:
   - component: {fileID: 3531004681897957433}
   - component: {fileID: 3531004681897957435}
   - component: {fileID: 3531004681897957434}
+  - component: {fileID: 1718754226333781556}
   m_Layer: 0
   m_Name: RoboPlayerRForearm
   m_TagString: Untagged
@@ -2058,6 +2174,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &1718754226333781556
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3531004681897957432}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.20396814, y: 0.09822262, z: 0.048261028}
+  m_Center: {x: -0.1203171, y: 0.0029887166, z: -0.0000017865552}
 --- !u!1 &3531004681913524189
 GameObject:
   m_ObjectHideFlags: 0
@@ -2179,6 +2308,7 @@ GameObject:
   - component: {fileID: 3531004682051308559}
   - component: {fileID: 3531004682051308545}
   - component: {fileID: 3531004682051308544}
+  - component: {fileID: 7259752083038962812}
   m_Layer: 0
   m_Name: RoboPlayerLPalm
   m_TagString: Untagged
@@ -2247,6 +2377,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!135 &7259752083038962812
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3531004682051308558}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.06451388
+  m_Center: {x: -0.06450631, y: 0.000007627972, z: 0.0000019045199}
 --- !u!1 &3531004682178650291
 GameObject:
   m_ObjectHideFlags: 0
@@ -2258,6 +2401,7 @@ GameObject:
   - component: {fileID: 3531004682178650292}
   - component: {fileID: 3531004682178650294}
   - component: {fileID: 3531004682178650293}
+  - component: {fileID: 1324082631026798356}
   m_Layer: 0
   m_Name: RoboPlayerRCalf
   m_TagString: Untagged
@@ -2327,6 +2471,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &1324082631026798356
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3531004682178650291}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.3750111, y: 0.06493371, z: 0.037401773}
+  m_Center: {x: -0.18750547, y: -0.0025950882, z: -0.00000007554934}
 --- !u!1 &3531004682204612974
 GameObject:
   m_ObjectHideFlags: 0
@@ -2418,6 +2575,7 @@ GameObject:
   - component: {fileID: 3531004682220055844}
   - component: {fileID: 3531004682220055846}
   - component: {fileID: 3531004682220055845}
+  - component: {fileID: 2110884747733447850}
   m_Layer: 0
   m_Name: RoboPlayerLThigh
   m_TagString: Untagged
@@ -2487,6 +2645,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &2110884747733447850
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3531004682220055843}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.3422939, y: 0.0925855, z: 0.03474743}
+  m_Center: {x: -0.1711507, y: -0.0023483655, z: 0.0000038015296}
 --- !u!1 &3531004682249611742
 GameObject:
   m_ObjectHideFlags: 0
@@ -2498,6 +2669,7 @@ GameObject:
   - component: {fileID: 3531004682249611743}
   - component: {fileID: 3531004682249611729}
   - component: {fileID: 3531004682249611728}
+  - component: {fileID: 5042347602130551315}
   m_Layer: 0
   m_Name: RoboPlayerLUpperarm
   m_TagString: Untagged
@@ -2567,6 +2739,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &5042347602130551315
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3531004682249611742}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.25926876, y: 0.11251725, z: 0.04826036}
+  m_Center: {x: -0.11772616, y: -0.0012394577, z: -0.0000019043674}
 --- !u!1 &3531004682275066767
 GameObject:
   m_ObjectHideFlags: 0
@@ -2578,6 +2763,7 @@ GameObject:
   - component: {fileID: 3531004682275066752}
   - component: {fileID: 3531004682275066754}
   - component: {fileID: 3531004682275066753}
+  - component: {fileID: 2942078711079810323}
   m_Layer: 0
   m_Name: RoboPlayerRDigit11
   m_TagString: Untagged
@@ -2646,6 +2832,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!135 &2942078711079810323
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3531004682275066767}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.05
+  m_Center: {x: 0.01, y: -0.01, z: -0.0000000056378724}
 --- !u!1 &3531004682298777349
 GameObject:
   m_ObjectHideFlags: 0

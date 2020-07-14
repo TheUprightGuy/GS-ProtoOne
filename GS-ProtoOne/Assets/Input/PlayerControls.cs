@@ -118,17 +118,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""6aa88f17-91a0-42a3-bec6-b77cc674180b"",
-                    ""path"": ""<Gamepad>/dpad/up"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""XboxController"",
-                    ""action"": ""Jump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""b6bca15f-e32a-4d3e-b3a6-14c5718e56cc"",
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
