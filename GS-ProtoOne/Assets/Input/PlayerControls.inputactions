@@ -92,6 +92,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Press(behavior=2)"
+                },
+                {
+                    "name": "DebugDamage",
+                    "type": "Button",
+                    "id": "578784a2-9508-4d96-bf65-de3c83e81059",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=2)"
                 }
             ],
             "bindings": [
@@ -400,6 +408,17 @@
                     "processors": "",
                     "groups": "XboxController",
                     "action": "ReadyUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dcbfa1e7-32ea-494d-8cb7-2caab04c810e",
+                    "path": "<Gamepad>/dpad/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "XboxController",
+                    "action": "DebugDamage",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

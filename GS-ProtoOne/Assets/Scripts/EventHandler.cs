@@ -62,4 +62,33 @@ public class EventHandler : MonoBehaviour
             moveCharacter(_id, _pos);
         }
     }
+
+    // Update HealthBars
+    public event Action<int, float> updateHealth;
+    public void UpdateHealth(int _id, float _health)
+    {
+        if (updateHealth != null)
+        {
+            updateHealth(_id, _health);
+        }
+    }
+
+    // Callback to End Scene
+    public event Action<int> gameOver;
+    public void GameOver(int _id)
+    {
+        if (gameOver != null)
+        {
+            gameOver(_id);
+        }
+    }
+
+    public event Action<bool> toggleState;
+    public void ToggleState(bool _state)
+    {
+        if (toggleState != null)
+        {
+            toggleState(_state);
+        }
+    }
 }

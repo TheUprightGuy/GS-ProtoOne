@@ -105,6 +105,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": ""Press(behavior=2)""
+                },
+                {
+                    ""name"": ""DebugDamage"",
+                    ""type"": ""Button"",
+                    ""id"": ""578784a2-9508-4d96-bf65-de3c83e81059"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press(behavior=2)""
                 }
             ],
             ""bindings"": [
@@ -415,6 +423,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""ReadyUp"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dcbfa1e7-32ea-494d-8cb7-2caab04c810e"",
+                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""XboxController"",
+                    ""action"": ""DebugDamage"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -468,6 +487,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Player_AbilityHead = m_Player.FindAction("AbilityHead", throwIfNotFound: true);
         m_Player_DashForward = m_Player.FindAction("DashForward", throwIfNotFound: true);
         m_Player_ReadyUp = m_Player.FindAction("ReadyUp", throwIfNotFound: true);
+        m_Player_DebugDamage = m_Player.FindAction("DebugDamage", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -528,6 +548,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_AbilityHead;
     private readonly InputAction m_Player_DashForward;
     private readonly InputAction m_Player_ReadyUp;
+    private readonly InputAction m_Player_DebugDamage;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
@@ -543,6 +564,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @AbilityHead => m_Wrapper.m_Player_AbilityHead;
         public InputAction @DashForward => m_Wrapper.m_Player_DashForward;
         public InputAction @ReadyUp => m_Wrapper.m_Player_ReadyUp;
+        public InputAction @DebugDamage => m_Wrapper.m_Player_DebugDamage;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -585,6 +607,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @ReadyUp.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnReadyUp;
                 @ReadyUp.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnReadyUp;
                 @ReadyUp.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnReadyUp;
+                @DebugDamage.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDebugDamage;
+                @DebugDamage.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDebugDamage;
+                @DebugDamage.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDebugDamage;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -622,6 +647,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @ReadyUp.started += instance.OnReadyUp;
                 @ReadyUp.performed += instance.OnReadyUp;
                 @ReadyUp.canceled += instance.OnReadyUp;
+                @DebugDamage.started += instance.OnDebugDamage;
+                @DebugDamage.performed += instance.OnDebugDamage;
+                @DebugDamage.canceled += instance.OnDebugDamage;
             }
         }
     }
@@ -666,5 +694,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnAbilityHead(InputAction.CallbackContext context);
         void OnDashForward(InputAction.CallbackContext context);
         void OnReadyUp(InputAction.CallbackContext context);
+        void OnDebugDamage(InputAction.CallbackContext context);
     }
 }

@@ -15,15 +15,17 @@ public class PlayerStats : MonoBehaviour
     [Header("Setup Fields")]
     public int id;
     private Body body;
-    //[HideInInspector]
+    // Storage for new Part System
     public List<GameObject> heads;
     public List<GameObject> arms;
     public List<GameObject> legs;
-
-
-    //public List<SkinnedMeshRenderer> partMesh;
+    // Enable/Disable for Scenes
     private PlayerMovement pm;
     private PlayerAnimation pa;
+
+    [Header("Stats")]
+    public float health;
+    public float maxHealth;
 
     // Debug
     [Header("Testing")]
@@ -45,6 +47,7 @@ public class PlayerStats : MonoBehaviour
         EventHandler.instance.selectPart += SetPart; 
         EventHandler.instance.setupCharacter += SetupCharacter;
         EventHandler.instance.moveCharacter += MoveCharacter;
+        EventHandler.instance.toggleState += ToggleState;
 
         SetPart(1, head);
         SetPart(1, arm);
@@ -60,9 +63,11 @@ public class PlayerStats : MonoBehaviour
         EventHandler.instance.selectPart -= SetPart;
         EventHandler.instance.setupCharacter -= SetupCharacter;
         EventHandler.instance.moveCharacter -= MoveCharacter;
+        EventHandler.instance.toggleState -= ToggleState;
     }
     #endregion Setup
 
+    #region CharacterSetupScreen
     // Debug Toon
     public void DebugToon()
     {
@@ -72,29 +77,89 @@ public class PlayerStats : MonoBehaviour
     // Get Character Ready
     public void SetupCharacter()
     {
-        pm.active = true;
-        pa.active = true;
+        ToggleState(true);
 
         // Head
         body.head = Object.Instantiate(body.head) as Part;
         body.head.Setup();
         body.head.SetParent(pm);
+        maxHealth += body.head.maxIntegrity;
         // Arms
         body.arms = Object.Instantiate(body.arms) as Part;
         body.arms.Setup();
         body.arms.SetParent(pm);
+        maxHealth += body.arms.maxIntegrity;
         // Legs
         body.legs = Object.Instantiate(body.legs) as Part;
         body.legs.Setup();
         body.legs.SetParent(pm);
-    }
+        maxHealth += body.legs.maxIntegrity;
 
+        health = maxHealth;
+    }
+    // Set Part & Update Mesh
+    public void SetPart(int _id, Part _part)
+    {
+        if (id == _id)
+        {
+            switch (_part.partType)
+            {
+                case PartType.Head:
+                    {
+                        body.head = _part;
+                        for (int i = 0; i < heads.Count; i++)
+                        {
+                            if (i == (int)_part.set)
+                            {
+                                heads[i].SetActive(true);
+                            }
+                            else
+                            {
+                                heads[i].SetActive(false);
+                            }
+                        }
+                        break;
+                    }
+                case PartType.Arms:
+                    {
+                        body.arms = _part;
+                        for (int i = 0; i < arms.Count; i++)
+                        {
+                            if (i == (int)_part.set)
+                            {
+                                arms[i].SetActive(true);
+                            }
+                            else
+                            {
+                                arms[i].SetActive(false);
+                            }
+                        }
+                        break;
+                    }
+                case PartType.Legs:
+                    {
+                        body.legs = _part;
+                        for (int i = 0; i < legs.Count; i++)
+                        {
+                            if (i == (int)_part.set)
+                            {
+                                legs[i].SetActive(true);
+                            }
+                            else
+                            {
+                                legs[i].SetActive(false);
+                            }
+                        }
+                        break;
+                    }
+            }
+        }
+    }
     // Ready Up in Lobby
     public void OnReadyUp()
     {
         EventHandler.instance.ReadyUp(id);
     }
-
     // Callback -> Moves Character to Location & Rotation
     public void MoveCharacter(int _id, Transform _pos)
     {
@@ -104,64 +169,33 @@ public class PlayerStats : MonoBehaviour
             transform.rotation = _pos.rotation;
         }
     }
+    #endregion CharacterSetupScreen
 
-    // Set Part & Update Mesh
-    public void SetPart(int _id, Part _part)
+    private void Update()
     {
-        if (id == _id)
+        if (health <= 0.0f)
         {
-            switch (_part.partType)
-            {
-                case PartType.Head:
-                {
-                    body.head = _part;
-                    for (int i = 0; i < heads.Count; i++)
-                    {
-                        if (i == (int)_part.set)
-                        {
-                            heads[i].SetActive(true);
-                        }
-                        else
-                        {
-                            heads[i].SetActive(false);
-                        }
-                    }
-                    break;
-                }
-                case PartType.Arms:
-                {
-                    body.arms = _part;
-                    for (int i = 0; i < arms.Count; i++)
-                    {
-                        if (i == (int)_part.set)
-                        {
-                            arms[i].SetActive(true);
-                        }
-                        else
-                        {
-                            arms[i].SetActive(false);
-                        }
-                    }
-                    break;
-                }
-                case PartType.Legs:
-                {
-                    body.legs = _part;
-                    for (int i = 0; i < legs.Count; i++)
-                    {
-                        if (i == (int)_part.set)
-                        {
-                            legs[i].SetActive(true);
-                        }
-                        else
-                        {
-                            legs[i].SetActive(false);
-                        }
-                    }
-                    break;
-                }
-            }
+            EventHandler.instance.GameOver(id);
         }
+    }
+
+    // Up on D-Pad to Test
+    public void OnDebugDamage()
+    {
+        TakeDamage(10.0f);
+    }
+
+    // Generic Take Damage Event
+    public void TakeDamage(float _damage)
+    {
+        health -= _damage;
+        EventHandler.instance.UpdateHealth(id, health / maxHealth);
+    }
+
+    public void ToggleState(bool _state)
+    {
+        pm.active = _state;
+        pa.active = _state;
     }
 
     #region AbilityUse
