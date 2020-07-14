@@ -796,7 +796,7 @@ AnimatorController:
   - serializedVersion: 5
     m_Name: Blocking
     m_StateMachine: {fileID: 6861867206317393108}
-    m_Mask: {fileID: 31900000, guid: 0d75aed14d12f28498680980773dabdd, type: 2}
+    m_Mask: {fileID: 31900000, guid: 3e795fd60a71f6b418e1eb9c07ed65a2, type: 2}
     m_Motions: []
     m_Behaviours: []
     m_BlendingMode: 0
