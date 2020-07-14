@@ -49,9 +49,9 @@ public class PlayerStats : MonoBehaviour
         EventHandler.instance.moveCharacter += MoveCharacter;
         EventHandler.instance.toggleState += ToggleState;
 
-        SetPart(1, head);
-        SetPart(1, arm);
-        SetPart(1, leg);
+        SetPart(id, head);
+        SetPart(id, arm);
+        SetPart(id, leg);
 
         if (useDebugParts)
         {
