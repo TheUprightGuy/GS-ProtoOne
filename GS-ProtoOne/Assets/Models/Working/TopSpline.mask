@@ -8,4 +8,74 @@ AvatarMask:
   m_PrefabAsset: {fileID: 0}
   m_Name: TopSpline
   m_Mask: 00000000010000000100000000000000000000000100000001000000010000000100000000000000000000000100000001000000
-  m_Elements: []
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Arms
+    m_Weight: 0
+  - m_Path: Head
+    m_Weight: 0
+  - m_Path: Legs
+    m_Weight: 0
+  - m_Path: MainBody
+    m_Weight: 0
+  - m_Path: PM3D_FrogArms
+    m_Weight: 0
+  - m_Path: PM3D_FrogHead
+    m_Weight: 0
+  - m_Path: PM3D_FrogLegs
+    m_Weight: 0
+  - m_Path: RoboPlayerLPlatform
+    m_Weight: 0
+  - m_Path: RoboPlayerPelvis
+    m_Weight: 0
+  - m_Path: RoboPlayerPelvis/RoboPlayerLThigh
+    m_Weight: 0
+  - m_Path: RoboPlayerPelvis/RoboPlayerLThigh/RoboPlayerLCalf
+    m_Weight: 0
+  - m_Path: RoboPlayerPelvis/RoboPlayerLThigh/RoboPlayerLCalf/RoboPlayerLFoot
+    m_Weight: 0
+  - m_Path: RoboPlayerPelvis/RoboPlayerLThigh/RoboPlayerLCalf/RoboPlayerLFoot/RoboPlayerLDigit11
+    m_Weight: 0
+  - m_Path: RoboPlayerPelvis/RoboPlayerRThigh
+    m_Weight: 0
+  - m_Path: RoboPlayerPelvis/RoboPlayerRThigh/RoboPlayerRCalf
+    m_Weight: 0
+  - m_Path: RoboPlayerPelvis/RoboPlayerRThigh/RoboPlayerRCalf/RoboPlayerRFoot
+    m_Weight: 0
+  - m_Path: RoboPlayerPelvis/RoboPlayerRThigh/RoboPlayerRCalf/RoboPlayerRFoot/RoboPlayerRDigit11
+    m_Weight: 0
+  - m_Path: RoboPlayerPelvis/RoboPlayerSpine1
+    m_Weight: 0
+  - m_Path: RoboPlayerPelvis/RoboPlayerSpine1/RoboPlayerSpine2
+    m_Weight: 0
+  - m_Path: RoboPlayerPelvis/RoboPlayerSpine1/RoboPlayerSpine2/RoboPlayerSpine3
+    m_Weight: 0
+  - m_Path: RoboPlayerPelvis/RoboPlayerSpine1/RoboPlayerSpine2/RoboPlayerSpine3/RoboPlayerSpine4
+    m_Weight: 0
+  - m_Path: RoboPlayerPelvis/RoboPlayerSpine1/RoboPlayerSpine2/RoboPlayerSpine3/RoboPlayerSpine4/RoboPlayerRibcage
+    m_Weight: 0
+  - m_Path: RoboPlayerPelvis/RoboPlayerSpine1/RoboPlayerSpine2/RoboPlayerSpine3/RoboPlayerSpine4/RoboPlayerRibcage/RoboPlayerLCollarbone
+    m_Weight: 0
+  - m_Path: RoboPlayerPelvis/RoboPlayerSpine1/RoboPlayerSpine2/RoboPlayerSpine3/RoboPlayerSpine4/RoboPlayerRibcage/RoboPlayerLCollarbone/RoboPlayerLUpperarm
+    m_Weight: 0
+  - m_Path: RoboPlayerPelvis/RoboPlayerSpine1/RoboPlayerSpine2/RoboPlayerSpine3/RoboPlayerSpine4/RoboPlayerRibcage/RoboPlayerLCollarbone/RoboPlayerLUpperarm/RoboPlayerLForearm
+    m_Weight: 0
+  - m_Path: RoboPlayerPelvis/RoboPlayerSpine1/RoboPlayerSpine2/RoboPlayerSpine3/RoboPlayerSpine4/RoboPlayerRibcage/RoboPlayerLCollarbone/RoboPlayerLUpperarm/RoboPlayerLForearm/RoboPlayerLPalm
+    m_Weight: 0
+  - m_Path: RoboPlayerPelvis/RoboPlayerSpine1/RoboPlayerSpine2/RoboPlayerSpine3/RoboPlayerSpine4/RoboPlayerRibcage/RoboPlayerNeck1
+    m_Weight: 0
+  - m_Path: RoboPlayerPelvis/RoboPlayerSpine1/RoboPlayerSpine2/RoboPlayerSpine3/RoboPlayerSpine4/RoboPlayerRibcage/RoboPlayerNeck1/RoboPlayerNeck2
+    m_Weight: 0
+  - m_Path: RoboPlayerPelvis/RoboPlayerSpine1/RoboPlayerSpine2/RoboPlayerSpine3/RoboPlayerSpine4/RoboPlayerRibcage/RoboPlayerNeck1/RoboPlayerNeck2/RoboPlayerHead
+    m_Weight: 0
+  - m_Path: RoboPlayerPelvis/RoboPlayerSpine1/RoboPlayerSpine2/RoboPlayerSpine3/RoboPlayerSpine4/RoboPlayerRibcage/RoboPlayerRCollarbone
+    m_Weight: 0
+  - m_Path: RoboPlayerPelvis/RoboPlayerSpine1/RoboPlayerSpine2/RoboPlayerSpine3/RoboPlayerSpine4/RoboPlayerRibcage/RoboPlayerRCollarbone/RoboPlayerRUpperarm
+    m_Weight: 0
+  - m_Path: RoboPlayerPelvis/RoboPlayerSpine1/RoboPlayerSpine2/RoboPlayerSpine3/RoboPlayerSpine4/RoboPlayerRibcage/RoboPlayerRCollarbone/RoboPlayerRUpperarm/RoboPlayerRForearm
+    m_Weight: 0
+  - m_Path: RoboPlayerPelvis/RoboPlayerSpine1/RoboPlayerSpine2/RoboPlayerSpine3/RoboPlayerSpine4/RoboPlayerRibcage/RoboPlayerRCollarbone/RoboPlayerRUpperarm/RoboPlayerRForearm/RoboPlayerRPalm
+    m_Weight: 0
+  - m_Path: RoboPlayerRPlatform
+    m_Weight: 0
