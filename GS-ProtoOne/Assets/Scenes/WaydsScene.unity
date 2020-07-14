@@ -1082,9 +1082,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 341405582}
+      - m_Target: {fileID: 1778928197}
         m_MethodName: SelectPart
-        m_Mode: 3
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4682,14 +4682,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc3e94259fa31fe4faba743282affa61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  id: 2
   Head:
   - {fileID: 11400000, guid: d30d18b90995efa4ea9fec1288c76b1c, type: 2}
   - {fileID: 11400000, guid: 0869432efec51d8469436f88e2ca37c5, type: 2}
+  - {fileID: 11400000, guid: c2e8be095fb6e624e819bc5ca30323b3, type: 2}
   Arms:
   - {fileID: 11400000, guid: bacce8db76116be4a98fa3a944a0b75a, type: 2}
+  - {fileID: 11400000, guid: fb0a5cac73afafe428cfa47bb8619f89, type: 2}
   Legs:
   - {fileID: 11400000, guid: f50ca41c08303824798b5def1f2faba7, type: 2}
+  - {fileID: 11400000, guid: d76ff9afd47814d47b731b328b33d14f, type: 2}
   partDisplayed: {fileID: 902395689}
   typeText: {fileID: 571604808}
   ability: {fileID: 879193234}
