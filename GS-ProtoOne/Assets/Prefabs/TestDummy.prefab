@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   refreshInputs: 0
-  playerNo: 2
+  playerNo: 1
 --- !u!114 &3531004680499709695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,9 +156,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AllowControlInAir: 1
   moveDeadZone: 0.1
-  thrust: 7
-  jumpThrust: 2
+  thrustInAir: 1
+  moveSpeed: 0.03
+  jumpThrust: 1.8
   VelocityLimit: 4
+  velocity: 0
   moveControlDelta: 0
   isBlocking: 0
   isGrounded: 0
@@ -203,8 +205,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.2727148, y: 0.017715454, z: 0.5448974}
-  m_Center: {x: 0.12599799, y: 0.010795593, z: 0.047220744}
+  m_Size: {x: 0.2727148, y: 1.3340901, z: 0.5448974}
+  m_Center: {x: 0.12599796, y: 0.6721869, z: 0.047220707}
 --- !u!1 &3531004680512941952
 GameObject:
   m_ObjectHideFlags: 0

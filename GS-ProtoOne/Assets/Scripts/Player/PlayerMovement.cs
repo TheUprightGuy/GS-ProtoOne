@@ -8,10 +8,16 @@ public class PlayerMovement : MonoBehaviour
     [Header("Setup Fields")]
     public bool AllowControlInAir = false;
     public float moveDeadZone = 0.15f;
-    public float thrust = 1.0f;
+    public float thrustInAir = 1.0f;
+    public float moveSpeed = 0.1f;
     public float jumpThrust = 1.0f;
     public float VelocityLimit = 4.0f;
 
+    private float lastPosX = 0.0f;
+    public float velocity;
+
+
+    public float girth = 1.0f;
     // Player Control Tracking
     private bool keyDown = false;
     [HideInInspector] public float moveControlDelta = 0.0f;
@@ -29,24 +35,73 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         pa = GetComponent<PlayerAnimation>();
+        lastPosX = transform.position.x;
+
     }
     #endregion Setup
 
     // Update is called once per frame
     void Update()
     {
+        
+
         VelocityLimit = isBlocking ? 1.4f : 4.0f;
     }
 
+
     private void FixedUpdate()
     {
+        Vector3 closestPlayerPos = transform.position;
+        float closestDist = 1000.0f;
+        foreach (var item in GameObject.FindGameObjectsWithTag("Player"))
+        {
+            float dist = Vector3.Distance(transform.position, item.transform.position);
 
-        if ((isGrounded || AllowControlInAir) && 
-            ((rb.velocity.x < VelocityLimit) && (rb.velocity.x > -VelocityLimit))) //Stops movement above Velocity limit
+            if (dist < closestDist && transform.position != item.transform.position)
             {
-
-                rb.AddForce(((-transform.right ) * (thrust * moveControlDelta)));
+                closestDist = dist;
+                closestPlayerPos = item.transform.position;
             }
+        }
+
+        Vector3 temp = transform.localScale;
+        if (closestPlayerPos.x > transform.position.x)
+        {
+            temp.x = -1;
+
+            if (moveControlDelta < 0 && closestDist < girth)
+            {
+                moveControlDelta = 0;
+            }
+        }
+        else
+        {
+            if (moveControlDelta > 0 && closestDist < girth)
+            {
+                moveControlDelta = 0;
+            }
+            temp.x = 1;
+        }
+        transform.localScale = temp;
+
+
+        if (((rb.velocity.x < VelocityLimit) && (rb.velocity.x > -VelocityLimit))) //Stops movement above Velocity limit
+        {
+            if (isGrounded)
+            {
+                rb.MovePosition(transform.position +
+                    ((-transform.right) * (moveSpeed * moveControlDelta)));
+            }
+            else
+            {
+                rb.AddForce(((-transform.right ) * (thrustInAir * moveControlDelta)));
+            }
+
+        }
+
+        velocity = ((transform.position.x - lastPosX) / Time.timeScale) * 1000.0f;
+        velocity *= transform.localScale.x;
+        lastPosX = transform.position.x;
     }
 
     public void OnDashForward()
@@ -131,15 +186,18 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log(gameObject.name);
     }
 
+    
     private void OnGUI()
     {
         //Vector3 moveVec = (transform.forward) * (thrust * moveControlDelta);
-        //GUI.Box(new Rect(10, 10, 100, 50), rb.velocity.ToString());
+        //GUI.Box(new Rect(10, 10, 100, 50), Time.fixedTime.ToString());
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         //If touching a collider marked as ground, jump will be enabled
         isGrounded = (collision.gameObject.tag == "Ground");
+
+
     }
 }
