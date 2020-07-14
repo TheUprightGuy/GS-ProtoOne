@@ -46,7 +46,7 @@ public class ReadyCheck : MonoBehaviour
             {
                 // Temporary - 1p
                 EventHandler.instance.SetupCharacter();
-                UnityEngine.SceneManagement.SceneManager.LoadScene(scene);
+                EventHandler.instance.ChangeScene(scene);
             }
             else
             {
