@@ -188,6 +188,7 @@ public class PlayerStats : MonoBehaviour
     // Generic Take Damage Event
     public void TakeDamage(float _damage)
     {
+        pa.Hit();
         health -= _damage;
         EventHandler.instance.UpdateHealth(id, health / maxHealth);
     }
