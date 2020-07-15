@@ -7,6 +7,12 @@ using UnityEngine.SceneManagement;
 
 public class EventHandler : MonoBehaviour
 {
+    public int rounds = 3;
+    //[HideInInspector] 
+    public int p1Wins;
+    //[HideInInspector] 
+    public int p2Wins;
+
     #region Singleton
     public static EventHandler instance;
     private Animator animator;
@@ -96,6 +102,14 @@ public class EventHandler : MonoBehaviour
             toggleState(_state);
         }
     }
+    public event Action resetCharacters;
+    public void ResetCharacters()
+    {
+        if (toggleState != null)
+        {
+            resetCharacters();
+        }
+    }
 
     // Scene Manager
     public void ChangeScene(string _scene)
@@ -104,10 +118,16 @@ public class EventHandler : MonoBehaviour
         sceneToLoad = _scene;
     }
 
+    public void ResetScene()
+    {
+        ChangeScene(SceneManager.GetActiveScene().name.ToString());
+    }
+
     public void ChangeSceneFunc()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(sceneToLoad);
+        SceneManager.LoadScene(sceneToLoad);
         animator.SetTrigger("FadeIn");
+        //ResetCharacters();
     }
     public void QuitApplication()
     {

@@ -22,21 +22,33 @@ public class WinTextScript : MonoBehaviour
 
     public void GameOver(int _id)
     {
+        int rounds = EventHandler.instance.rounds;
+
         EventHandler.instance.ToggleState(false);
         text.enabled = true;
         switch (_id)
         {
             case 1:
             {
+                EventHandler.instance.p2Wins++;
                 text.SetText("Player Two Wins!");
                 break;
             }
             case 2:
             {
+                EventHandler.instance.p1Wins++;
                 text.SetText("Player One Wins!");
                 break;
             }
         }
 
+        if (EventHandler.instance.p1Wins > Mathf.Floor(rounds/2) || EventHandler.instance.p2Wins > Mathf.Floor(rounds / 2))
+        {
+            EventHandler.instance.ChangeScene("WaydsScene");
+        }
+        else
+        {
+            EventHandler.instance.ResetScene();
+        }
     }
 }
