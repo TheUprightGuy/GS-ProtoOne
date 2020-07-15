@@ -26,6 +26,10 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector] public bool isGrounded = true;
     public bool active;
 
+    [Header("AbilityFields")]
+    public bool charging = false;
+    public float chargingTimer = 0.0f;
+
     #region Setup
     [HideInInspector] public Rigidbody rb;
     private PlayerAnimation pa;
@@ -46,6 +50,11 @@ public class PlayerMovement : MonoBehaviour
         
 
         VelocityLimit = isBlocking ? 1.4f : 4.0f;
+        chargingTimer -= Time.deltaTime;
+        if (chargingTimer <= 0)
+        {
+            charging = false;
+        }
     }
 
 
@@ -152,14 +161,17 @@ public class PlayerMovement : MonoBehaviour
     {
         if (active)
         {
-            float delta = value.Get<float>();
-            moveControlDelta = (delta > moveDeadZone || delta < -moveDeadZone) ? (delta) : 0.0f;
-
-            keyDown = !keyDown;
-
-            if (!keyDown) //If released at all, stop movement
+            //if (charging == false)
             {
-                moveControlDelta = 0.0f;
+                float delta = value.Get<float>();
+                moveControlDelta = (delta > moveDeadZone || delta < -moveDeadZone) ? (delta) : 0.0f;
+
+                keyDown = !keyDown;
+
+                if (!keyDown) //If released at all, stop movement
+                {
+                    moveControlDelta = 0.0f;
+                }
             }
         }
     }

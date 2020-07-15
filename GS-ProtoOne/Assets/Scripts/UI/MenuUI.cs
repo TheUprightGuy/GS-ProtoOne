@@ -5,9 +5,8 @@ using Audio;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.SceneManagement;
 
-public class SceneManager : MonoBehaviour
+public class MenuUI : MonoBehaviour
 {
     public GameObject menuLayout;
     public GameObject optionsCanvas;
@@ -21,17 +20,6 @@ public class SceneManager : MonoBehaviour
     {
         _eventSystem = EventSystem.current;
         _viewingOptionsMenu = false;
-    }
-
-    public void LoadScene(string sceneName)
-    {
-        AudioManager.Instance.PlaySound("hit");
-        UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
-    }
-    
-    public void QuitApplication()
-    {
-        Application.Quit();
     }
 
     public void ToggleOptionsCanvas()

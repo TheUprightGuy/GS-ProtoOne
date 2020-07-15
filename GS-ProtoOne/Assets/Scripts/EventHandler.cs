@@ -9,6 +9,8 @@ public class EventHandler : MonoBehaviour
 {
     #region Singleton
     public static EventHandler instance;
+    private Animator animator;
+    private string sceneToLoad;
     private void Awake()
     {
         if (instance != null)
@@ -20,6 +22,8 @@ public class EventHandler : MonoBehaviour
         {
             instance = this;
         }
+
+        animator = GetComponent<Animator>();
     }
     #endregion Singleton
 
@@ -83,6 +87,7 @@ public class EventHandler : MonoBehaviour
         }
     }
 
+    // Turn off Controls on Player Characters
     public event Action<bool> toggleState;
     public void ToggleState(bool _state)
     {
@@ -90,5 +95,22 @@ public class EventHandler : MonoBehaviour
         {
             toggleState(_state);
         }
+    }
+
+    // Scene Manager
+    public void ChangeScene(string _scene)
+    {
+        animator.SetTrigger("FadeOut");
+        sceneToLoad = _scene;
+    }
+
+    public void ChangeSceneFunc()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(sceneToLoad);
+        animator.SetTrigger("FadeIn");
+    }
+    public void QuitApplication()
+    {
+        Application.Quit();
     }
 }

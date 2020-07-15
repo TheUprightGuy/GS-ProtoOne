@@ -105,53 +105,53 @@ public class PlayerStats : MonoBehaviour
             switch (_part.partType)
             {
                 case PartType.Head:
+                {
+                    body.head = _part;
+                    for (int i = 0; i < heads.Count; i++)
                     {
-                        body.head = _part;
-                        for (int i = 0; i < heads.Count; i++)
+                        if (i == (int)_part.set)
                         {
-                            if (i == (int)_part.set)
-                            {
-                                heads[i].SetActive(true);
-                            }
-                            else
-                            {
-                                heads[i].SetActive(false);
-                            }
+                            heads[i].SetActive(true);
                         }
-                        break;
+                        else
+                        {
+                            heads[i].SetActive(false);
+                        }
                     }
+                    break;
+                }
                 case PartType.Arms:
+                {
+                    body.arms = _part;
+                    for (int i = 0; i < arms.Count; i++)
                     {
-                        body.arms = _part;
-                        for (int i = 0; i < arms.Count; i++)
+                        if (i == (int)_part.set)
                         {
-                            if (i == (int)_part.set)
-                            {
-                                arms[i].SetActive(true);
-                            }
-                            else
-                            {
-                                arms[i].SetActive(false);
-                            }
+                            arms[i].SetActive(true);
                         }
-                        break;
+                        else
+                        {
+                            arms[i].SetActive(false);
+                        }
                     }
+                    break;
+                }
                 case PartType.Legs:
+                {
+                    body.legs = _part;
+                    for (int i = 0; i < legs.Count; i++)
                     {
-                        body.legs = _part;
-                        for (int i = 0; i < legs.Count; i++)
+                        if (i == (int)_part.set)
                         {
-                            if (i == (int)_part.set)
-                            {
-                                legs[i].SetActive(true);
-                            }
-                            else
-                            {
-                                legs[i].SetActive(false);
-                            }
+                            legs[i].SetActive(true);
                         }
-                        break;
+                        else
+                        {
+                            legs[i].SetActive(false);
+                        }
                     }
+                    break;
+                }
             }
         }
     }
