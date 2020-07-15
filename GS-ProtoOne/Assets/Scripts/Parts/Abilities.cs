@@ -58,21 +58,16 @@ public class Kick : Ability
 public class Grapple : Ability
 {
     private readonly GameObject _grappleProjectilePrefab;
-    private LineRenderer _lineRenderer;
-
-    private GameObject _projInstance;
-    private GameObject _player;
 
     public Grapple(GameObject grappleProjectilePrefab)
     {
-        _lineRenderer = new LineRenderer();
         _grappleProjectilePrefab = grappleProjectilePrefab;
     }
 
     public void Use(PlayerMovement player)
     {
         Debug.Log("GrappleTriggered");
-        _projInstance = Object.Instantiate(_grappleProjectilePrefab, player.transform);
-        _player = player.gameObject;
+        var projInstance = Object.Instantiate(_grappleProjectilePrefab, player.transform);
+        projInstance.GetComponent<GrappleProjectile>().SetPlayerReference(player.gameObject);
     }
 }

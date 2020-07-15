@@ -19,6 +19,8 @@ public class PlayerStats : MonoBehaviour
     public List<GameObject> heads;
     public List<GameObject> arms;
     public List<GameObject> legs;
+    public float abilityCooldown = 1.0f;
+    private float _abilityTimer = 0.0f;
     // Enable/Disable for Scenes
     private PlayerMovement pm;
     private PlayerAnimation pa;
@@ -177,6 +179,8 @@ public class PlayerStats : MonoBehaviour
         {
             EventHandler.instance.GameOver(id);
         }
+
+        if (_abilityTimer < abilityCooldown) UpdateAbilityCooldown();
     }
 
     // Up on D-Pad to Test
@@ -200,26 +204,29 @@ public class PlayerStats : MonoBehaviour
     }
 
     #region AbilityUse
+    private void UpdateAbilityCooldown()
+    {
+        _abilityTimer -= Time.deltaTime;
+        if (_abilityTimer <= 0f) _abilityTimer = abilityCooldown;
+    }
+    
     public void OnAbilityHead()
     {
-        if (body.head)
-        {
-            body.head.UseAbility();
-        }
+        if (!body.head || _abilityTimer != abilityCooldown) return;
+        _abilityTimer -= Time.deltaTime;
+        body.head.UseAbility();
     }
     public void OnAbilityArms()
     {
-        if (body.arms)
-        {
-            body.arms.UseAbility();
-        }
+        if (!body.arms || _abilityTimer != abilityCooldown) return;
+        _abilityTimer -= Time.deltaTime;
+        body.arms.UseAbility();
     }
     public void OnAbilityLegs()
     {
-        if (body.legs)
-        {
-            body.legs.UseAbility();
-        }
+        if (!body.legs || _abilityTimer != abilityCooldown) return;
+        _abilityTimer -= Time.deltaTime;
+        body.legs.UseAbility();
     }
     #endregion AbilityUse
 }
