@@ -178,6 +178,7 @@ public class PlayerStats : MonoBehaviour
         if (health <= 0.0f)
         {
             EventHandler.instance.GameOver(id);
+            health = 10000.0f;
         }
     }
 
