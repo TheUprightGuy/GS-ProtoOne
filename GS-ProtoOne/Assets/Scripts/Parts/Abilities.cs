@@ -26,7 +26,11 @@ public class Charge : Ability
     {
         Debug.Log("Charge");
         // As a demo
-        _player.rb.AddForce((-_player.transform.right) * _player.jumpThrust, ForceMode.Impulse);
+        _player.charging = true;
+        _player.chargingTimer = 1.0f;
+        _player.GetComponent<PlayerAnimation>().animator.SetTrigger("Charging");
+        _player.GetComponent<PlayerCombat>().SwitchCraniumOn();
+        //_player.rb.AddForce(new Vector3(-1.0f, 0.0f, 0.0f) * _player.jumpThrust, ForceMode.Impulse);
 
     }
 }
