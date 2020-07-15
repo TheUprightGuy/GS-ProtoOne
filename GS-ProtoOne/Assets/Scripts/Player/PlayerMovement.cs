@@ -93,19 +93,36 @@ public class PlayerMovement : MonoBehaviour
         }
         transform.localScale = temp;
 
-
-        if (((rb.velocity.x < VelocityLimit) && (rb.velocity.x > -VelocityLimit))) //Stops movement above Velocity limit
+        if (charging)
         {
-            if (isGrounded)
+            if (closestDist < girth)
             {
-                rb.MovePosition(transform.position +
-                    ((-Vector3.right) * (moveSpeed * moveControlDelta)));
-            }
-            else
-            {
-                rb.AddForce(((-Vector3.right ) * (thrustInAir * moveControlDelta)));
+                charging = false;
+                // TEMPORARY
+                GetComponent<PlayerCombat>().SwitchCraniumOff();
+                return;
             }
 
+            rb.MovePosition(transform.position +
+            ((-Vector3.right) * (moveSpeed * 2)));
+        }
+        else
+        {
+            // TEMPORARY
+            GetComponent<PlayerCombat>().SwitchCraniumOff();
+
+            if (((rb.velocity.x < VelocityLimit) && (rb.velocity.x > -VelocityLimit))) //Stops movement above Velocity limit
+            {
+                if (isGrounded)
+                {
+                    rb.MovePosition(transform.position +
+                        ((-Vector3.right) * (moveSpeed * moveControlDelta)));
+                }
+                else
+                {
+                    rb.AddForce(((-Vector3.right) * (thrustInAir * moveControlDelta)));
+                }
+            }
         }
 
         velocity = ((transform.position.x - lastPosX) / Time.timeScale) * 1000.0f;

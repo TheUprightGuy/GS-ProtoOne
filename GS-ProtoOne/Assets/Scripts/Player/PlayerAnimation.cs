@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerAnimation : MonoBehaviour
 {
     #region Setup
-    private Animator animator;
+    [HideInInspector] public Animator animator;
     private PlayerMovement pm;
     [HideInInspector] public float jumpLength;
     public bool active = false;

@@ -13,6 +13,8 @@ public class PlayerCombat : MonoBehaviour
     public SphereCollider LeftFootLateralCuneiform;
     public SphereCollider RightFootLateralCuneiform;
 
+    public SphereCollider CraniumCollider;
+
     public PlayerStats thisStats;
 
     private void Awake() {
@@ -34,15 +36,25 @@ public class PlayerCombat : MonoBehaviour
     {
         LeftHandCarpals.enabled = true;
         RightHandCarpals.enabled = true;
-
     }
 
     public void SwitchHandsOff()
     {
         LeftHandCarpals.enabled = false;
         RightHandCarpals.enabled = false;
-
     }
+
+    public void SwitchCraniumOn()
+    {
+        CraniumCollider.enabled = true;
+    }
+
+    public void SwitchCraniumOff()
+    {
+        CraniumCollider.enabled = false;
+    }
+
+
     public void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "Hit")
         {
