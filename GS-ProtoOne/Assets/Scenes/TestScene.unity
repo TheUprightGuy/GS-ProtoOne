@@ -457,6 +457,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1553872164572313365, guid: 0c58cce89bdc2964e9f22393f73958eb,
+        type: 3}
+      propertyPath: blockTopY
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1553872164572313365, guid: 0c58cce89bdc2964e9f22393f73958eb,
+        type: 3}
+      propertyPath: blockBottomY
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3531004680499709680, guid: 0c58cce89bdc2964e9f22393f73958eb,
         type: 3}
       propertyPath: playerNo
