@@ -21,6 +21,7 @@ public class Part : ScriptableObject
     public Set set;
     public Ability ability;
     public AbilityName abilityName;
+    public GameObject abilityPrefab;
     [HideInInspector] public PlayerMovement player;
     [Header("Part Stats")]
     public int maxIntegrity;
@@ -51,7 +52,7 @@ public class Part : ScriptableObject
             }
             case AbilityName.Grapple:
             {
-                ability = new Grapple();
+                ability = new Grapple(abilityPrefab);
                 break;
             }
         }

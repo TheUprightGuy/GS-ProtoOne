@@ -32,7 +32,7 @@ public class PlayerAnimation : MonoBehaviour
         // Update Anim States
         animator.SetBool("Grounded", pm.isGrounded);
         animator.SetBool("isBlocking", pm.isBlocking);
-        animator.SetFloat("PosX", -pm.rb.velocity.x / pm.VelocityLimit);
+        animator.SetFloat("PosX", -pm.velocity / pm.VelocityLimit);
     }
 
 
