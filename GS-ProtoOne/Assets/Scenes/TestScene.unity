@@ -885,6 +885,51 @@ PrefabInstance:
       propertyPath: girth
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3531004680542438115, guid: 0c58cce89bdc2964e9f22393f73958eb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0.7268485
+      objectReference: {fileID: 0}
+    - target: {fileID: 3531004680542438115, guid: 0c58cce89bdc2964e9f22393f73958eb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -4.513432
+      objectReference: {fileID: 0}
+    - target: {fileID: 3531004680542438115, guid: 0c58cce89bdc2964e9f22393f73958eb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -93.2967
+      objectReference: {fileID: 0}
+    - target: {fileID: 3531004681408666209, guid: 0c58cce89bdc2964e9f22393f73958eb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -0.00960666
+      objectReference: {fileID: 0}
+    - target: {fileID: 3531004681408666209, guid: 0c58cce89bdc2964e9f22393f73958eb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 15.881003
+      objectReference: {fileID: 0}
+    - target: {fileID: 3531004681408666209, guid: 0c58cce89bdc2964e9f22393f73958eb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3531004681994180220, guid: 0c58cce89bdc2964e9f22393f73958eb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -0.000012806604
+      objectReference: {fileID: 0}
+    - target: {fileID: 3531004681994180220, guid: 0c58cce89bdc2964e9f22393f73958eb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -19.269106
+      objectReference: {fileID: 0}
+    - target: {fileID: 3531004681994180220, guid: 0c58cce89bdc2964e9f22393f73958eb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -89.9868
+      objectReference: {fileID: 0}
     - target: {fileID: 4901442803131480907, guid: 0c58cce89bdc2964e9f22393f73958eb,
         type: 3}
       propertyPath: m_IsTrigger

@@ -15974,7 +15974,14 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 0
-    functionName: HitBoxHit
+    functionName: SwitchHandsOn
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.2
+    functionName: SwitchHandsOff
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
