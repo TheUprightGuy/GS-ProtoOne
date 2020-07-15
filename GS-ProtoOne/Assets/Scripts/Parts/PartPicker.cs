@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Audio;
 using UnityEngine;
 
 // Enum for Part Slot
@@ -70,6 +71,7 @@ public class PartPicker : MonoBehaviour
     // Go to Next Part
     public void NextPart()
     {
+        AudioManager.Instance.PlaySound("ui");
         // At End - Loop to Start
         if (currentSelected + 1 >= partList[(int)currentType].Count)
         {
@@ -87,6 +89,7 @@ public class PartPicker : MonoBehaviour
     // Go to Previous Part
     public void PreviousPart()
     {
+        AudioManager.Instance.PlaySound("ui");
         // At Start - Loop to End
         if (currentSelected <= 0)
         {
@@ -104,6 +107,7 @@ public class PartPicker : MonoBehaviour
     // Go to Next Type
     public void NextType()
     {
+        AudioManager.Instance.PlaySound("ui");
         // At End - Loop to Start
         if ((int)currentType + 1 >= partList.Count)
         {
@@ -125,6 +129,7 @@ public class PartPicker : MonoBehaviour
     // Go to Previous Type
     public void PreviousType()
     {
+        AudioManager.Instance.PlaySound("ui");
         // At Start - Loop to End
         if ((int)currentType <= 0)
         {

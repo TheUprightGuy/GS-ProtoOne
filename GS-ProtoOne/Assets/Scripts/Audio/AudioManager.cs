@@ -84,7 +84,7 @@ namespace Audio
         private void PlaySound(AudioSource audioSource) //Only play sound if it's not already playing
         {
             AdjustPitchAndVolume(audioSource);
-            if (!audioSource.isPlaying)
+            if (!audioSource.isPlaying || audioSource.name == "ui")    //Should expand if any sounds(apart from UI) need to be played like this
                 audioSource.Play();
         }
 
