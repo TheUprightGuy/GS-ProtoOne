@@ -435,6 +435,17 @@
                 },
                 {
                     "name": "",
+                    "id": "264d3d42-d879-4fab-b0c4-049420319823",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyBoardLeft",
+                    "action": "ReadyUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "dcbfa1e7-32ea-494d-8cb7-2caab04c810e",
                     "path": "<Gamepad>/dpad/up",
                     "interactions": "",

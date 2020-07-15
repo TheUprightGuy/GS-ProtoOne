@@ -127,7 +127,7 @@ public class EventHandler : MonoBehaviour
     {
         SceneManager.LoadScene(sceneToLoad);
         animator.SetTrigger("FadeIn");
-        ResetCharacters();
+        //ResetCharacters();
     }
     public void QuitApplication()
     {

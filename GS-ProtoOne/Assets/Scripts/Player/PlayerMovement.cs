@@ -65,21 +65,21 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, Mathf.Infinity))
+        {
+            if (hit.distance < boundsRange + 0.001f)
+            {
+                isGrounded = true;
+            }
+            else
+            {
+                isGrounded = false;
+            }
+        }
+
         if (active)
         {
-            RaycastHit hit;
-            if (Physics.Raycast(transform.position, Vector3.down, out hit, Mathf.Infinity))
-            {
-                if (hit.distance < boundsRange + 0.001f)
-                {
-                    isGrounded = true;
-                }
-                else
-                {
-                    isGrounded = false;
-                }
-            }
-
             Vector3 closestPlayerPos = transform.position;
             float closestDist = 1000.0f;
             foreach (var item in GameObject.FindGameObjectsWithTag("Player"))

@@ -79,7 +79,7 @@ public class PlayerStats : MonoBehaviour
     // Get Character Ready
     public void SetupCharacter()
     {
-        ToggleState(true);
+        //ToggleState(true);
 
         // Head
         body.head = Object.Instantiate(body.head) as Part;
