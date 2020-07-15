@@ -5,18 +5,6 @@ using UnityEngine;
 public class Hit : MonoBehaviour
 {
 
-    public float HitCooldown = 0.1f;
+    public float Damage = 10.0f;
     
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
 }

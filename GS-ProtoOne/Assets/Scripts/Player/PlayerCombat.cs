@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
-    public float HitCooldown = 0.5f;
+    public float BlockPercent = 0.5f;
     private GameObject hitCollider = null;
+
 
 
     
@@ -22,8 +23,12 @@ public class PlayerCombat : MonoBehaviour
 
     public SphereCollider LeftFootLateralCuneiform;
     public SphereCollider RightFootLateralCuneiform;
+
+
+    private PlayerMovement pm;
     private void Awake() {
         thisStats = GetComponent<PlayerStats>();
+        pm = GetComponent<PlayerMovement>();
     }
     public void SwitchFeetOff()
     {
@@ -56,8 +61,10 @@ public class PlayerCombat : MonoBehaviour
         if (other.gameObject.tag == "Hit")
         {
             hitPos = other.transform.position;
-            thisStats.TakeDamage(1.0f);
-            Debug.Log("zoop");
+
+            float totalDmg = (pm.isBlocking) ? (other.GetComponent<Hit>().Damage * BlockPercent) : (other.GetComponent<Hit>().Damage  );
+            thisStats.TakeDamage(totalDmg);
+            Debug.Log("zooped for " + totalDmg.ToString() + " damage");
         }
     }
 
