@@ -121,7 +121,7 @@ public class PlayerMovement : MonoBehaviour
             }
 
             rb.MovePosition(transform.position +
-            ((-Vector3.right) * (moveSpeed * 2)));
+            ((-Vector3.right) * (moveSpeed * 2) * temp.z));
         }
         else
         {

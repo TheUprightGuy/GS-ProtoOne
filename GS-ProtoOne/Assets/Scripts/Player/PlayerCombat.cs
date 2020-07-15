@@ -71,6 +71,8 @@ public class PlayerCombat : MonoBehaviour
             float totalDmg = (pm.isBlocking) ? (other.GetComponent<Hit>().Damage * BlockPercent) : (other.GetComponent<Hit>().Damage  );
             thisStats.TakeDamage(totalDmg);
             Debug.Log("zooped for " + totalDmg.ToString() + " damage");
+
+            other.GetComponent<SphereCollider>().enabled = false;
         }
     }
 }
