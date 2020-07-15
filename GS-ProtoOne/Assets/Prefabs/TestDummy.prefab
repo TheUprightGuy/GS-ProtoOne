@@ -216,6 +216,7 @@ MonoBehaviour:
   active: 0
   charging: 0
   chargingTimer: 0
+  boundsRange: 0
   rb: {fileID: 0}
 --- !u!114 &3531004680499709693
 MonoBehaviour:
@@ -259,8 +260,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BlockPercent: 0.5
   hitPos: {x: 0, y: 0, z: 0}
-  blockTopY: 0.3
-  blockBottomY: 2
+  blockTopY: 1.5
+  blockBottomY: 1
   LeftHandCarpals: {fileID: 7259752083038962812}
   RightHandCarpals: {fileID: 851010187977731389}
   LeftFootLateralCuneiform: {fileID: 1440508797445778812}

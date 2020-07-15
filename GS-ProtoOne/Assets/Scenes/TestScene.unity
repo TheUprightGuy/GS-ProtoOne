@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c484a496dba60a848acd44f5db5789d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  QueryIndex: 1
+  QueryIndex: 0
   AllPlayers:
   - ControlScheme: 
   - ControlScheme: 
@@ -476,16 +476,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1553872164572313365, guid: 0c58cce89bdc2964e9f22393f73958eb,
-        type: 3}
-      propertyPath: blockTopY
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1553872164572313365, guid: 0c58cce89bdc2964e9f22393f73958eb,
-        type: 3}
-      propertyPath: blockBottomY
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3531004680499709680, guid: 0c58cce89bdc2964e9f22393f73958eb,
         type: 3}
       propertyPath: playerNo
