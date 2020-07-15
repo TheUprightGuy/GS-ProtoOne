@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Audio;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -20,7 +21,8 @@ public class PlayerMovement : MonoBehaviour
     public float girth = 1.0f;
     // Player Control Tracking
     private bool keyDown = false;
-    [HideInInspector] public float moveControlDelta = 0.0f;
+    //[HideInInspector]
+    public float moveControlDelta = 0.0f;
     // Public for Animator
     [HideInInspector] public bool isBlocking = false;
     [HideInInspector] public bool isGrounded = true;
@@ -173,6 +175,7 @@ public class PlayerMovement : MonoBehaviour
                 rb.AddForce((transform.up) * jumpThrust, ForceMode.Impulse);
                 rb.AddForce((-Vector3.right) * moveControlDelta * jumpThrust * 0.5f, ForceMode.Impulse);
                 isGrounded = false;
+                AudioManager.Instance.PlaySound("jump");
             }
         }
     }

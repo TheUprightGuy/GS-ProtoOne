@@ -393,6 +393,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""c66eee95-e775-47d1-ad33-c8e0afdc610d"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AbilityHead"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""de7fc55c-9160-47f9-9644-a0ddac855667"",
                     ""path"": ""<Gamepad>/leftStick/right"",
                     ""interactions"": ""MultiTap"",
