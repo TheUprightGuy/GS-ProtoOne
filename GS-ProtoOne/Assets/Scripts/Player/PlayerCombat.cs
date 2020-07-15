@@ -7,15 +7,10 @@ public class PlayerCombat : MonoBehaviour
     public float BlockPercent = 0.5f;
     private GameObject hitCollider = null;
 
-
-
-    
-    private PlayerStats thisStats;
+    public Vector3 hitPos = Vector3.zero;
 
     public float blockTopY = 0.0f;
     public float blockBottomY = 1.0f;
-
-
 
     [Header("Colliders")]
     public SphereCollider LeftHandCarpals;

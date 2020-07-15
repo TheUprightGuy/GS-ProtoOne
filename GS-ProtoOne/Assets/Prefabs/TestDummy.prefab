@@ -258,12 +258,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BlockPercent: 0.5
+  hitPos: {x: 0, y: 0, z: 0}
   blockTopY: 0.3
   blockBottomY: 2
   LeftHandCarpals: {fileID: 7259752083038962812}
   RightHandCarpals: {fileID: 851010187977731389}
   LeftFootLateralCuneiform: {fileID: 1440508797445778812}
   RightFootLateralCuneiform: {fileID: 2942078711079810323}
+  CraniumCollider: {fileID: 8485402655823640142}
+  thisStats: {fileID: 0}
 --- !u!136 &2524586786191283477
 CapsuleCollider:
   m_ObjectHideFlags: 0

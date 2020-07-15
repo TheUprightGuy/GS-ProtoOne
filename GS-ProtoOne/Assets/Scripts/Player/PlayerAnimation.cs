@@ -46,7 +46,7 @@ public class PlayerAnimation : MonoBehaviour
         }
     }
 
-    public void Jump()
+    public void JumpAnim()
     {
         if (active)
         {
