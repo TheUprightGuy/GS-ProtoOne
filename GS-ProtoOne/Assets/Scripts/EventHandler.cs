@@ -109,4 +109,8 @@ public class EventHandler : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene(sceneToLoad);
         animator.SetTrigger("FadeIn");
     }
+    public void QuitApplication()
+    {
+        Application.Quit();
+    }
 }
