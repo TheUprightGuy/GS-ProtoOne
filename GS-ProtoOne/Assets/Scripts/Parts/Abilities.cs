@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Parts;
 using UnityEngine;
 
 public enum AbilityName
@@ -56,17 +57,22 @@ public class Kick : Ability
 
 public class Grapple : Ability
 {
-    private LayerMask _layerMask = LayerMask.NameToLayer("Player");
-    private const float MaxDistance = 10.0f;
+    private readonly GameObject _grappleProjectilePrefab;
+    private LineRenderer _lineRenderer;
 
-    public void Use(PlayerMovement _player)
+    private GameObject _projInstance;
+    private GameObject _player;
+
+    public Grapple(GameObject grappleProjectilePrefab)
+    {
+        _lineRenderer = new LineRenderer();
+        _grappleProjectilePrefab = grappleProjectilePrefab;
+    }
+
+    public void Use(PlayerMovement player)
     {
         Debug.Log("GrappleTriggered");
-        var transform = _player.transform;
-        _player.transform.Translate(transform.worldToLocalMatrix.MultiplyVector(transform.forward));
-        var ray = transform.worldToLocalMatrix.MultiplyVector(transform.forward);
-        var position = _player.transform.position;
-        bool grappleHit = Physics.Raycast (position, ray, out var hit, 10.0f);
-        Debug.Log(grappleHit ? "grappleHit" : "grappleMissed");
+        _projInstance = Object.Instantiate(_grappleProjectilePrefab, player.transform);
+        _player = player.gameObject;
     }
 }
