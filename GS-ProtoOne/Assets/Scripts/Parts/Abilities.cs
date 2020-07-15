@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Audio;
 using Parts;
 using UnityEngine;
 
@@ -71,6 +72,7 @@ public class Grapple : Ability
     public void Use(PlayerMovement player)
     {
         Debug.Log("GrappleTriggered");
+        AudioManager.Instance.PlaySound("frog");
         var projInstance = Object.Instantiate(_grappleProjectilePrefab, player.transform);
         projInstance.GetComponent<GrappleProjectile>().SetPlayerReference(player.gameObject);
     }

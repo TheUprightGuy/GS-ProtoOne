@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Audio;
 using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
@@ -73,6 +74,8 @@ public class PlayerCombat : MonoBehaviour
             Debug.Log("zooped for " + totalDmg.ToString() + " damage");
 
             other.GetComponent<SphereCollider>().enabled = false;
+            AudioManager.Instance.PlaySound("hit");
+            AudioManager.Instance.PlaySound("hurt");
         }
     }
 }

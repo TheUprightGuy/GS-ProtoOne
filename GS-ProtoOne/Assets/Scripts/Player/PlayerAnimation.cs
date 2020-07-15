@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Audio;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,6 +11,8 @@ public class PlayerAnimation : MonoBehaviour
     private PlayerMovement pm;
     [HideInInspector] public float jumpLength;
     public bool active = false;
+    private float _jumpAnimationLength = 0.4f;
+    private float _jumpTimer;
 
     private void Awake()
     {
@@ -35,6 +38,7 @@ public class PlayerAnimation : MonoBehaviour
         animator.SetBool("Grounded", pm.isGrounded);
         animator.SetBool("isBlocking", pm.isBlocking);
         animator.SetFloat("PosX", -pm.velocity / pm.VelocityLimit);
+        _jumpTimer += Time.deltaTime;
     }
 
 
@@ -48,18 +52,20 @@ public class PlayerAnimation : MonoBehaviour
 
     public void JumpAnim()
     {
-        if (active)
-        {
-            animator.SetTrigger("Jumping");
-        }
+        if (!active) return;
+        animator.SetTrigger("Jumping");
+        if (_jumpTimer <= _jumpAnimationLength) return;
+        AudioManager.Instance.PlaySound("jump");
+        _jumpTimer = 0f;
     }
 
     public void OnPunch()
     {
-        if (active && !attacking)
+        if (active && !attacking && !pm.isBlocking)
         {
             animator.SetTrigger("Punching");
             attacking = true;
+            AudioManager.Instance.PlaySound("armSwing");
         }
     }
 
@@ -69,6 +75,7 @@ public class PlayerAnimation : MonoBehaviour
         {
             animator.SetTrigger("Kicking");
             attacking = true;
+            AudioManager.Instance.PlaySound("legSwing");
         }
     }
 

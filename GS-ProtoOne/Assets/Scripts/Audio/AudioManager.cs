@@ -90,7 +90,7 @@ namespace Audio
 
         private void AdjustPitchAndVolume(AudioSource audioSource)
         {
-            audioSource.pitch *= (Random.value + 0.5f); //Pitch is default multiplied by random value between 0.5 and 1.5
+            audioSource.pitch *= (Random.value * 0.5f + 0.75f); //Pitch is default multiplied by random value between 0.75 and 1.25
             audioSource.volume *= masterVolume;
         }
     }
