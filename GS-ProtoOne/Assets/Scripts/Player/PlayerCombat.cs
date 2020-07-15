@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -75,4 +75,12 @@ public class PlayerCombat : MonoBehaviour
             other.GetComponent<SphereCollider>().enabled = false;
         }
     }
+
+       private void OnDrawGizmos() { 
+ 
+        float calcTopY = transform.position.y + blockTopY; 
+        float calcBotY = transform.position.y + blockBottomY; 
+        Gizmos.color = ((hitPos.y < calcTopY) && (hitPos.y > calcBotY)) ? (Color.red) : (Color.white); 
+        Gizmos.DrawSphere(hitPos, 0.1f); 
+    } 
 }
