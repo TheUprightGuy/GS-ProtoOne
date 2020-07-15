@@ -42,8 +42,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.875868, y: 1.27, z: 1}
-  m_Center: {x: -0.20284183, y: 0.050000012, z: 0.00000009139792}
+  m_Size: {x: 0.6758638, y: 1.27, z: 1}
+  m_Center: {x: -0.10283979, y: 0.050000012, z: 0.000000044714266}
 --- !u!1 &3531004680499709692
 GameObject:
   m_ObjectHideFlags: 0
@@ -60,8 +60,8 @@ GameObject:
   - component: {fileID: 3531004680499709695}
   - component: {fileID: 3531004680499709694}
   - component: {fileID: 3531004680499709693}
-  - component: {fileID: 8323016200564030619}
   - component: {fileID: 1553872164572313365}
+  - component: {fileID: 2524586786191283477}
   m_Layer: 0
   m_Name: TestDummy
   m_TagString: Player
@@ -245,19 +245,6 @@ MonoBehaviour:
   head: {fileID: 11400000, guid: 18e9917e41d5aff4fa7772a14f604ad6, type: 2}
   arm: {fileID: 11400000, guid: aee126df31a08b245a24c99184873ca4, type: 2}
   leg: {fileID: 11400000, guid: b9bee989bf438b84291252bb7e3bf966, type: 2}
---- !u!65 &8323016200564030619
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3531004680499709692}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.21382289, y: 0.041632295, z: 0.26}
-  m_Center: {x: 0.09655198, y: 0.025958002, z: 0.047220707}
 --- !u!114 &1553872164572313365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,13 +257,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 637ead8b22f36ef4c84d2033b402a976, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HitCooldown: 0.5
+  BlockPercent: 0.5
+  blockTopY: 0.3
+  blockBottomY: 2
   LeftHandCarpals: {fileID: 7259752083038962812}
   RightHandCarpals: {fileID: 851010187977731389}
   LeftFootLateralCuneiform: {fileID: 1440508797445778812}
   RightFootLateralCuneiform: {fileID: 2942078711079810323}
-  CraniumCollider: {fileID: 8485402655823640142}
-  thisStats: {fileID: 0}
+--- !u!136 &2524586786191283477
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3531004680499709692}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.1764458
+  m_Height: 1.3898152
+  m_Direction: 1
+  m_Center: {x: 0.09976539, y: 0.6605204, z: -0.0000004753468}
 --- !u!1 &3531004680512941952
 GameObject:
   m_ObjectHideFlags: 0
@@ -714,7 +715,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1767c1b4cc3e02647ade5572c0c7de9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HitCooldown: 0.4
+  Damage: 10
 --- !u!1 &3531004680778789996
 GameObject:
   m_ObjectHideFlags: 0
@@ -1603,7 +1604,6 @@ GameObject:
   - component: {fileID: 3531004681728232724}
   - component: {fileID: 3531004681728232726}
   - component: {fileID: 3531004681728232725}
-  - component: {fileID: 7230551228020300283}
   m_Layer: 0
   m_Name: RoboPlayerLForearm
   m_TagString: Untagged
@@ -1673,19 +1673,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &7230551228020300283
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3531004681728232723}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 0.26, y: 0.7, z: 0.048261028}
-  m_Center: {x: -0.1203171, y: 0.0029887166, z: -0.0000017865552}
 --- !u!1 &3531004681802480556
 GameObject:
   m_ObjectHideFlags: 0
@@ -1872,7 +1859,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1767c1b4cc3e02647ade5572c0c7de9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HitCooldown: 0.4
+  Damage: 10
 --- !u!1 &3531004681834007658
 GameObject:
   m_ObjectHideFlags: 0
@@ -2148,7 +2135,6 @@ GameObject:
   - component: {fileID: 3531004681897957433}
   - component: {fileID: 3531004681897957435}
   - component: {fileID: 3531004681897957434}
-  - component: {fileID: 1718754226333781556}
   m_Layer: 0
   m_Name: RoboPlayerRForearm
   m_TagString: Untagged
@@ -2218,19 +2204,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &1718754226333781556
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3531004681897957432}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 0.26, y: 0.22, z: 0.048261028}
-  m_Center: {x: -0.1203171, y: 0.0029887166, z: -0.0000017865552}
 --- !u!1 &3531004681913524189
 GameObject:
   m_ObjectHideFlags: 0
@@ -2447,7 +2420,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1767c1b4cc3e02647ade5572c0c7de9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HitCooldown: 0.4
+  Damage: 10
 --- !u!1 &3531004682178650291
 GameObject:
   m_ObjectHideFlags: 0
@@ -2874,7 +2847,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1767c1b4cc3e02647ade5572c0c7de9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HitCooldown: 0.4
+  Damage: 10
 --- !u!1 &3531004682298777349
 GameObject:
   m_ObjectHideFlags: 0

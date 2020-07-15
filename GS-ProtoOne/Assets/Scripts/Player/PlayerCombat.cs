@@ -4,9 +4,20 @@ using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
-    public float HitCooldown = 0.5f;
+    public float BlockPercent = 0.5f;
     private GameObject hitCollider = null;
 
+
+
+    
+    private PlayerStats thisStats;
+
+    public float blockTopY = 0.0f;
+    public float blockBottomY = 1.0f;
+
+
+
+    [Header("Colliders")]
     public SphereCollider LeftHandCarpals;
     public SphereCollider RightHandCarpals;
 
@@ -17,8 +28,10 @@ public class PlayerCombat : MonoBehaviour
 
     public PlayerStats thisStats;
 
+    private PlayerMovement pm;
     private void Awake() {
         thisStats = GetComponent<PlayerStats>();
+        pm = GetComponent<PlayerMovement>();
     }
     public void SwitchFeetOff()
     {
@@ -58,8 +71,11 @@ public class PlayerCombat : MonoBehaviour
     public void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "Hit")
         {
-            thisStats.TakeDamage(1.0f);
-            Debug.Log("zoop");
+            hitPos = other.transform.position;
+
+            float totalDmg = (pm.isBlocking) ? (other.GetComponent<Hit>().Damage * BlockPercent) : (other.GetComponent<Hit>().Damage  );
+            thisStats.TakeDamage(totalDmg);
+            Debug.Log("zooped for " + totalDmg.ToString() + " damage");
         }
     }
 }
