@@ -42,8 +42,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.36832428, y: 1.27, z: 1}
-  m_Center: {x: 0.050930023, y: 0.05, z: 0}
+  m_Size: {x: 0.875868, y: 1.27, z: 1}
+  m_Center: {x: -0.20284183, y: 0.050000012, z: 0.00000009139792}
 --- !u!1 &3531004680499709692
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,6 +274,7 @@ MonoBehaviour:
   RightHandCarpals: {fileID: 851010187977731389}
   LeftFootLateralCuneiform: {fileID: 1440508797445778812}
   RightFootLateralCuneiform: {fileID: 2942078711079810323}
+  thisStats: {fileID: 0}
 --- !u!1 &3531004680512941952
 GameObject:
   m_ObjectHideFlags: 0
@@ -2210,7 +2211,7 @@ BoxCollider:
   m_GameObject: {fileID: 3531004681897957432}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.26, y: 0.22, z: 0.048261028}
   m_Center: {x: -0.1203171, y: 0.0029887166, z: -0.0000017865552}

@@ -50,7 +50,4 @@ public class PlayerCombat : MonoBehaviour
             Debug.Log("zoop");
         }
     }
-
-
-
 }
