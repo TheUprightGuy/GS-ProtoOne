@@ -24,7 +24,9 @@ public class PlayerAnimation : MonoBehaviour
             }
         }
     }
-#endregion Setup
+    #endregion Setup
+
+    public bool attacking;
 
     // Update is called once per frame
     void Update()
@@ -54,17 +56,24 @@ public class PlayerAnimation : MonoBehaviour
 
     public void OnPunch()
     {
-        if (active)
+        if (active && !attacking)
         {
             animator.SetTrigger("Punching");
+            attacking = true;
         }
     }
 
     public void OnKick()
     {
-        if (active)
+        if (active && !attacking)
         {
             animator.SetTrigger("Kicking");
+            attacking = true;
         }
+    }
+
+    public void ResetAttackState()
+    {
+        attacking = false;
     }
 }
