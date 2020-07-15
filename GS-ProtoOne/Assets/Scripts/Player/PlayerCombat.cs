@@ -6,10 +6,10 @@ public class PlayerCombat : MonoBehaviour
 {
     public float HitCooldown = 0.5f;
     private GameObject hitCollider = null;
-    private void OnTriggerEnter(Collider other) {
-      
-    }
+    
+  
 
+    
 private void OnCollisionEnter(Collision other) {
       if (other.gameObject.tag == "Hit")
         {
@@ -19,8 +19,5 @@ private void OnCollisionEnter(Collision other) {
 
         }
 }
-    private void HitBoxHit()
-    {
-        GetComponent<BoxCollider>().enabled = true;
-    }
+ 
 }

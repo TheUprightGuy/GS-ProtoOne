@@ -76,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 temp = transform.localScale;
         if (closestPlayerPos.x > transform.position.x)
         {
-            temp.x = -1;
+            temp.z = -1;
 
             if (moveControlDelta < 0 && closestDist < girth)
             {
@@ -89,7 +89,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 moveControlDelta = 0;
             }
-            temp.x = 1;
+            temp.z = 1;
         }
         transform.localScale = temp;
 
@@ -99,11 +99,11 @@ public class PlayerMovement : MonoBehaviour
             if (isGrounded)
             {
                 rb.MovePosition(transform.position +
-                    ((-transform.right) * (moveSpeed * moveControlDelta)));
+                    ((-Vector3.right) * (moveSpeed * moveControlDelta)));
             }
             else
             {
-                rb.AddForce(((-transform.right ) * (thrustInAir * moveControlDelta)));
+                rb.AddForce(((-Vector3.right ) * (thrustInAir * moveControlDelta)));
             }
 
         }

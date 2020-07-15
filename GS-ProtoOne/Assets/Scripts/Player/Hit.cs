@@ -32,5 +32,6 @@ public class Hit : MonoBehaviour
     public void HitSwitch()
     {
         colliderComp.enabled = !colliderComp.enabled;
+        Debug.Log("zoop");
     }
 }
