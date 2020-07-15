@@ -20,7 +20,8 @@ public class PlayerMovement : MonoBehaviour
     public float girth = 1.0f;
     // Player Control Tracking
     private bool keyDown = false;
-    [HideInInspector] public float moveControlDelta = 0.0f;
+    //[HideInInspector] 
+    public float moveControlDelta = 0.0f;
     // Public for Animator
     [HideInInspector] public bool isBlocking = false;
     [HideInInspector] public bool isGrounded = true;
@@ -64,87 +65,90 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, Mathf.Infinity))
+        if (active)
         {
-            if (hit.distance < boundsRange + 0.001f)
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, Vector3.down, out hit, Mathf.Infinity))
             {
-                isGrounded = true;
-            }
-            else
-            {
-                isGrounded = false;
-            }
-        }
-
-        Vector3 closestPlayerPos = transform.position;
-        float closestDist = 1000.0f;
-        foreach (var item in GameObject.FindGameObjectsWithTag("Player"))
-        {
-            float dist = Vector3.Distance(transform.position, item.transform.position);
-
-            if (dist < closestDist && transform.position != item.transform.position)
-            {
-                closestDist = dist;
-                closestPlayerPos = item.transform.position;
-            }
-        }
-
-        Vector3 temp = transform.localScale;
-        if (closestPlayerPos.x > transform.position.x)
-        {
-            temp.z = -1;
-
-            if (moveControlDelta < 0 && closestDist < girth)
-            {
-                moveControlDelta = 0;
-            }
-        }
-        else
-        {
-            if (moveControlDelta > 0 && closestDist < girth)
-            {
-                moveControlDelta = 0;
-            }
-            temp.z = 1;
-        }
-        transform.localScale = temp;
-
-        if (charging)
-        {
-            if (closestDist < girth)
-            {
-                charging = false;
-                // TEMPORARY
-                GetComponent<PlayerCombat>().SwitchCraniumOff();
-                return;
-            }
-
-            rb.MovePosition(transform.position +
-            ((-Vector3.right) * (moveSpeed * 2) * temp.z));
-        }
-        else
-        {
-            // TEMPORARY
-            GetComponent<PlayerCombat>().SwitchCraniumOff();
-
-            if (((rb.velocity.x < VelocityLimit) && (rb.velocity.x > -VelocityLimit))) //Stops movement above Velocity limit
-            {
-                if (isGrounded)
+                if (hit.distance < boundsRange + 0.001f)
                 {
-                    rb.MovePosition(transform.position +
-                        ((-Vector3.right) * (moveSpeed * moveControlDelta)));
+                    isGrounded = true;
                 }
                 else
                 {
-                    //rb.AddForce(((-Vector3.right) * (thrustInAir * moveControlDelta)));
+                    isGrounded = false;
                 }
             }
-        }
 
-        velocity = ((transform.position.x - lastPosX) / Time.timeScale) * 1000.0f;
-        velocity *= transform.localScale.x;
-        lastPosX = transform.position.x;
+            Vector3 closestPlayerPos = transform.position;
+            float closestDist = 1000.0f;
+            foreach (var item in GameObject.FindGameObjectsWithTag("Player"))
+            {
+                float dist = Vector3.Distance(transform.position, item.transform.position);
+
+                if (dist < closestDist && transform.position != item.transform.position)
+                {
+                    closestDist = dist;
+                    closestPlayerPos = item.transform.position;
+                }
+            }
+
+            Vector3 temp = transform.localScale;
+            if (closestPlayerPos.x > transform.position.x)
+            {
+                temp.z = -1;
+
+                if (moveControlDelta < 0 && closestDist < girth)
+                {
+                    moveControlDelta = 0;
+                }
+            }
+            else
+            {
+                if (moveControlDelta > 0 && closestDist < girth)
+                {
+                    moveControlDelta = 0;
+                }
+                temp.z = 1;
+            }
+            transform.localScale = temp;
+
+            if (charging)
+            {
+                if (closestDist < girth)
+                {
+                    charging = false;
+                    // TEMPORARY
+                    GetComponent<PlayerCombat>().SwitchCraniumOff();
+                    return;
+                }
+
+                rb.MovePosition(transform.position +
+                ((-Vector3.right) * (moveSpeed * 2) * temp.z));
+            }
+            else
+            {
+                // TEMPORARY
+                GetComponent<PlayerCombat>().SwitchCraniumOff();
+
+                if (((rb.velocity.x < VelocityLimit) && (rb.velocity.x > -VelocityLimit))) //Stops movement above Velocity limit
+                {
+                    if (isGrounded)
+                    {
+                        rb.MovePosition(transform.position +
+                            ((-Vector3.right) * (moveSpeed * moveControlDelta)));
+                    }
+                    else
+                    {
+                        //rb.AddForce(((-Vector3.right) * (thrustInAir * moveControlDelta)));
+                    }
+                }
+            }
+
+            velocity = ((transform.position.x - lastPosX) / Time.timeScale) * 1000.0f;
+            velocity *= transform.localScale.x;
+            lastPosX = transform.position.x;
+        }
     }
 
     public void OnDashForward()
@@ -200,21 +204,15 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnMove(InputValue value)
     {
-        if (active)
+        float delta = value.Get<float>();
+        moveControlDelta = (delta > moveDeadZone || delta < -moveDeadZone) ? (delta) : 0.0f;
+
+        keyDown = !keyDown;
+
+        if (!keyDown) //If released at all, stop movement
         {
-            //if (charging == false)
-            {
-                float delta = value.Get<float>();
-                moveControlDelta = (delta > moveDeadZone || delta < -moveDeadZone) ? (delta) : 0.0f;
-
-                keyDown = !keyDown;
-
-                if (!keyDown) //If released at all, stop movement
-                {
-                    moveControlDelta = 0.0f;
-                }
-            }
-        }
+            moveControlDelta = 0.0f;
+        }         
     }
 
     public void OnBlock()

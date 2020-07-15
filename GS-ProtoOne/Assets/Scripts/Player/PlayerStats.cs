@@ -48,6 +48,7 @@ public class PlayerStats : MonoBehaviour
         EventHandler.instance.setupCharacter += SetupCharacter;
         EventHandler.instance.moveCharacter += MoveCharacter;
         EventHandler.instance.toggleState += ToggleState;
+        EventHandler.instance.resetCharacters += ResetCharacter;
 
         SetPart(id, head);
         SetPart(id, arm);
@@ -64,6 +65,7 @@ public class PlayerStats : MonoBehaviour
         EventHandler.instance.setupCharacter -= SetupCharacter;
         EventHandler.instance.moveCharacter -= MoveCharacter;
         EventHandler.instance.toggleState -= ToggleState;
+        EventHandler.instance.resetCharacters -= ResetCharacter;
     }
     #endregion Setup
 
@@ -197,6 +199,13 @@ public class PlayerStats : MonoBehaviour
     {
         pm.active = _state;
         pa.active = _state;
+    }
+
+
+    public void ResetCharacter()
+    {
+        health = maxHealth;
+        ToggleState(true);
     }
 
     #region AbilityUse
