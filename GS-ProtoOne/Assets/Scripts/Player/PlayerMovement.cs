@@ -30,6 +30,8 @@ public class PlayerMovement : MonoBehaviour
     public bool charging = false;
     public float chargingTimer = 0.0f;
 
+    public float boundsRange;
+
     #region Setup
     [HideInInspector] public Rigidbody rb;
     private PlayerAnimation pa;
@@ -41,7 +43,9 @@ public class PlayerMovement : MonoBehaviour
         pa = GetComponent<PlayerAnimation>();
         lastPosX = transform.position.x;
 
+        boundsRange = GetComponent<CapsuleCollider>().bounds.extents.y;
     }
+
     #endregion Setup
 
     // Update is called once per frame
@@ -60,6 +64,19 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, Mathf.Infinity))
+        {
+            if (hit.distance < boundsRange + 0.001f)
+            {
+                isGrounded = true;
+            }
+            else
+            {
+                isGrounded = false;
+            }
+        }
+
         Vector3 closestPlayerPos = transform.position;
         float closestDist = 1000.0f;
         foreach (var item in GameObject.FindGameObjectsWithTag("Player"))
@@ -93,19 +110,36 @@ public class PlayerMovement : MonoBehaviour
         }
         transform.localScale = temp;
 
-
-        if (((rb.velocity.x < VelocityLimit) && (rb.velocity.x > -VelocityLimit))) //Stops movement above Velocity limit
+        if (charging)
         {
-            if (isGrounded)
+            if (closestDist < girth)
             {
-                rb.MovePosition(transform.position +
-                    ((-Vector3.right) * (moveSpeed * moveControlDelta)));
-            }
-            else
-            {
-                rb.AddForce(((-Vector3.right ) * (thrustInAir * moveControlDelta)));
+                charging = false;
+                // TEMPORARY
+                GetComponent<PlayerCombat>().SwitchCraniumOff();
+                return;
             }
 
+            rb.MovePosition(transform.position +
+            ((-Vector3.right) * (moveSpeed * 2) * temp.z));
+        }
+        else
+        {
+            // TEMPORARY
+            GetComponent<PlayerCombat>().SwitchCraniumOff();
+
+            if (((rb.velocity.x < VelocityLimit) && (rb.velocity.x > -VelocityLimit))) //Stops movement above Velocity limit
+            {
+                if (isGrounded)
+                {
+                    rb.MovePosition(transform.position +
+                        ((-Vector3.right) * (moveSpeed * moveControlDelta)));
+                }
+                else
+                {
+                    //rb.AddForce(((-Vector3.right) * (thrustInAir * moveControlDelta)));
+                }
+            }
         }
 
         velocity = ((transform.position.x - lastPosX) / Time.timeScale) * 1000.0f;
@@ -124,16 +158,23 @@ public class PlayerMovement : MonoBehaviour
             if (isGrounded)
             {
                 isBlocking = false;
-                pa.Jump();
-
-                Invoke("Jump", pa.jumpLength);
+                pa.JumpAnim();            
             }
         }
     }
     public void Jump()
     {
-        rb.AddForce((transform.up) * jumpThrust, ForceMode.Impulse);
-        isGrounded = false;
+        if (active)
+        {
+            if (isGrounded)
+            {
+                //Invoke("Jump", pa.jumpLength);
+
+                rb.AddForce((transform.up) * jumpThrust, ForceMode.Impulse);
+                rb.AddForce((-Vector3.right) * moveControlDelta * jumpThrust * 0.5f, ForceMode.Impulse);
+                isGrounded = false;
+            }
+        }
     }
 
     public void OnPunch()
@@ -208,8 +249,6 @@ public class PlayerMovement : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         //If touching a collider marked as ground, jump will be enabled
-        isGrounded = (collision.gameObject.tag == "Ground");
-
-
+        //isGrounded = (collision.gameObject.tag == "Ground");
     }
 }

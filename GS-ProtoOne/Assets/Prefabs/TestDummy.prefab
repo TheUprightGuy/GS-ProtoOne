@@ -141,6 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0e7766c216c565418e70fec64e2364e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
   jumpLength: 0
   active: 0
   attacking: 0
@@ -257,12 +258,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BlockPercent: 0.5
+  hitPos: {x: 0, y: 0, z: 0}
   blockTopY: 0.3
   blockBottomY: 2
   LeftHandCarpals: {fileID: 7259752083038962812}
   RightHandCarpals: {fileID: 851010187977731389}
   LeftFootLateralCuneiform: {fileID: 1440508797445778812}
   RightFootLateralCuneiform: {fileID: 2942078711079810323}
+  CraniumCollider: {fileID: 8485402655823640142}
+  thisStats: {fileID: 0}
 --- !u!136 &2524586786191283477
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -725,6 +729,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3531004680778789998}
   - component: {fileID: 3531004680778789997}
+  - component: {fileID: 8485402655823640142}
   m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
@@ -802,6 +807,19 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.29375455, y: 0.006520182, z: -0.007888243}
     m_Extent: {x: 0.14257768, y: 0.14070693, z: 0.07134285}
   m_DirtyAABB: 0
+--- !u!135 &8485402655823640142
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3531004680778789996}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Radius: 5
+  m_Center: {x: 1.3880701, y: 14.750429, z: 0.07815921}
 --- !u!1 &3531004680958165264
 GameObject:
   m_ObjectHideFlags: 0

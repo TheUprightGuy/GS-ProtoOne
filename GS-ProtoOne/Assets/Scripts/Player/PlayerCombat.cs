@@ -7,15 +7,10 @@ public class PlayerCombat : MonoBehaviour
     public float BlockPercent = 0.5f;
     private GameObject hitCollider = null;
 
-
-
-    
-    private PlayerStats thisStats;
+    public Vector3 hitPos = Vector3.zero;
 
     public float blockTopY = 0.0f;
     public float blockBottomY = 1.0f;
-
-
 
     [Header("Colliders")]
     public SphereCollider LeftHandCarpals;
@@ -24,6 +19,9 @@ public class PlayerCombat : MonoBehaviour
     public SphereCollider LeftFootLateralCuneiform;
     public SphereCollider RightFootLateralCuneiform;
 
+    public SphereCollider CraniumCollider;
+
+    public PlayerStats thisStats;
 
     private PlayerMovement pm;
     private void Awake() {
@@ -46,17 +44,25 @@ public class PlayerCombat : MonoBehaviour
     {
         LeftHandCarpals.enabled = true;
         RightHandCarpals.enabled = true;
-
     }
 
     public void SwitchHandsOff()
     {
         LeftHandCarpals.enabled = false;
         RightHandCarpals.enabled = false;
-
     }
 
-    private Vector3 hitPos = Vector3.zero;
+    public void SwitchCraniumOn()
+    {
+        CraniumCollider.enabled = true;
+    }
+
+    public void SwitchCraniumOff()
+    {
+        CraniumCollider.enabled = false;
+    }
+
+
     public void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "Hit")
         {
@@ -65,15 +71,8 @@ public class PlayerCombat : MonoBehaviour
             float totalDmg = (pm.isBlocking) ? (other.GetComponent<Hit>().Damage * BlockPercent) : (other.GetComponent<Hit>().Damage  );
             thisStats.TakeDamage(totalDmg);
             Debug.Log("zooped for " + totalDmg.ToString() + " damage");
+
+            other.GetComponent<SphereCollider>().enabled = false;
         }
-    }
-
-    private void OnDrawGizmos() {
-
-
-        float calcTopY = transform.position.y + blockTopY;
-        float calcBotY = transform.position.y + blockBottomY;
-        Gizmos.color = ((hitPos.y < calcTopY) && (hitPos.y > calcBotY)) ? (Color.red) : (Color.white);
-        Gizmos.DrawSphere(hitPos, 0.1f);
     }
 }
