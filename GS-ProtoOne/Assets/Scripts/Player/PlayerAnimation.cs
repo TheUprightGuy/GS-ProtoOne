@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Audio;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -48,18 +49,17 @@ public class PlayerAnimation : MonoBehaviour
 
     public void JumpAnim()
     {
-        if (active)
-        {
-            animator.SetTrigger("Jumping");
-        }
+        if (!active) return;
+        animator.SetTrigger("Jumping");
     }
 
     public void OnPunch()
     {
-        if (active && !attacking)
+        if (active && !attacking && !pm.isBlocking)
         {
             animator.SetTrigger("Punching");
             attacking = true;
+            AudioManager.Instance.PlaySound("armSwing");
         }
     }
 
@@ -69,6 +69,7 @@ public class PlayerAnimation : MonoBehaviour
         {
             animator.SetTrigger("Kicking");
             attacking = true;
+            AudioManager.Instance.PlaySound("legSwing");
         }
     }
 

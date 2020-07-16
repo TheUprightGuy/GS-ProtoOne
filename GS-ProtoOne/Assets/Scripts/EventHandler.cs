@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Audio;
 using UnityEngine;
 // Move this to event handler in future
 using UnityEngine.SceneManagement;
@@ -40,6 +41,7 @@ public class EventHandler : MonoBehaviour
         if (readyUp != null)
         {
             readyUp(_id);
+            AudioManager.Instance.PlaySound("ui");
         }
     }
 
@@ -50,6 +52,7 @@ public class EventHandler : MonoBehaviour
         if (selectPart != null)
         {
             selectPart(_id, _part);
+            AudioManager.Instance.PlaySound("ui");
         }
     }
 
@@ -60,6 +63,7 @@ public class EventHandler : MonoBehaviour
         if (setupCharacter != null)
         {
             setupCharacter();
+            AudioManager.Instance.PlaySound("ui");
         }
     }
 
@@ -125,6 +129,7 @@ public class EventHandler : MonoBehaviour
     public void ChangeScene(string _scene)
     {
         animator.SetTrigger("FadeOut");
+        AudioManager.Instance.PlaySound("ui");
         sceneToLoad = _scene;
     }
 
@@ -141,6 +146,7 @@ public class EventHandler : MonoBehaviour
     }
     public void QuitApplication()
     {
+        AudioManager.Instance.PlaySound("ui");
         Application.Quit();
     }
 }

@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Audio;
+using Parts;
 using UnityEngine;
 
 public enum AbilityName
@@ -60,17 +62,18 @@ public class Kick : Ability
 
 public class Grapple : Ability
 {
-    private LayerMask _layerMask = LayerMask.NameToLayer("Player");
-    private const float MaxDistance = 10.0f;
+    private readonly GameObject _grappleProjectilePrefab;
 
-    public void Use(PlayerMovement _player)
+    public Grapple(GameObject grappleProjectilePrefab)
+    {
+        _grappleProjectilePrefab = grappleProjectilePrefab;
+    }
+
+    public void Use(PlayerMovement player)
     {
         Debug.Log("GrappleTriggered");
-        var transform = _player.transform;
-        _player.transform.Translate(transform.worldToLocalMatrix.MultiplyVector(transform.forward));
-        var ray = transform.worldToLocalMatrix.MultiplyVector(transform.forward);
-        var position = _player.transform.position;
-        bool grappleHit = Physics.Raycast (position, ray, out var hit, 10.0f);
-        Debug.Log(grappleHit ? "grappleHit" : "grappleMissed");
+        AudioManager.Instance.PlaySound("frog");
+        var projInstance = Object.Instantiate(_grappleProjectilePrefab, player.transform);
+        projInstance.GetComponent<GrappleProjectile>().SetPlayerReference(player.gameObject);
     }
 }

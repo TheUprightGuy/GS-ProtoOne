@@ -18,5 +18,7 @@ MonoBehaviour:
   abilityText: Frogface
   set: 1
   abilityName: 4
+  abilityPrefab: {fileID: 8653621447148269499, guid: e2fbbfcfca478874993097e791e81b9f,
+    type: 3}
   player: {fileID: 0}
   maxIntegrity: 50

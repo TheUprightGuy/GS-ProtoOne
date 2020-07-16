@@ -19,6 +19,8 @@ public class PlayerStats : MonoBehaviour
     public List<GameObject> heads;
     public List<GameObject> arms;
     public List<GameObject> legs;
+    public float abilityCooldown = 1.0f;
+    private float _abilityTimer = 0.0f;
     // Enable/Disable for Scenes
     private PlayerMovement pm;
     private PlayerAnimation pa;
@@ -214,26 +216,21 @@ public class PlayerStats : MonoBehaviour
     }
 
     #region AbilityUse
+    
     public void OnAbilityHead()
     {
-        if (body.head)
-        {
-            body.head.UseAbility();
-        }
+        if (!body.head) return;
+        body.head.UseAbility();
     }
     public void OnAbilityArms()
     {
-        if (body.arms)
-        {
-            body.arms.UseAbility();
-        }
+        if (!body.arms) return;
+        body.arms.UseAbility();
     }
     public void OnAbilityLegs()
     {
-        if (body.legs)
-        {
-            body.legs.UseAbility();
-        }
+        if (!body.legs) return;
+        body.legs.UseAbility();
     }
     #endregion AbilityUse
 }

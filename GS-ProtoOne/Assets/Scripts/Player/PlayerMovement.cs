@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Audio;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -180,6 +181,7 @@ public class PlayerMovement : MonoBehaviour
                 rb.AddForce((transform.up) * jumpThrust, ForceMode.Impulse);
                 rb.AddForce((-Vector3.right) * moveControlDelta * jumpThrust * 0.5f, ForceMode.Impulse);
                 isGrounded = false;
+                AudioManager.Instance.PlaySound("jump");
             }
         }
     }
@@ -251,5 +253,13 @@ public class PlayerMovement : MonoBehaviour
     {
         //If touching a collider marked as ground, jump will be enabled
         //isGrounded = (collision.gameObject.tag == "Ground");
+    }
+
+    public void HitByGrapple(Vector3 movementVector)
+    {
+        var currTransform = transform;
+        rb.AddForce(((currTransform.up) - Vector3.right * currTransform.localScale.z) * jumpThrust, ForceMode.Impulse);
+        isGrounded = false;
+        AudioManager.Instance.PlaySound("jump");
     }
 }
