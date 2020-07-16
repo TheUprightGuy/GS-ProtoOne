@@ -14,6 +14,8 @@ public struct InputData
 
 public class InputHandler : MonoBehaviour
 {
+    public static InputHandler instance;
+
     //public PlayerInput playerControls;
 
     /// <summary>
@@ -27,6 +29,16 @@ public class InputHandler : MonoBehaviour
     public InputData[] AllPlayers;
     void Awake()
     {
+        if (instance != null)
+        {
+            Debug.LogError("More than one InputHandler exists!");
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            instance = this;
+        }
+
         DontDestroyOnLoad(this);
         InputSystem.onEvent += QueryAnyInput;
         InputSystem.onDeviceChange += GetDeviceChange;

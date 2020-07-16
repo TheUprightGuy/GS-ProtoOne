@@ -13,7 +13,7 @@ public class EventHandler : MonoBehaviour
     [HideInInspector] public int p2Wins;
     [HideInInspector] public bool p1Ready;
     [HideInInspector] public bool p2Ready;
-    private bool sceneChangeLimit = false;
+    [HideInInspector] public bool sceneChangeLimit = false;
 
     #region Singleton
     public static EventHandler instance;
@@ -141,6 +141,19 @@ public class EventHandler : MonoBehaviour
         }
     }
 
+    public event Action cleanUp;
+    public void CleanUp()
+    {
+        if (cleanUp != null)
+        {
+            p1Wins = 0;
+            p2Wins = 0;
+            p1Ready = false;
+            p2Ready = false;
+            sceneChangeLimit = false;
+            cleanUp();
+        }
+    }
     // Scene Manager
     public void ChangeScene(string _scene)
     {
