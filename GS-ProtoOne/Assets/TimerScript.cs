@@ -37,6 +37,10 @@ public class TimerScript : MonoBehaviour
             {
                 EventHandler.instance.GameOver(2);
             }
+            else
+            {
+                EventHandler.instance.ResetScene();
+            }
         }
     }
 }
