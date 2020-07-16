@@ -179,8 +179,6 @@ public class PlayerStats : MonoBehaviour
         {
             EventHandler.instance.GameOver(id);
         }
-
-        if (_abilityTimer < abilityCooldown) UpdateAbilityCooldown();
     }
 
     // Up on D-Pad to Test
@@ -204,28 +202,20 @@ public class PlayerStats : MonoBehaviour
     }
 
     #region AbilityUse
-    private void UpdateAbilityCooldown()
-    {
-        _abilityTimer -= Time.deltaTime;
-        if (_abilityTimer <= 0f) _abilityTimer = abilityCooldown;
-    }
     
     public void OnAbilityHead()
     {
-        if (!body.head || _abilityTimer != abilityCooldown) return;
-        _abilityTimer -= Time.deltaTime;
+        if (!body.head) return;
         body.head.UseAbility();
     }
     public void OnAbilityArms()
     {
-        if (!body.arms || _abilityTimer != abilityCooldown) return;
-        _abilityTimer -= Time.deltaTime;
+        if (!body.arms) return;
         body.arms.UseAbility();
     }
     public void OnAbilityLegs()
     {
-        if (!body.legs || _abilityTimer != abilityCooldown) return;
-        _abilityTimer -= Time.deltaTime;
+        if (!body.legs) return;
         body.legs.UseAbility();
     }
     #endregion AbilityUse
