@@ -58,8 +58,11 @@ public class PlayerMovement : MonoBehaviour
         chargingTimer -= Time.deltaTime;
         if (chargingTimer <= 0)
         {
-            charging = false;
-            isBlocking = false;
+            if (charging)
+            {
+                charging = false;
+                isBlocking = false;
+            }
         }
     }
 
