@@ -21,6 +21,7 @@ public class InputHandler : MonoBehaviour
     /// </summary>
     public int QueryIndex = 0;
 
+    public bool ControllerOnly = false;
     public InputData[] AllPlayers;
     void Awake()
     {
@@ -90,6 +91,10 @@ public class InputHandler : MonoBehaviour
         }
         else if (keyboard != null)
         {
+            if(ControllerOnly)
+            {
+                return;
+            }
             //Debug.Log("KeyBoard" );
             scheme = "KeyBoardLeft";
         }

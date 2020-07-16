@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+using UnityEngine.Events;
 [RequireComponent(typeof(PlayerInput))]
 public class SetInput : MonoBehaviour
 {
@@ -13,6 +13,11 @@ public class SetInput : MonoBehaviour
     private GameObject InputHandler;
     private PlayerInput thisInput;
     private InputData LatestData;
+
+    public bool DisableOnEmpty = false;
+
+    public bool firstCalled = false;
+    public UnityEvent OnDeviceDisconnect;
     void Start()
     {
         thisInput = GetComponent<PlayerInput>();
@@ -40,10 +45,18 @@ public class SetInput : MonoBehaviour
             pullPlayerInfo();
         }
 
-        if (refreshInputs)
+        if(tempData.ControlScheme == "") //If no control scheme
         {
-            refreshInputs = false;
-            pullPlayerInfo();
+            if(DisableOnEmpty)
+            {
+                thisInput.enabled = false;
+            }
+
+            if(!firstCalled)
+            {
+                OnDeviceDisconnect.Invoke();
+                firstCalled = true; //Event was called
+            }
         }
     }
 
@@ -64,6 +77,8 @@ public class SetInput : MonoBehaviour
         thisInput.enabled = true;
         thisInput.SwitchCurrentControlScheme(playerData.ControlScheme, playerData.RegisteredDevice);
         LatestData = playerData;
+
+        firstCalled = false; //Reset event call
         return true;
     }
 }
