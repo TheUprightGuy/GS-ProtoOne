@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using Audio;
 using UnityEngine;
@@ -68,8 +68,11 @@ public class PlayerCombat : MonoBehaviour
         if (other.gameObject.tag == "Hit")
         {
             hitPos = other.transform.position;
-
-            float totalDmg = (pm.isBlocking) ? (other.GetComponent<Hit>().Damage * BlockPercent) : (other.GetComponent<Hit>().Damage  );
+            float calcTopY = transform.position.y + blockTopY; 
+            float calcBotY = transform.position.y + blockBottomY; 
+            
+            bool hitOnblock = (hitPos.y < calcTopY) && (hitPos.y > calcBotY);
+            float totalDmg = (pm.isBlocking && hitOnblock) ? (other.GetComponent<Hit>().Damage * BlockPercent) : (other.GetComponent<Hit>().Damage  );
             thisStats.TakeDamage(totalDmg);
             Debug.Log("zooped for " + totalDmg.ToString() + " damage");
 
@@ -78,4 +81,12 @@ public class PlayerCombat : MonoBehaviour
             AudioManager.Instance.PlaySound("hurt");
         }
     }
+
+    private void OnDrawGizmos() 
+    { 
+        float calcTopY = transform.position.y + blockTopY; 
+        float calcBotY = transform.position.y + blockBottomY; 
+        Gizmos.color = ((hitPos.y < calcTopY) && (hitPos.y > calcBotY)) ? (Color.red) : (Color.white); 
+        Gizmos.DrawSphere(hitPos, 0.1f); 
+    } 
 }

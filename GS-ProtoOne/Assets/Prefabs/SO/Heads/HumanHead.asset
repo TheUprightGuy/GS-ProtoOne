@@ -20,3 +20,5 @@ MonoBehaviour:
   abilityName: 0
   player: {fileID: 0}
   maxIntegrity: 50
+  cooldown: 5
+  cooldownTimer: 0

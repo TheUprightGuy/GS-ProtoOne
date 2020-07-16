@@ -24,8 +24,6 @@ public class SetInput : MonoBehaviour
         {
             Debug.LogError("InputsHandler not found");
         }
-
-        
     }
 
     // Update is called once per frame

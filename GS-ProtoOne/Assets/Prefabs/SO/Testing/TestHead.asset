@@ -22,3 +22,5 @@ MonoBehaviour:
     type: 3}
   player: {fileID: 0}
   maxIntegrity: 50
+  cooldown: 5
+  cooldownTimer: -262.15466

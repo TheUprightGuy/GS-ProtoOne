@@ -216,6 +216,7 @@ MonoBehaviour:
   active: 0
   charging: 0
   chargingTimer: 0
+  boundsRange: 0
   rb: {fileID: 0}
 --- !u!114 &3531004680499709693
 MonoBehaviour:
@@ -242,9 +243,9 @@ MonoBehaviour:
   health: 0
   maxHealth: 0
   useDebugParts: 1
-  head: {fileID: 11400000, guid: 18e9917e41d5aff4fa7772a14f604ad6, type: 2}
-  arm: {fileID: 11400000, guid: aee126df31a08b245a24c99184873ca4, type: 2}
-  leg: {fileID: 11400000, guid: b9bee989bf438b84291252bb7e3bf966, type: 2}
+  head: {fileID: 11400000, guid: 0869432efec51d8469436f88e2ca37c5, type: 2}
+  arm: {fileID: 11400000, guid: bacce8db76116be4a98fa3a944a0b75a, type: 2}
+  leg: {fileID: 11400000, guid: f50ca41c08303824798b5def1f2faba7, type: 2}
 --- !u!114 &1553872164572313365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,8 +260,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BlockPercent: 0.5
   hitPos: {x: 0, y: 0, z: 0}
-  blockTopY: 0.3
-  blockBottomY: 2
+  blockTopY: 1.5
+  blockBottomY: 1
   LeftHandCarpals: {fileID: 7259752083038962812}
   RightHandCarpals: {fileID: 851010187977731389}
   LeftFootLateralCuneiform: {fileID: 1440508797445778812}
@@ -278,9 +279,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.1764458
-  m_Height: 1.3898152
+  m_Height: 1.3768251
   m_Direction: 1
-  m_Center: {x: 0.09976539, y: 0.6605204, z: -0.0000004753468}
+  m_Center: {x: 0.09976539, y: 0.66701543, z: -0.0000004753468}
 --- !u!1 &3531004680512941952
 GameObject:
   m_ObjectHideFlags: 0
@@ -730,9 +731,10 @@ GameObject:
   - component: {fileID: 3531004680778789998}
   - component: {fileID: 3531004680778789997}
   - component: {fileID: 8485402655823640142}
+  - component: {fileID: 7568811340369969588}
   m_Layer: 0
   m_Name: Head
-  m_TagString: Untagged
+  m_TagString: Hit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -815,11 +817,24 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3531004680778789996}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 0
   serializedVersion: 2
-  m_Radius: 5
+  m_Radius: 10
   m_Center: {x: 1.3880701, y: 14.750429, z: 0.07815921}
+--- !u!114 &7568811340369969588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3531004680778789996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1767c1b4cc3e02647ade5572c0c7de9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 30
 --- !u!1 &3531004680958165264
 GameObject:
   m_ObjectHideFlags: 0
