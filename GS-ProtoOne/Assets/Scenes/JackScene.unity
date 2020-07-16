@@ -603,7 +603,7 @@ Transform:
   - {fileID: 2119846986}
   - {fileID: 2122336055}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &985393453
 GameObject:
@@ -638,7 +638,7 @@ Transform:
   - {fileID: 2076174033}
   - {fileID: 1860008672}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1035324217
 GameObject:
@@ -730,7 +730,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &1084902351
 GameObject:
@@ -766,6 +766,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   refreshInputs: 0
   playerNo: 2
+  DisableOnEmpty: 0
+  firstCalled: 0
+  OnDeviceDisconnect:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1084902353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -879,7 +884,7 @@ Transform:
   m_LocalScale: {x: 18.05, y: 18.05, z: 18.05}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1084902356
 MonoBehaviour:
@@ -895,9 +900,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AllowControlInAir: 0
   moveDeadZone: 0.15
-  thrust: 1
+  thrustInAir: 1
+  moveSpeed: 0.1
   jumpThrust: 1
   VelocityLimit: 5
+  velocity: 0
+  PlayerCheckRadius: 1
+  moveControlDelta: 0
+  isBlocking: 0
+  isGrounded: 1
+  active: 0
+  charging: 0
+  chargingTimer: 0
+  boundsRange: 0
+  rb: {fileID: 0}
 --- !u!1 &1251211039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1291,7 +1307,7 @@ RectTransform:
   - {fileID: 1251211040}
   - {fileID: 2134347}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1431,7 +1447,7 @@ Transform:
   m_LocalScale: {x: 18.05, y: 18.05, z: 18.05}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1748950775
 MonoBehaviour:
@@ -1447,6 +1463,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   refreshInputs: 0
   playerNo: 1
+  DisableOnEmpty: 0
+  firstCalled: 0
+  OnDeviceDisconnect:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1748950776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1461,9 +1482,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AllowControlInAir: 0
   moveDeadZone: 0.15
-  thrust: 1
+  thrustInAir: 1
+  moveSpeed: 0.1
   jumpThrust: 1
   VelocityLimit: 5
+  velocity: 0
+  PlayerCheckRadius: 1
+  moveControlDelta: 0
+  isBlocking: 0
+  isGrounded: 1
+  active: 0
+  charging: 0
+  chargingTimer: 0
+  boundsRange: 0
+  rb: {fileID: 0}
 --- !u!1 &1860008671
 GameObject:
   m_ObjectHideFlags: 0
@@ -1639,7 +1671,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2005730072
 GameObject:
@@ -1887,75 +1919,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 19.928102, y: 1.775212, z: 13.595031}
   m_Center: {x: -0.5831175, y: 0.38760602, z: -5.5387616}
---- !u!1001 &4311615666433526208
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3968944829707787683, guid: 6485fa138054dcf4090e3a34223e2194,
-        type: 3}
-      propertyPath: m_Name
-      value: Dummy
-      objectReference: {fileID: 0}
-    - target: {fileID: 4350291318579873561, guid: 6485fa138054dcf4090e3a34223e2194,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 4.393
-      objectReference: {fileID: 0}
-    - target: {fileID: 4350291318579873561, guid: 6485fa138054dcf4090e3a34223e2194,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4350291318579873561, guid: 6485fa138054dcf4090e3a34223e2194,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -5.29
-      objectReference: {fileID: 0}
-    - target: {fileID: 4350291318579873561, guid: 6485fa138054dcf4090e3a34223e2194,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4350291318579873561, guid: 6485fa138054dcf4090e3a34223e2194,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4350291318579873561, guid: 6485fa138054dcf4090e3a34223e2194,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4350291318579873561, guid: 6485fa138054dcf4090e3a34223e2194,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4350291318579873561, guid: 6485fa138054dcf4090e3a34223e2194,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4350291318579873561, guid: 6485fa138054dcf4090e3a34223e2194,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4350291318579873561, guid: 6485fa138054dcf4090e3a34223e2194,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 4350291318579873561, guid: 6485fa138054dcf4090e3a34223e2194,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 6485fa138054dcf4090e3a34223e2194, type: 3}
 --- !u!1001 &5346235856634560705
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2006,7 +1969,7 @@ PrefabInstance:
     - target: {fileID: 5346235857613159334, guid: b6b598e583c60934093c231954a21392,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5346235857613159334, guid: b6b598e583c60934093c231954a21392,
         type: 3}

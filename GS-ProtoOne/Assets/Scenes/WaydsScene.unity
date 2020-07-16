@@ -5664,6 +5664,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   refreshInputs: 0
   playerNo: 3
+  DisableOnEmpty: 0
+  firstCalled: 0
+  OnDeviceDisconnect:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &2111618068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5854,6 +5859,11 @@ PrefabInstance:
         type: 3}
       propertyPath: playerNo
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3531004680499709680, guid: 0c58cce89bdc2964e9f22393f73958eb,
+        type: 3}
+      propertyPath: firstCalled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3531004680499709681, guid: 0c58cce89bdc2964e9f22393f73958eb,
         type: 3}
@@ -6083,6 +6093,16 @@ PrefabInstance:
         type: 3}
       propertyPath: AllPlayers.Array.size
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3825960887839563254, guid: 252a3bd69ac20754c96f2ec80e137e03,
+        type: 3}
+      propertyPath: ControllerOnly
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3825960887839563254, guid: 252a3bd69ac20754c96f2ec80e137e03,
+        type: 3}
+      propertyPath: AutoAddToEmptySlot
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 252a3bd69ac20754c96f2ec80e137e03, type: 3}
