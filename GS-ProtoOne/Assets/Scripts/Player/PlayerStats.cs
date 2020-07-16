@@ -180,6 +180,10 @@ public class PlayerStats : MonoBehaviour
             EventHandler.instance.GameOver(id);
             health = 10000.0f;
         }
+
+        body.head.UpdateCooldowns(Time.deltaTime);
+        body.arms.UpdateCooldowns(Time.deltaTime);
+        body.legs.UpdateCooldowns(Time.deltaTime);
     }
 
     // Up on D-Pad to Test

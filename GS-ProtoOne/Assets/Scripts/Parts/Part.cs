@@ -24,6 +24,13 @@ public class Part : ScriptableObject
     [HideInInspector] public PlayerMovement player;
     [Header("Part Stats")]
     public int maxIntegrity;
+    public float cooldown;
+    [HideInInspector] public float cooldownTimer;
+
+    public void UpdateCooldowns(float _deltaTime)
+    {
+        cooldownTimer -= _deltaTime;
+    }
 
     public void Setup()
     {
@@ -64,7 +71,11 @@ public class Part : ScriptableObject
 
     public void UseAbility()
     {
-        ability.Use(player);
+        if (cooldownTimer <= 0)
+        {
+            ability.Use(player);
+            cooldownTimer = cooldown;
+        }
     }
 }
 

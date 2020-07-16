@@ -380,6 +380,17 @@
                 },
                 {
                     "name": "",
+                    "id": "d93ee4b1-b7dc-4393-a24a-383e2e3820bd",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyBoardLeft",
+                    "action": "AbilityHead",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "de7fc55c-9160-47f9-9644-a0ddac855667",
                     "path": "<Gamepad>/leftStick/right",
                     "interactions": "MultiTap",

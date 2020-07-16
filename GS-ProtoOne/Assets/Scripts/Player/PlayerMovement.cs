@@ -23,7 +23,8 @@ public class PlayerMovement : MonoBehaviour
     //[HideInInspector] 
     public float moveControlDelta = 0.0f;
     // Public for Animator
-    [HideInInspector] public bool isBlocking = false;
+    //[HideInInspector] 
+    public bool isBlocking = false;
     [HideInInspector] public bool isGrounded = true;
     public bool active;
 
@@ -51,14 +52,13 @@ public class PlayerMovement : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        
-
+    {  
         VelocityLimit = isBlocking ? 1.4f : 4.0f;
         chargingTimer -= Time.deltaTime;
         if (chargingTimer <= 0)
         {
             charging = false;
+            isBlocking = false;
         }
     }
 
@@ -115,11 +115,14 @@ public class PlayerMovement : MonoBehaviour
 
             if (charging)
             {
+                isBlocking = true;
+
                 if (closestDist < girth)
                 {
                     charging = false;
                     // TEMPORARY
                     GetComponent<PlayerCombat>().SwitchCraniumOff();
+                    isBlocking = false;
                     return;
                 }
 
