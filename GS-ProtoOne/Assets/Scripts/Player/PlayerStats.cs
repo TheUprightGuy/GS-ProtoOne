@@ -212,8 +212,9 @@ public class PlayerStats : MonoBehaviour
     public void ResetCharacter()
     {
         health = maxHealth;
-        ToggleState(true);
+        //ToggleState(true);
     }
+
 
     #region AbilityUse
     

@@ -135,7 +135,7 @@ public class EventHandler : MonoBehaviour
     public event Action resetCharacters;
     public void ResetCharacters()
     {
-        if (toggleState != null)
+        if (resetCharacters != null)
         {
             resetCharacters();
         }
