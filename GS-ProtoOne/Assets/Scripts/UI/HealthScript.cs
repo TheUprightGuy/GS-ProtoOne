@@ -13,6 +13,7 @@ public class HealthScript : MonoBehaviour
     #region Setup
     private void Start()
     {
+        health = 1.0f;
         EventHandler.instance.updateHealth += UpdateHealth;
         healthBar = GetComponent<Image>();
     }

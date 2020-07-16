@@ -44,11 +44,11 @@ public class TimerScript : MonoBehaviour
                 called = true;
                 if (p1.health > p2.health)
                 {
-                    EventHandler.instance.GameOver(1);
+                    EventHandler.instance.GameOver(2);
                 }
                 else if (p2.health > p1.health)
                 {
-                    EventHandler.instance.GameOver(2);
+                    EventHandler.instance.GameOver(1);
                 }
                 else
                 {

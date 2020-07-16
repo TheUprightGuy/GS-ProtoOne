@@ -1055,6 +1055,50 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 10
   KnockBack: 5
+--- !u!1 &991429908
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 991429910}
+  - component: {fileID: 991429909}
+  m_Layer: 0
+  m_Name: LWallHB (1)
+  m_TagString: Ground
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &991429909
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991429908}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.7565556, y: 23.451553, z: 13.595031}
+  m_Center: {x: -10.157723, y: 11.225777, z: -5.5387616}
+--- !u!4 &991429910
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991429908}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 56.04, y: 120.45227, z: 61.65795}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1056435342
 GameObject:
   m_ObjectHideFlags: 0
@@ -1637,9 +1681,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a70f919f2c480f41bfd3d2fd6b0cf1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialTimer: 3
   timer: 60
   p1: {fileID: 402162581}
   p2: {fileID: 1690530317}
+  called: 0
 --- !u!114 &1345475535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2068,8 +2114,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1690209042}
-  m_LocalRotation: {x: -0, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.05, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 39.31, y: 120.45227, z: 61.65795}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2390,7 +2436,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1898526415
 Transform:
   m_ObjectHideFlags: 0
