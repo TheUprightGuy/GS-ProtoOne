@@ -159,6 +159,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   refreshInputs: 0
   playerNo: 1
+  DisableOnEmpty: 0
+  firstCalled: 0
+  OnDeviceDisconnect:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &3531004680499709695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,11 +210,11 @@ MonoBehaviour:
   AllowControlInAir: 1
   moveDeadZone: 0.1
   thrustInAir: 1
-  moveSpeed: 0.03
+  moveSpeed: 0.06
   jumpThrust: 1.8
   VelocityLimit: 4
   velocity: 0
-  girth: 1
+  PlayerCheckRadius: 0.5
   moveControlDelta: 0
   isBlocking: 0
   isGrounded: 0
@@ -720,6 +725,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 10
+  KnockBack: 50
 --- !u!1 &3531004680778789996
 GameObject:
   m_ObjectHideFlags: 0
@@ -1877,7 +1883,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1767c1b4cc3e02647ade5572c0c7de9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 10
+  Damage: 17
+  KnockBack: 80
 --- !u!1 &3531004681834007658
 GameObject:
   m_ObjectHideFlags: 0
@@ -2439,6 +2446,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 10
+  KnockBack: 50
 --- !u!1 &3531004682178650291
 GameObject:
   m_ObjectHideFlags: 0
@@ -2865,7 +2873,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1767c1b4cc3e02647ade5572c0c7de9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 10
+  Damage: 17
+  KnockBack: 80
 --- !u!1 &3531004682298777349
 GameObject:
   m_ObjectHideFlags: 0
