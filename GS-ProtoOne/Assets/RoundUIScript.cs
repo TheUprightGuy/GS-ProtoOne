@@ -48,7 +48,7 @@ public class RoundUIScript : MonoBehaviour
         }
         else
         {
-            wins = EventHandler.instance.p1Wins;
+            wins = EventHandler.instance.p2Wins;
         }
 
         for (int i = 0; i < wins; i++)
