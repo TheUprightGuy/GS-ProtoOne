@@ -73,6 +73,11 @@ public class PlayerCombat : MonoBehaviour
             bool hitOnblock = (hitPos.y < calcTopY) && (hitPos.y > calcBotY);
             float totalDmg = (pm.isBlocking && hitOnblock) ? (other.GetComponent<Hit>().Damage * BlockPercent) : (other.GetComponent<Hit>().Damage  );
             thisStats.TakeDamage(totalDmg);
+
+            //KNOCKBACK FORCE
+            GetComponent<Rigidbody>().AddForce(((Vector3.right * transform.localScale.z) * (other.GetComponent<Hit>().KnockBack * BlockPercent)));
+            
+            
             Debug.Log("zooped for " + totalDmg.ToString() + " damage");
 
             other.GetComponent<SphereCollider>().enabled = false;

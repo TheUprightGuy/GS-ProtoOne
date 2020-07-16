@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     public float velocity;
 
 
-    public float girth = 1.0f;
+    public float PlayerCheckRadius = 1.0f;
     // Player Control Tracking
     private bool keyDown = false;
     //[HideInInspector] 
@@ -33,6 +33,8 @@ public class PlayerMovement : MonoBehaviour
 
     public float boundsRange;
 
+
+    private List<Transform> AllPlayers;
     #region Setup
     [HideInInspector] public Rigidbody rb;
     private PlayerAnimation pa;
@@ -40,6 +42,12 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        AllPlayers = new List<Transform>();
+        foreach (var item in GameObject.FindGameObjectsWithTag("Player"))
+        {
+            AllPlayers.Add(item.transform);
+        }
+
         rb = GetComponent<Rigidbody>();
         pa = GetComponent<PlayerAnimation>();
         lastPosX = transform.position.x;
@@ -82,14 +90,13 @@ public class PlayerMovement : MonoBehaviour
         {
             Vector3 closestPlayerPos = transform.position;
             float closestDist = 1000.0f;
-            foreach (var item in GameObject.FindGameObjectsWithTag("Player"))
+            foreach (var item in AllPlayers)
             {
-                float dist = Vector3.Distance(transform.position, item.transform.position);
-
-                if (dist < closestDist && transform.position != item.transform.position)
+                float dist = Vector3.Distance(transform.position, item.position);
+                if (dist < closestDist && transform.position != item.position)
                 {
                     closestDist = dist;
-                    closestPlayerPos = item.transform.position;
+                    closestPlayerPos = item.position;
                 }
             }
 
@@ -98,14 +105,14 @@ public class PlayerMovement : MonoBehaviour
             {
                 temp.z = -1;
 
-                if (moveControlDelta < 0 && closestDist < girth)
+                if (moveControlDelta < 0 && closestDist < PlayerCheckRadius)
                 {
                     moveControlDelta = 0;
                 }
             }
             else
             {
-                if (moveControlDelta > 0 && closestDist < girth)
+                if (moveControlDelta > 0 && closestDist < PlayerCheckRadius)
                 {
                     moveControlDelta = 0;
                 }
@@ -115,7 +122,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (charging)
             {
-                if (closestDist < girth)
+                if (closestDist < PlayerCheckRadius)
                 {
                     charging = false;
                     // TEMPORARY
@@ -244,9 +251,9 @@ public class PlayerMovement : MonoBehaviour
         //GUI.Box(new Rect(10, 10, 100, 50), Time.fixedTime.ToString());
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        //If touching a collider marked as ground, jump will be enabled
-        //isGrounded = (collision.gameObject.tag == "Ground");
+    private void OnDrawGizmos() {
+        Gizmos.color = Color.red;
+        Vector3 offSet = new Vector3(0.0f, 1.0f, 0.0f);
+        Gizmos.DrawWireSphere(transform.position + offSet, PlayerCheckRadius);
     }
 }
