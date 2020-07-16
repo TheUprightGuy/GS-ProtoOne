@@ -31,6 +31,7 @@ public class EventHandler : MonoBehaviour
         }
 
         animator = GetComponent<Animator>();
+        DontDestroyOnLoad(this.gameObject);
     }
     #endregion Singleton
 
