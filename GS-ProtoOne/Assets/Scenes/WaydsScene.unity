@@ -352,6 +352,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3531004680499709695, guid: 0c58cce89bdc2964e9f22393f73958eb,
+        type: 3}
+      propertyPath: m_NeverAutoSwitchControlSchemes
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3531004680778789997, guid: 0c58cce89bdc2964e9f22393f73958eb,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -5824,6 +5829,11 @@ PrefabInstance:
     - target: {fileID: 3531004680499709694, guid: 0c58cce89bdc2964e9f22393f73958eb,
         type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3531004680499709695, guid: 0c58cce89bdc2964e9f22393f73958eb,
+        type: 3}
+      propertyPath: m_NeverAutoSwitchControlSchemes
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3531004680542438115, guid: 0c58cce89bdc2964e9f22393f73958eb,

@@ -82,6 +82,15 @@ public class EventHandler : MonoBehaviour
             updateHealth(_id, _health);
         }
     }
+    // Update Rounds
+    public event Action updateRounds;
+    public void UpdateRounds()
+    {
+        if (updateRounds != null)
+        {
+            updateRounds();
+        }
+    }
 
     // Callback to End Scene
     public event Action<int> gameOver;
@@ -90,6 +99,7 @@ public class EventHandler : MonoBehaviour
         if (gameOver != null)
         {
             gameOver(_id);
+            UpdateRounds();
         }
     }
 
