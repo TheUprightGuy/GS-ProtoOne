@@ -245,6 +245,7 @@ MonoBehaviour:
   legs:
   - {fileID: 3531004681718550486}
   - {fileID: 3531004680571054084}
+  abilityCooldown: 1
   health: 0
   maxHealth: 0
   useDebugParts: 1
@@ -725,7 +726,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 10
-  KnockBack: 50
+  KnockBack: 2
 --- !u!1 &3531004680778789996
 GameObject:
   m_ObjectHideFlags: 0
@@ -841,6 +842,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 30
+  KnockBack: 6
 --- !u!1 &3531004680958165264
 GameObject:
   m_ObjectHideFlags: 0
@@ -1884,7 +1886,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 17
-  KnockBack: 80
+  KnockBack: 4
 --- !u!1 &3531004681834007658
 GameObject:
   m_ObjectHideFlags: 0
@@ -2446,7 +2448,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 10
-  KnockBack: 50
+  KnockBack: 2
 --- !u!1 &3531004682178650291
 GameObject:
   m_ObjectHideFlags: 0
@@ -2874,7 +2876,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 17
-  KnockBack: 80
+  KnockBack: 4
 --- !u!1 &3531004682298777349
 GameObject:
   m_ObjectHideFlags: 0

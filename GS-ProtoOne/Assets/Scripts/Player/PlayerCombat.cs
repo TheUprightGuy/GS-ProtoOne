@@ -76,7 +76,7 @@ public class PlayerCombat : MonoBehaviour
             thisStats.TakeDamage(totalDmg);
 
             //KNOCKBACK FORCE
-            GetComponent<Rigidbody>().AddForce(((Vector3.right * transform.localScale.z) * (other.GetComponent<Hit>().KnockBack * BlockPercent)));
+            GetComponent<Rigidbody>().AddForce(((Vector3.right * transform.localScale.z) * (other.GetComponent<Hit>().KnockBack * BlockPercent)), ForceMode.Impulse);
             
             
             Debug.Log("zooped for " + totalDmg.ToString() + " damage");

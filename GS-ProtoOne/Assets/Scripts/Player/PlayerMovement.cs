@@ -127,8 +127,8 @@ public class PlayerMovement : MonoBehaviour
             if (charging)
             {
                 if (closestDist < PlayerCheckRadius)
-                isBlocking = true;
-                {
+                { 
+                    isBlocking = true;
                     charging = false;
                     // TEMPORARY
                     GetComponent<PlayerCombat>().SwitchCraniumOff();
