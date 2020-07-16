@@ -23,6 +23,8 @@ public class PlayerCombat : MonoBehaviour
 
     public PlayerStats thisStats;
 
+    public GameObject HitEffect;
+    public float HitTime = 0.25f;
     private PlayerMovement pm;
     private void Awake() {
         thisStats = GetComponent<PlayerStats>();
@@ -69,6 +71,9 @@ public class PlayerCombat : MonoBehaviour
             hitPos = other.transform.position;
             float calcTopY = transform.position.y + blockTopY; 
             float calcBotY = transform.position.y + blockBottomY; 
+            
+            GameObject temp = Instantiate(HitEffect, hitPos, Quaternion.identity);
+            Destroy(temp, HitTime);
             
             bool hitOnblock = (hitPos.y < calcTopY) && (hitPos.y > calcBotY);
             float totalDmg = (pm.isBlocking && hitOnblock) ? (other.GetComponent<Hit>().Damage * BlockPercent) : (other.GetComponent<Hit>().Damage  );

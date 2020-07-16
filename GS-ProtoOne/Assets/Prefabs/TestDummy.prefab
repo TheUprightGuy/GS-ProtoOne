@@ -273,6 +273,9 @@ MonoBehaviour:
   RightFootLateralCuneiform: {fileID: 2942078711079810323}
   CraniumCollider: {fileID: 8485402655823640142}
   thisStats: {fileID: 0}
+  HitEffect: {fileID: 5595887360332233787, guid: 82fe94ade742c6d4fafd51aa23cc170f,
+    type: 3}
+  HitTime: 0.25
 --- !u!136 &2524586786191283477
 CapsuleCollider:
   m_ObjectHideFlags: 0
