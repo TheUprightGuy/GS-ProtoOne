@@ -216,6 +216,7 @@ MonoBehaviour:
   active: 0
   charging: 0
   chargingTimer: 0
+  boundsRange: 0
   rb: {fileID: 0}
 --- !u!114 &3531004680499709693
 MonoBehaviour:
@@ -259,8 +260,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BlockPercent: 0.5
   hitPos: {x: 0, y: 0, z: 0}
-  blockTopY: 0.3
-  blockBottomY: 2
+  blockTopY: 1.5
+  blockBottomY: 1
   LeftHandCarpals: {fileID: 7259752083038962812}
   RightHandCarpals: {fileID: 851010187977731389}
   LeftFootLateralCuneiform: {fileID: 1440508797445778812}
@@ -278,9 +279,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.1764458
-  m_Height: 1.3898152
+  m_Height: 1.3768251
   m_Direction: 1
-  m_Center: {x: 0.09976539, y: 0.6605204, z: -0.0000004753468}
+  m_Center: {x: 0.09976539, y: 0.66701543, z: -0.0000004753468}
 --- !u!1 &3531004680512941952
 GameObject:
   m_ObjectHideFlags: 0
