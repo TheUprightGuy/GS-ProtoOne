@@ -8,12 +8,8 @@ public class ReadyCheck : MonoBehaviour
 {
     [Header("Setup Fields")]
     public int id;
-    // Temporary
-    public string scene;
     private TMPro.TextMeshProUGUI readyText;
-    private bool ready = false;
     
-
     #region Setup
     private void Awake()
     {
@@ -24,7 +20,6 @@ public class ReadyCheck : MonoBehaviour
             Debug.LogError("Text not Found!");
         }
     }
-
 
     private void Start()
     {
@@ -42,17 +37,15 @@ public class ReadyCheck : MonoBehaviour
         // Check Player ID
         if (_id == id)
         {
-            if (ready)
+            if (id == 1)
             {
-                // Temporary - 1p
-                EventHandler.instance.SetupCharacter();
-                EventHandler.instance.ChangeScene(scene);
+                EventHandler.instance.p1Ready = true;
             }
             else
             {
-                ready = true;
-                readyText.SetText("Ready!");
+                EventHandler.instance.p2Ready = true;
             }
+            readyText.SetText("Ready!");
         }
     }
 }

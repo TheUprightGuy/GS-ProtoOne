@@ -9,10 +9,11 @@ using UnityEngine.SceneManagement;
 public class EventHandler : MonoBehaviour
 {
     public int rounds = 3;
-    //[HideInInspector] 
-    public int p1Wins;
-    //[HideInInspector] 
-    public int p2Wins;
+    [HideInInspector] public int p1Wins;
+    [HideInInspector] public int p2Wins;
+    [HideInInspector] public bool p1Ready;
+    [HideInInspector] public bool p2Ready;
+    private bool sceneChangeLimit = false;
 
     #region Singleton
     public static EventHandler instance;
@@ -43,6 +44,20 @@ public class EventHandler : MonoBehaviour
         {
             readyUp(_id);
             AudioManager.Instance.PlaySound("ui");
+            StartMatch();
+        }
+    }
+
+    public void StartMatch()
+    {
+        if (p1Ready && p2Ready)
+        {
+            if (!sceneChangeLimit)
+            {
+                sceneChangeLimit = true;
+                SetupCharacter();
+                ChangeScene("TestScene");
+            }
         }
     }
 
