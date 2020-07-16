@@ -203,6 +203,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnMove(InputValue value)
     {
+        Debug.Log(value.Get<float>());
         if (active)
         {
             //if (charging == false)
@@ -253,5 +254,13 @@ public class PlayerMovement : MonoBehaviour
     {
         //If touching a collider marked as ground, jump will be enabled
         //isGrounded = (collision.gameObject.tag == "Ground");
+    }
+
+    public void HitByGrapple(Vector3 movementVector)
+    {
+        var currTransform = transform;
+        rb.AddForce(((currTransform.up) - Vector3.right * currTransform.localScale.z) * jumpThrust, ForceMode.Impulse);
+        isGrounded = false;
+        AudioManager.Instance.PlaySound("jump");
     }
 }

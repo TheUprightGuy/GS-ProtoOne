@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -7000830260651065717}
   m_Layer: 0
   m_Name: GrapplingProjectile
-  m_TagString: Untagged
+  m_TagString: AbilityObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50,7 +50,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8653621447148269499}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -108,7 +108,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.1
-  relativePosition: {x: -0.2, y: 1, z: 0}
+  relativePosition: {x: -0.05, y: 1.2, z: 0}
+  EndTransform: {fileID: 0}
 --- !u!120 &-7000830260651065717
 LineRenderer:
   m_ObjectHideFlags: 0

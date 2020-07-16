@@ -49,7 +49,7 @@ namespace Audio
         private void InitialisePrivateVariables()
         {
             _soundDictionary = new Dictionary<string, SoundInfo>();
-            _slider = volumeSlider.GetComponent<Slider>();
+            if (volumeSlider != null) _slider = volumeSlider.GetComponent<Slider>();
             _musicSource = this.GetComponent<AudioSource>();
             _musicDefaultVolume = _musicSource.volume;
         }
