@@ -25,12 +25,6 @@ public class SetInput : MonoBehaviour
             Debug.LogError("InputsHandler not found");
         }
 
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
         InputData tempData = InputHandler.GetComponent<InputHandler>().AllPlayers[playerNo - 1];
 
         //If input device not yet set
@@ -39,6 +33,19 @@ public class SetInput : MonoBehaviour
         {
             pullPlayerInfo();
         }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        /*InputData tempData = InputHandler.GetComponent<InputHandler>().AllPlayers[playerNo - 1];
+
+        //If input device not yet set
+        if (!thisInput.enabled ||
+            tempData.RegisteredDevice != LatestData.RegisteredDevice)
+        {
+            pullPlayerInfo();
+        }*/
 
         if (refreshInputs)
         {
