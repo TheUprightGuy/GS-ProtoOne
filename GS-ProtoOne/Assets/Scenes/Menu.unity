@@ -480,6 +480,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: EventHandler
       objectReference: {fileID: 0}
+    - target: {fileID: 3825960887839563243, guid: 252a3bd69ac20754c96f2ec80e137e03,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 3825960887839563253, guid: 252a3bd69ac20754c96f2ec80e137e03,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -533,6 +538,26 @@ PrefabInstance:
     - target: {fileID: 3825960887839563253, guid: 252a3bd69ac20754c96f2ec80e137e03,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3825960887839563254, guid: 252a3bd69ac20754c96f2ec80e137e03,
+        type: 3}
+      propertyPath: AllPlayers.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3825960887839563254, guid: 252a3bd69ac20754c96f2ec80e137e03,
+        type: 3}
+      propertyPath: ControllerOnly
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3825960887839563254, guid: 252a3bd69ac20754c96f2ec80e137e03,
+        type: 3}
+      propertyPath: AutoAddToEmptySlot
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3825960887839563254, guid: 252a3bd69ac20754c96f2ec80e137e03,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -44,6 +44,7 @@ public class PlayerAnimation : MonoBehaviour
         if (active)
         {
             animator.SetTrigger("Hit");
+            // Check if hit in head, if so set bool idk
         }
     }
 
@@ -76,5 +77,20 @@ public class PlayerAnimation : MonoBehaviour
     public void ResetAttackState()
     {
         attacking = false;
+    }
+
+    public void PlayVictory()
+    {
+        animator.SetTrigger("Winning");
+    }
+
+    public void PlayDefeat()
+    {
+        animator.SetTrigger("Dying");
+    }
+
+    public void FailedGrapple()
+    {
+        animator.SetTrigger("FrogNoCatch");
     }
 }

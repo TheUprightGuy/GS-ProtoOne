@@ -17,9 +17,7 @@ MonoBehaviour:
   abilitySprite: {fileID: 21300000, guid: 861daaf731146a447af80d5f9ba204dd, type: 3}
   abilityText: TestingHead
   set: 0
-  abilityName: 4
-  abilityPrefab: {fileID: 8653621447148269499, guid: e2fbbfcfca478874993097e791e81b9f,
-    type: 3}
+  abilityName: 0
   player: {fileID: 0}
   maxIntegrity: 50
   cooldown: 5

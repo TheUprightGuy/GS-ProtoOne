@@ -8,10 +8,12 @@ public class HealthScript : MonoBehaviour
     [Header("Setup Fields")]
     public int id;
     private Image healthBar;
+    [HideInInspector] public float health;
 
     #region Setup
     private void Start()
     {
+        health = 1.0f;
         EventHandler.instance.updateHealth += UpdateHealth;
         healthBar = GetComponent<Image>();
     }
@@ -26,6 +28,7 @@ public class HealthScript : MonoBehaviour
     {
         if (id == _id)
         {
+            health = _health;
             healthBar.fillAmount = _health;
         }
     }

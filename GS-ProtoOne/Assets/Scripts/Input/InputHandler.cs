@@ -14,6 +14,8 @@ public struct InputData
 
 public class InputHandler : MonoBehaviour
 {
+    public static InputHandler instance;
+
     //public PlayerInput playerControls;
 
     /// <summary>
@@ -21,19 +23,30 @@ public class InputHandler : MonoBehaviour
     /// </summary>
     public int QueryIndex = 0;
 
+    public bool ControllerOnly = false;
+
+    public bool AutoAddToEmptySlot = false;
     public InputData[] AllPlayers;
     void Awake()
     {
+        if (instance != null)
+        {
+            Debug.LogError("More than one InputHandler exists!");
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            instance = this;
+        }
+
         DontDestroyOnLoad(this);
         InputSystem.onEvent += QueryAnyInput;
-
+        InputSystem.onDeviceChange += GetDeviceChange;
         LoadDefaultInputs();
     }
 
     // Update is called once per frame
-    public void QueryInputIndex(int _iIndex)
-    {
-        QueryIndex = _iIndex;
+    private void Update() {
     }
 
     void LoadDefaultInputs()
@@ -49,6 +62,10 @@ public class InputHandler : MonoBehaviour
             }
             else if ((item as Keyboard) != null)
             {
+                if(ControllerOnly)
+                {
+                    continue;
+                }
                 scheme = "KeyBoardLeft";
             }
             else
@@ -66,7 +83,10 @@ public class InputHandler : MonoBehaviour
             }
         }
     }
-
+    public void QueryInputIndex(int _iIndex)
+    {
+        QueryIndex = _iIndex;
+    }
     void QueryAnyInput(InputEventPtr eventPtr, InputDevice device)
     {
         // Ignore anything that isn't a state event.
@@ -90,6 +110,11 @@ public class InputHandler : MonoBehaviour
         }
         else if (keyboard != null)
         {
+            if(ControllerOnly)
+            {
+                return;
+            }
+
             //Debug.Log("KeyBoard" );
             scheme = "KeyBoardLeft";
         }
@@ -115,6 +140,52 @@ public class InputHandler : MonoBehaviour
         QueryIndex = 0;
     }
 
+    void GetDeviceChange(InputDevice device, InputDeviceChange change)
+    {
+        switch (change)
+        {
+            case InputDeviceChange.Added:
+            {
+                //Debug.Log($"Device {device} was added");
 
+                //Controller only and device not controller, 
+                //or does not want auto adding
+                if (ControllerOnly && (device as Gamepad == null) ||
+                    !AutoAddToEmptySlot) 
+                {
+                        break;
+                }
+
+                if (AutoAddToEmptySlot)
+                {
+                    for (int i = 0; i < AllPlayers.Length; i++)
+                    {
+                        if (AllPlayers[i].ControlScheme == "")
+                        {
+                            AllPlayers[i].RegisteredDevice = device;
+                            AllPlayers[i].ControlScheme = "XboxController";
+                            break;
+                        }
+                    }
+                }
+                break;
+            }
+            case InputDeviceChange.Removed:
+            {
+                //Debug.Log($"Device {device} was removed");
+                for (int i = 0; i < AllPlayers.Length; i++)
+                {
+                    if (AllPlayers[i].RegisteredDevice == device)
+                    {
+                        AllPlayers[i].RegisteredDevice = null;
+                        AllPlayers[i].ControlScheme = "";
+                        break;
+                    }
+                }
+                break;
+            }
+        }
+    }
+    
     
 }

@@ -38,12 +38,25 @@ public class PlayerCam : MonoBehaviour
 
     void MoveCam()
     {
+        // TEMP
+        if (Players[0] == null)
+        {
+            return;
+        }
+
         Vector3 newPos = PlayerBounds().center + OffSet;
         transform.position = Vector3.SmoothDamp(transform.position, newPos, ref Velocity, SmoothTime);
     }
 
     void ZoomCam()
-    {                                               //Greatest Dist
+    {          
+        // TEMP
+        if (Players[0] == null)
+        {
+            return;
+        }
+
+        //Greatest Dist
         float newZoom = Mathf.Lerp(MinFoV, MaxFoV, PlayerBounds().size.x / ZoomLimiter);
         thisCam.fieldOfView = Mathf.Lerp(thisCam.fieldOfView, newZoom, Time.deltaTime);
     }

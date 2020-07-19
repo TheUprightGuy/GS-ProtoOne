@@ -207,7 +207,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""565b12dc-0ecf-40f2-9519-8c32f38e4deb"",
-                    ""path"": ""<Keyboard>/r"",
+                    ""path"": ""<Keyboard>/f"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""KeyBoardLeft"",
@@ -487,7 +487,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
             ""actions"": [
                 {
                     ""name"": ""Navigate"",
-                    ""type"": ""Value"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""02e03fd7-11b2-437d-894d-8731e3f6295c"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
@@ -495,7 +495,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""Submit"",
-                    ""type"": ""Button"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""f76f9de9-7f15-4bb8-b658-fc4d650132c5"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
@@ -503,7 +503,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""Cancel"",
-                    ""type"": ""Button"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""1551c99d-0f5c-42ac-8b32-95cdb7c2af78"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",

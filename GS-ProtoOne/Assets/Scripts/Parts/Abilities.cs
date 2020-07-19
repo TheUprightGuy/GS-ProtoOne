@@ -60,6 +60,33 @@ public class Kick : Ability
     }
 }
 
+public class RocketKnee : Ability
+{
+    public void Use(PlayerMovement _player)
+    {
+        Debug.Log("RocketKnee");
+        _player.GetComponent<PlayerAnimation>().animator.SetTrigger("UseRocketKnee");
+    }
+}
+
+public class RocketHead : Ability
+{
+    public void Use(PlayerMovement _player)
+    {
+        Debug.Log("RocketHead");
+        _player.GetComponent<PlayerAnimation>().animator.SetTrigger("UseRocketHead");
+    }
+}
+
+public class RocketBall : Ability
+{
+    public void Use(PlayerMovement _player)
+    {
+        Debug.Log("RocketBall");
+        _player.GetComponent<PlayerAnimation>().animator.SetTrigger("UseRocketBall");
+    }
+}
+
 public class Grapple : Ability
 {
     private readonly GameObject _grappleProjectilePrefab;
@@ -73,6 +100,7 @@ public class Grapple : Ability
     {
         Debug.Log("GrappleTriggered");
         AudioManager.Instance.PlaySound("frog");
+        player.GetComponent<PlayerAnimation>().animator.SetTrigger("UseFrogHead");
         var projInstance = Object.Instantiate(_grappleProjectilePrefab, player.transform);
         projInstance.GetComponent<GrappleProjectile>().SetPlayerReference(player.gameObject);
     }

@@ -19,8 +19,6 @@ public class PlayerStats : MonoBehaviour
     public List<GameObject> heads;
     public List<GameObject> arms;
     public List<GameObject> legs;
-    public float abilityCooldown = 1.0f;
-    private float _abilityTimer = 0.0f;
     // Enable/Disable for Scenes
     private PlayerMovement pm;
     private PlayerAnimation pa;
@@ -51,6 +49,8 @@ public class PlayerStats : MonoBehaviour
         EventHandler.instance.moveCharacter += MoveCharacter;
         EventHandler.instance.toggleState += ToggleState;
         EventHandler.instance.resetCharacters += ResetCharacter;
+        EventHandler.instance.cleanUp += CleanUp;
+        EventHandler.instance.playAnimations += PlayAnimation;
 
         SetPart(id, head);
         SetPart(id, arm);
@@ -68,6 +68,8 @@ public class PlayerStats : MonoBehaviour
         EventHandler.instance.moveCharacter -= MoveCharacter;
         EventHandler.instance.toggleState -= ToggleState;
         EventHandler.instance.resetCharacters -= ResetCharacter;
+        EventHandler.instance.cleanUp -= CleanUp;
+        EventHandler.instance.playAnimations -= PlayAnimation;
     }
     #endregion Setup
 
@@ -212,11 +214,28 @@ public class PlayerStats : MonoBehaviour
     public void ResetCharacter()
     {
         health = maxHealth;
-        ToggleState(true);
+        //ToggleState(true);
+    }
+
+    public void CleanUp()
+    {
+        Destroy(transform.root.gameObject);
+    }
+
+    public void PlayAnimation(int _id)
+    {
+        if (id == _id)
+        {
+            pa.PlayDefeat();
+        }
+        else
+        {
+            pa.PlayVictory();
+        }
     }
 
     #region AbilityUse
-    
+
     public void OnAbilityHead()
     {
         if (!body.head) return;

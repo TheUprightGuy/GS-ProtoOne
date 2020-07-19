@@ -5,9 +5,9 @@ using UnityEngine;
 
 public enum Set
 {
-    Human,
-    Frog,
-    Robot
+    Robot,
+    Insect,
+    Frog
 }
 
 [CreateAssetMenu(fileName = "Part", menuName = "Parts", order = 1)]

@@ -44,6 +44,7 @@ public class WinTextScript : MonoBehaviour
 
         if (EventHandler.instance.p1Wins > Mathf.Floor(rounds/2) || EventHandler.instance.p2Wins > Mathf.Floor(rounds / 2))
         {
+            EventHandler.instance.CleanUp();
             EventHandler.instance.ChangeScene("WaydsScene");
         }
         else
