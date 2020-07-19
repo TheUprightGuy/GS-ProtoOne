@@ -50,6 +50,7 @@ public class PlayerStats : MonoBehaviour
         EventHandler.instance.toggleState += ToggleState;
         EventHandler.instance.resetCharacters += ResetCharacter;
         EventHandler.instance.cleanUp += CleanUp;
+        EventHandler.instance.playAnimations += PlayAnimation;
 
         SetPart(id, head);
         SetPart(id, arm);
@@ -68,6 +69,7 @@ public class PlayerStats : MonoBehaviour
         EventHandler.instance.toggleState -= ToggleState;
         EventHandler.instance.resetCharacters -= ResetCharacter;
         EventHandler.instance.cleanUp -= CleanUp;
+        EventHandler.instance.playAnimations -= PlayAnimation;
     }
     #endregion Setup
 
@@ -220,8 +222,20 @@ public class PlayerStats : MonoBehaviour
         Destroy(transform.root.gameObject);
     }
 
+    public void PlayAnimation(int _id)
+    {
+        if (id == _id)
+        {
+            pa.PlayDefeat();
+        }
+        else
+        {
+            pa.PlayVictory();
+        }
+    }
+
     #region AbilityUse
-    
+
     public void OnAbilityHead()
     {
         if (!body.head) return;

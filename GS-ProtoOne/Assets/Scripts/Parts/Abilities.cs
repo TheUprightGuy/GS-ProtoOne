@@ -73,6 +73,7 @@ public class Grapple : Ability
     {
         Debug.Log("GrappleTriggered");
         AudioManager.Instance.PlaySound("frog");
+        player.GetComponent<PlayerAnimation>().animator.SetTrigger("UseFrogHead");
         var projInstance = Object.Instantiate(_grappleProjectilePrefab, player.transform);
         projInstance.GetComponent<GrappleProjectile>().SetPlayerReference(player.gameObject);
     }

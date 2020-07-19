@@ -270,5 +270,6 @@ public class PlayerMovement : MonoBehaviour
         rb.AddForce(((currTransform.up) - Vector3.right * currTransform.localScale.z) * jumpThrust, ForceMode.Impulse);
         isGrounded = false;
         AudioManager.Instance.PlaySound("jump");
+        GetComponent<PlayerAnimation>().animator.SetTrigger("Grabbed");
     }
 }

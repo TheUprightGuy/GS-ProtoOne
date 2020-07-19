@@ -120,6 +120,7 @@ public class EventHandler : MonoBehaviour
         {
             gameOver(_id);
             UpdateRounds();
+            PlayAnimations(_id);
         }
     }
 
@@ -177,5 +178,14 @@ public class EventHandler : MonoBehaviour
     {
         AudioManager.Instance.PlaySound("ui");
         Application.Quit();
+    }
+
+    public event Action<int> playAnimations;
+    public void PlayAnimations(int _id)
+    {
+        if (playAnimations != null)
+        {
+            playAnimations(_id);
+        }
     }
 }
