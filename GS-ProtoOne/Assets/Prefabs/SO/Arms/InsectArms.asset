@@ -10,13 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 32f62a78e65fc944592a20dc0841eb66, type: 3}
-  m_Name: RhinoHead
+  m_Name: InsectArms
   m_EditorClassIdentifier: 
-  partType: 0
-  sprite: {fileID: 21300000, guid: e827b2ec3e7eeb04f8ec20cea62085ab, type: 3}
-  abilitySprite: {fileID: 21300000, guid: 6f6c1856b91aa2f48afcf7f4b4c44606, type: 3}
-  abilityText: Charge forwards, dealing damage and knocking over your opponent.
-  set: 2
-  abilityName: 0
+  partType: 1
+  sprite: {fileID: 21300000, guid: 2eb449a62e5b2de4f98930b9d67b0fd4, type: 3}
+  abilitySprite: {fileID: 21300000, guid: 861daaf731146a447af80d5f9ba204dd, type: 3}
+  abilityText: Does human things.
+  set: 1
+  abilityName: 2
+  abilityPrefab: {fileID: 0}
   player: {fileID: 0}
   maxIntegrity: 100
+  cooldown: 0
+  cooldownTimer: 0

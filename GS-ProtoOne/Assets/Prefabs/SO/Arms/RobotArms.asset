@@ -10,13 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 32f62a78e65fc944592a20dc0841eb66, type: 3}
-  m_Name: HumanLegs
+  m_Name: RobotArms
   m_EditorClassIdentifier: 
-  partType: 2
-  sprite: {fileID: 21300000, guid: a57f08d0d50e12746b1049e1776f02b4, type: 3}
+  partType: 1
+  sprite: {fileID: 21300000, guid: 2eb449a62e5b2de4f98930b9d67b0fd4, type: 3}
   abilitySprite: {fileID: 21300000, guid: 861daaf731146a447af80d5f9ba204dd, type: 3}
-  abilityText: Does Human things.
-  mesh: {fileID: 5949695006547949565, guid: 9a9a99e9dafdd6e4c9c7de2f1780da67, type: 3}
-  abilityName: 3
+  abilityText: Does human things.
+  set: 0
+  abilityName: 2
+  abilityPrefab: {fileID: 0}
   player: {fileID: 0}
   maxIntegrity: 100
+  cooldown: 0
+  cooldownTimer: 0
