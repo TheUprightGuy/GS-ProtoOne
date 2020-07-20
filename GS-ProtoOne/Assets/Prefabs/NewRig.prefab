@@ -415,7 +415,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 2315300994146899570, guid: b442e2c73809f6044a28fda37854c99f, type: 3}
+  m_Mesh: {fileID: -4509873338853973108, guid: f940bc3b758e96f4dbbaaaec31837bf6, type: 3}
   m_Bones:
   - {fileID: 6723036154748198140}
   - {fileID: 5053623768956084737}
@@ -1880,7 +1880,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5577255561160102281
 Transform:
   m_ObjectHideFlags: 0
@@ -2087,7 +2087,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8597526595360877941
 Transform:
   m_ObjectHideFlags: 0
@@ -2389,7 +2389,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1664293373534848174
 Transform:
   m_ObjectHideFlags: 0

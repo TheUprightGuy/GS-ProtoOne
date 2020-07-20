@@ -4151,6 +4151,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2824065031000882876, guid: 176b9c97577cb004a90b47164edeea0b,
+        type: 3}
+      propertyPath: m_UIInputModule
+      value: 
+      objectReference: {fileID: 965166878}
     - target: {fileID: 2855736057993089802, guid: 176b9c97577cb004a90b47164edeea0b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4215,6 +4220,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: NewP2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3236483381541964208, guid: 176b9c97577cb004a90b47164edeea0b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 5445918200829949024, guid: 176b9c97577cb004a90b47164edeea0b,
         type: 3}
@@ -5971,6 +5981,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2824065031000882876, guid: 176b9c97577cb004a90b47164edeea0b,
+        type: 3}
+      propertyPath: m_UIInputModule
+      value: 
+      objectReference: {fileID: 671164599}
     - target: {fileID: 2855736057993089802, guid: 176b9c97577cb004a90b47164edeea0b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6030,6 +6045,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: NewP1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3236483381541964208, guid: 176b9c97577cb004a90b47164edeea0b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 176b9c97577cb004a90b47164edeea0b, type: 3}

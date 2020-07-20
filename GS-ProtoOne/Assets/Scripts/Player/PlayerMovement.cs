@@ -34,8 +34,7 @@ public class PlayerMovement : MonoBehaviour
     public float chargingTimer = 0.0f;
 
     public float boundsRange;
-
-
+    
     private List<Transform> AllPlayers;
     #region Setup
     [HideInInspector] public Rigidbody rb;
@@ -55,8 +54,8 @@ public class PlayerMovement : MonoBehaviour
         lastPosX = transform.position.x;
 
         boundsRange = GetComponent<CapsuleCollider>().bounds.extents.y;
-    }
 
+    }
     #endregion Setup
 
     // Update is called once per frame
