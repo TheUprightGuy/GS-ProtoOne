@@ -31,7 +31,6 @@ public class InputHandler : MonoBehaviour
     {
         if (instance != null)
         {
-            Debug.LogError("More than one InputHandler exists!");
             Destroy(this.gameObject);
         }
         else

@@ -67,7 +67,7 @@ public class PlayerAnimation : MonoBehaviour
 
     public void OnKick()
     {
-        if (active && !attacking)
+        if (active && !attacking && !pm.isBlocking)
         {
             animator.SetTrigger("Kicking");
             attacking = true;
