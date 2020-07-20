@@ -16,12 +16,12 @@ public class Part : ScriptableObject
     [Header("Setup Fields")]
     public PartType partType;
     public Sprite sprite;
-    public Sprite abilitySprite;
     public string abilityText;
     public Set set;
     public Ability ability;
     public AbilityName abilityName;
     public GameObject abilityPrefab;
+    public bool implemented = false;
     [HideInInspector] public PlayerMovement player;
     [Header("Part Stats")]
     public int maxIntegrity;
