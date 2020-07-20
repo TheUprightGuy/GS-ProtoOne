@@ -6,14 +6,14 @@ using UnityEngine.UI;
 public class AbilitiesUI : MonoBehaviour
 {
     [Header("Setup Fields")]
-    public Image icon;
     public TMPro.TextMeshProUGUI text;
+    public TMPro.TextMeshProUGUI implementedText;
 
     // Updates UI for Part
     public void SwitchPrefab(Part _part)
     {
-        icon.sprite = _part.abilitySprite;
         text.SetText(_part.abilityText);
+        implementedText.enabled = !_part.implemented;
         // Add in Stats
     }
 }

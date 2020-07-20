@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: InsectHead
   m_EditorClassIdentifier: 
   partType: 0
-  sprite: {fileID: 21300000, guid: ac825eb70a00ee547a66976c1e8be610, type: 3}
-  abilitySprite: {fileID: 21300000, guid: 861daaf731146a447af80d5f9ba204dd, type: 3}
-  abilityText: Does Human things.
+  sprite: {fileID: 21300000, guid: e4a0f844331c017449727bac2237970a, type: 3}
+  abilityText: Charges forward, blocking damage and knocking back enemies on hit.
   set: 1
   abilityName: 0
   abilityPrefab: {fileID: 0}
+  implemented: 1
   player: {fileID: 0}
   maxIntegrity: 50
   cooldown: 5
