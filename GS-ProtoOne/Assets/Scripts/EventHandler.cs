@@ -133,6 +133,25 @@ public class EventHandler : MonoBehaviour
             toggleState(_state);
         }
     }
+
+    public event Action<int, Part> setIcon;
+    public void SetIcon(int _id, Part _part)
+    {
+        if (setIcon != null)
+        {
+            setIcon(_id, _part);
+        }
+    }
+
+    public event Action getIcons;
+    public void GetIcon()
+    {
+        if (getIcons != null)
+        {
+            getIcons();
+        }
+    }
+
     public event Action resetCharacters;
     public void ResetCharacters()
     {

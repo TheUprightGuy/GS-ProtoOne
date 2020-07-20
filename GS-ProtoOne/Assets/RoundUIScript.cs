@@ -7,7 +7,7 @@ public class RoundUIScript : MonoBehaviour
 {
     public int id;
 
-    private Image[] rounds;
+    public Image[] rounds;
     private bool[] winLoss;
 
     private void Start()
@@ -34,7 +34,7 @@ public class RoundUIScript : MonoBehaviour
             if (winLoss[i] == false)
             {
                 winLoss[i] = true;
-                rounds[i].color = Color.grey;
+                rounds[i].enabled = true;
             }
         }
     }
@@ -56,7 +56,7 @@ public class RoundUIScript : MonoBehaviour
             if (winLoss[i] == false)
             {
                 winLoss[i] = true;
-                rounds[i].color = Color.grey;
+                rounds[i].enabled = true;
             }
         }
     }
