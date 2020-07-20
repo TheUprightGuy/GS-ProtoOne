@@ -130,6 +130,7 @@ public class PlayerMovement : MonoBehaviour
                 { 
                     isBlocking = true;
                     charging = false;
+                    AudioManager.Instance.PlaySound("chargeHit");
                     // TEMPORARY
                     GetComponent<PlayerCombat>().SwitchCraniumOff();
                     isBlocking = false;
