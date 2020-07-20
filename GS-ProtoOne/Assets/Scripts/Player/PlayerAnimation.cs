@@ -36,6 +36,7 @@ public class PlayerAnimation : MonoBehaviour
         animator.SetBool("Grounded", pm.isGrounded);
         animator.SetBool("isBlocking", pm.isBlocking);
         animator.SetFloat("PosX", -pm.velocity / pm.VelocityLimit);
+        animator.SetBool("Charging", pm.charging);
     }
 
 
