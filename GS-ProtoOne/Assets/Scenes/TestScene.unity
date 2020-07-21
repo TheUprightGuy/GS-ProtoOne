@@ -2661,13 +2661,13 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 70, y: 69}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1668904560
+--- !u!114 &318038666
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1668904558}
+  m_GameObject: {fileID: 365693854}
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -2690,15 +2690,15 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!222 &1668904561
+--- !u!222 &318038667
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1668904558}
+  m_GameObject: {fileID: 365693854}
   m_CullTransparentMesh: 0
---- !u!1 &1690209042
+--- !u!1 &365693854
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2755,7 +2755,7 @@ GameObject:
   - component: {fileID: 1690342893}
   - component: {fileID: 1690342892}
   m_Layer: 5
-  m_Name: Mask
+  m_Name: Round
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3196,7 +3196,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 29.195002, y: 130.98601, z: 172.15901}
 --- !u!1 &1898526414
 GameObject:
@@ -3476,7 +3476,7 @@ PrefabInstance:
     - target: {fileID: 3825960887839563253, guid: 252a3bd69ac20754c96f2ec80e137e03,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3825960887839563253, guid: 252a3bd69ac20754c96f2ec80e137e03,
         type: 3}
