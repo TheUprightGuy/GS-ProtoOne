@@ -79,7 +79,7 @@ public class PlayerMovement : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, Vector3.down, out hit, Mathf.Infinity))
         {
-            if (hit.distance < boundsRange + 0.001f)
+            if (hit.distance < boundsRange/3)// + 0.001f)
             {
                 isGrounded = true;
             }
@@ -190,6 +190,7 @@ public class PlayerMovement : MonoBehaviour
                 rb.AddForce((transform.up) * jumpThrust, ForceMode.Impulse);
                 rb.AddForce((-Vector3.right) * moveControlDelta * jumpThrust * 0.5f, ForceMode.Impulse);
                 isGrounded = false;
+                isBlocking = false;
                 AudioManager.Instance.PlaySound("jump");
             }
         }
@@ -235,11 +236,21 @@ public class PlayerMovement : MonoBehaviour
         {
             if (isGrounded)
             {
-                isBlocking = !isBlocking;
+                isBlocking = true;
             }
         }
     }
 
+    public void OnStopBlock()
+    {
+        if (active)
+        {
+            if (isGrounded)
+            {
+                isBlocking = false;
+            }
+        }
+    }
     public void OnReadyUp()
     {
         //Replace with call to readyup function

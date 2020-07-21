@@ -1,0 +1,232 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: TopSpline
+  m_Mask: 00000000010000000100000000000000000000000100000001000000010000000100000000000000000000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Arms
+    m_Weight: 1
+  - m_Path: Base Human
+    m_Weight: 1
+  - m_Path: Base Human/Base HumanPelvis
+    m_Weight: 1
+  - m_Path: Base Human/Base HumanPelvis/Base HumanLThigh
+    m_Weight: 0
+  - m_Path: Base Human/Base HumanPelvis/Base HumanLThigh/Base HumanLCalf
+    m_Weight: 1
+  - m_Path: Base Human/Base HumanPelvis/Base HumanLThigh/Base HumanLCalf/Base HumanLFoot
+    m_Weight: 1
+  - m_Path: Base Human/Base HumanPelvis/Base HumanLThigh/Base HumanLCalf/Base HumanLFoot/Base
+      HumanLToe
+    m_Weight: 1
+  - m_Path: Base Human/Base HumanPelvis/Base HumanRThigh
+    m_Weight: 0
+  - m_Path: Base Human/Base HumanPelvis/Base HumanRThigh/Base HumanRCalf
+    m_Weight: 1
+  - m_Path: Base Human/Base HumanPelvis/Base HumanRThigh/Base HumanRCalf/Base HumanRFoot
+    m_Weight: 1
+  - m_Path: Base Human/Base HumanPelvis/Base HumanRThigh/Base HumanRCalf/Base HumanRFoot/Base
+      HumanRToe
+    m_Weight: 1
+  - m_Path: Base Human/Base HumanPelvis/Base HumanSpine1
+    m_Weight: 1
+  - m_Path: Base Human/Base HumanPelvis/Base HumanSpine1/Base HumanSpine2
+    m_Weight: 1
+  - m_Path: Base Human/Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3
+    m_Weight: 1
+  - m_Path: Base Human/Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base
+      HumanSpine4
+    m_Weight: 1
+  - m_Path: Base Human/Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base
+      HumanSpine4/Base HumanRibcage
+    m_Weight: 1
+  - m_Path: Base Human/Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base
+      HumanSpine4/Base HumanRibcage/Base HumanLCollarbone
+    m_Weight: 1
+  - m_Path: Base Human/Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base
+      HumanSpine4/Base HumanRibcage/Base HumanLCollarbone/Base HumanLUpperarm
+    m_Weight: 1
+  - m_Path: Base Human/Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base
+      HumanSpine4/Base HumanRibcage/Base HumanLCollarbone/Base HumanLUpperarm/Base
+      HumanLForearm
+    m_Weight: 1
+  - m_Path: Base Human/Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base
+      HumanSpine4/Base HumanRibcage/Base HumanLCollarbone/Base HumanLUpperarm/Base
+      HumanLForearm/Base HumanLPalm
+    m_Weight: 1
+  - m_Path: Base Human/Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base
+      HumanSpine4/Base HumanRibcage/Base HumanLCollarbone/Base HumanLUpperarm/Base
+      HumanLForearm/Base HumanLPalm/Base HumanLFingers02
+    m_Weight: 1
+  - m_Path: Base Human/Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base
+      HumanSpine4/Base HumanRibcage/Base HumanLCollarbone/Base HumanLUpperarm/Base
+      HumanLForearm/Base HumanLPalm/Base HumanLFingers02/Base HumanLFingers01
+    m_Weight: 1
+  - m_Path: Base Human/Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base
+      HumanSpine4/Base HumanRibcage/Base HumanLCollarbone/Base HumanLUpperarm/Base
+      HumanLForearm/Base HumanLPalm/Base HumanLThumb01
+    m_Weight: 1
+  - m_Path: Base Human/Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base
+      HumanSpine4/Base HumanRibcage/Base HumanLCollarbone/Base HumanLUpperarm/Base
+      HumanLForearm/Base HumanLPalm/Base HumanLThumb01/Base HumanLThumb02
+    m_Weight: 1
+  - m_Path: Base Human/Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base
+      HumanSpine4/Base HumanRibcage/Base HumanNeck1
+    m_Weight: 1
+  - m_Path: Base Human/Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base
+      HumanSpine4/Base HumanRibcage/Base HumanNeck1/Base HumanNeck2
+    m_Weight: 1
+  - m_Path: Base Human/Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base
+      HumanSpine4/Base HumanRibcage/Base HumanNeck1/Base HumanNeck2/Base HumanHead
+    m_Weight: 1
+  - m_Path: Base Human/Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base
+      HumanSpine4/Base HumanRibcage/Base HumanRCollarbone
+    m_Weight: 1
+  - m_Path: Base Human/Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base
+      HumanSpine4/Base HumanRibcage/Base HumanRCollarbone/Base HumanRUpperarm
+    m_Weight: 1
+  - m_Path: Base Human/Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base
+      HumanSpine4/Base HumanRibcage/Base HumanRCollarbone/Base HumanRUpperarm/Base
+      HumanRForearm
+    m_Weight: 1
+  - m_Path: Base Human/Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base
+      HumanSpine4/Base HumanRibcage/Base HumanRCollarbone/Base HumanRUpperarm/Base
+      HumanRForearm/Base HumanRPalm
+    m_Weight: 1
+  - m_Path: Base Human/Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base
+      HumanSpine4/Base HumanRibcage/Base HumanRCollarbone/Base HumanRUpperarm/Base
+      HumanRForearm/Base HumanRPalm/Base HumanRFingers01
+    m_Weight: 1
+  - m_Path: Base Human/Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base
+      HumanSpine4/Base HumanRibcage/Base HumanRCollarbone/Base HumanRUpperarm/Base
+      HumanRForearm/Base HumanRPalm/Base HumanRFingers01/Base HumanFingers02
+    m_Weight: 1
+  - m_Path: Base Human/Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base
+      HumanSpine4/Base HumanRibcage/Base HumanRCollarbone/Base HumanRUpperarm/Base
+      HumanRForearm/Base HumanRPalm/Base HumanRThumb01
+    m_Weight: 1
+  - m_Path: Base Human/Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanSpine3/Base
+      HumanSpine4/Base HumanRibcage/Base HumanRCollarbone/Base HumanRUpperarm/Base
+      HumanRForearm/Base HumanRPalm/Base HumanRThumb01/Base HumanRThumb02
+    m_Weight: 1
+  - m_Path: Base HumanLPlatform
+    m_Weight: 0
+  - m_Path: Base HumanRPlatform
+    m_Weight: 0
+  - m_Path: bugarm
+    m_Weight: 1
+  - m_Path: bugarm/BugArms_polySurface1
+    m_Weight: 1
+  - m_Path: bugarm/BugArms_polySurface2
+    m_Weight: 1
+  - m_Path: bugarm/BugArms_polySurface3
+    m_Weight: 1
+  - m_Path: bugarm/BugArms_polySurface4
+    m_Weight: 1
+  - m_Path: bugarm/BugArms_polySurface5
+    m_Weight: 1
+  - m_Path: bugarm/BugArms_polySurface6
+    m_Weight: 1
+  - m_Path: bugarm/BugArms_polySurface7
+    m_Weight: 1
+  - m_Path: bugarm/BugArms_polySurface8
+    m_Weight: 1
+  - m_Path: bugarm/BugArms_polySurface9
+    m_Weight: 1
+  - m_Path: bugarm/BugArms_polySurface10
+    m_Weight: 1
+  - m_Path: bugarm/BugArms_polySurface11
+    m_Weight: 1
+  - m_Path: BugLeg
+    m_Weight: 0
+  - m_Path: BugLeg/polySurface1
+    m_Weight: 1
+  - m_Path: BugLeg/polySurface2
+    m_Weight: 1
+  - m_Path: BugLeg/polySurface3
+    m_Weight: 1
+  - m_Path: BugLeg/polySurface4
+    m_Weight: 1
+  - m_Path: BugLeg/polySurface5
+    m_Weight: 1
+  - m_Path: BugLeg/polySurface6
+    m_Weight: 1
+  - m_Path: BugLeg/polySurface7
+    m_Weight: 1
+  - m_Path: BugLeg/polySurface8
+    m_Weight: 1
+  - m_Path: BugLeg/polySurface9
+    m_Weight: 1
+  - m_Path: BugLeg/polySurface10
+    m_Weight: 1
+  - m_Path: BugLeg/polySurface11
+    m_Weight: 1
+  - m_Path: BugLeg/polySurface12
+    m_Weight: 1
+  - m_Path: BugLeg/polySurface13
+    m_Weight: 1
+  - m_Path: BugLeg/polySurface14
+    m_Weight: 1
+  - m_Path: BugLeg/polySurface15
+    m_Weight: 1
+  - m_Path: BugLeg/polySurface16
+    m_Weight: 1
+  - m_Path: BugLeg/polySurface17
+    m_Weight: 1
+  - m_Path: BugLeg/polySurface18
+    m_Weight: 1
+  - m_Path: FanHead
+    m_Weight: 1
+  - m_Path: FrogArms__1__Group45958
+    m_Weight: 1
+  - m_Path: FrogHead__1__Group4712
+    m_Weight: 1
+  - m_Path: Head
+    m_Weight: 1
+  - m_Path: Head 1
+    m_Weight: 1
+  - m_Path: Head 1/BugHead_polySurface13
+    m_Weight: 1
+  - m_Path: Head 1/BugHead_polySurface14
+    m_Weight: 1
+  - m_Path: Head 1/BugHead_polySurface15
+    m_Weight: 1
+  - m_Path: Head 1/BugHead_polySurface16
+    m_Weight: 1
+  - m_Path: Head 1/BugHead_polySurface17
+    m_Weight: 1
+  - m_Path: Head 1/BugHead_polySurface18
+    m_Weight: 1
+  - m_Path: Head 1/BugHead_polySurface19
+    m_Weight: 1
+  - m_Path: Head 1/BugHead_polySurface20
+    m_Weight: 1
+  - m_Path: Head 1/BugHead_polySurface21
+    m_Weight: 1
+  - m_Path: Head 1/BugHead_polySurface22
+    m_Weight: 1
+  - m_Path: Head 1/BugHead_polySurface23
+    m_Weight: 1
+  - m_Path: Head 1/BugHead_polySurface24
+    m_Weight: 1
+  - m_Path: Head 1/polySurface25_BugHead
+    m_Weight: 1
+  - m_Path: Legs
+    m_Weight: 0
+  - m_Path: MainBody
+    m_Weight: 1
+  - m_Path: Model_FrogLegs_Group60682
+    m_Weight: 0
+  - m_Path: polySurface12_BugArms
+    m_Weight: 1
+  - m_Path: RocketArms
+    m_Weight: 1
+  - m_Path: RocketLegs
+    m_Weight: 0

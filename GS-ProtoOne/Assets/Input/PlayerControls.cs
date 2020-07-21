@@ -113,6 +113,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": ""Press(behavior=2)""
+                },
+                {
+                    ""name"": ""StopBlock"",
+                    ""type"": ""Button"",
+                    ""id"": ""2caa4066-ccb1-47fd-8930-762c164e2f30"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press(behavior=2)""
                 }
             ],
             ""bindings"": [
@@ -197,7 +205,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""8c1f0060-e1bd-435a-b227-79f1eb4819c6"",
                     ""path"": ""<Gamepad>/leftTrigger"",
-                    ""interactions"": ""Press(behavior=2)"",
+                    ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": ""XboxController"",
                     ""action"": ""Block"",
@@ -476,6 +484,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""XboxController"",
                     ""action"": ""DebugDamage"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1814616a-80f2-4ec9-940f-939b0baaac42"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": ""Press(behavior=1)"",
+                    ""processors"": """",
+                    ""groups"": ""XboxController"",
+                    ""action"": ""StopBlock"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1038,6 +1057,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Player_DashForward = m_Player.FindAction("DashForward", throwIfNotFound: true);
         m_Player_ReadyUp = m_Player.FindAction("ReadyUp", throwIfNotFound: true);
         m_Player_DebugDamage = m_Player.FindAction("DebugDamage", throwIfNotFound: true);
+        m_Player_StopBlock = m_Player.FindAction("StopBlock", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1111,6 +1131,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_DashForward;
     private readonly InputAction m_Player_ReadyUp;
     private readonly InputAction m_Player_DebugDamage;
+    private readonly InputAction m_Player_StopBlock;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
@@ -1127,6 +1148,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @DashForward => m_Wrapper.m_Player_DashForward;
         public InputAction @ReadyUp => m_Wrapper.m_Player_ReadyUp;
         public InputAction @DebugDamage => m_Wrapper.m_Player_DebugDamage;
+        public InputAction @StopBlock => m_Wrapper.m_Player_StopBlock;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1172,6 +1194,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @DebugDamage.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDebugDamage;
                 @DebugDamage.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDebugDamage;
                 @DebugDamage.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDebugDamage;
+                @StopBlock.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStopBlock;
+                @StopBlock.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStopBlock;
+                @StopBlock.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStopBlock;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -1212,6 +1237,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @DebugDamage.started += instance.OnDebugDamage;
                 @DebugDamage.performed += instance.OnDebugDamage;
                 @DebugDamage.canceled += instance.OnDebugDamage;
+                @StopBlock.started += instance.OnStopBlock;
+                @StopBlock.performed += instance.OnStopBlock;
+                @StopBlock.canceled += instance.OnStopBlock;
             }
         }
     }
@@ -1362,6 +1390,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnDashForward(InputAction.CallbackContext context);
         void OnReadyUp(InputAction.CallbackContext context);
         void OnDebugDamage(InputAction.CallbackContext context);
+        void OnStopBlock(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

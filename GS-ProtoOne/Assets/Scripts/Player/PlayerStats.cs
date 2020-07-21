@@ -51,6 +51,7 @@ public class PlayerStats : MonoBehaviour
         EventHandler.instance.resetCharacters += ResetCharacter;
         EventHandler.instance.cleanUp += CleanUp;
         EventHandler.instance.playAnimations += PlayAnimation;
+        EventHandler.instance.getIcons += GetIcon;
 
         SetPart(id, head);
         SetPart(id, arm);
@@ -70,6 +71,7 @@ public class PlayerStats : MonoBehaviour
         EventHandler.instance.resetCharacters -= ResetCharacter;
         EventHandler.instance.cleanUp -= CleanUp;
         EventHandler.instance.playAnimations -= PlayAnimation;
+        EventHandler.instance.getIcons -= GetIcon;
     }
     #endregion Setup
 
@@ -232,6 +234,11 @@ public class PlayerStats : MonoBehaviour
         {
             pa.PlayVictory();
         }
+    }
+
+    public void GetIcon()
+    {
+        EventHandler.instance.SetIcon(id, body.head);
     }
 
     #region AbilityUse

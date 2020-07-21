@@ -100,6 +100,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Press(behavior=2)"
+                },
+                {
+                    "name": "StopBlock",
+                    "type": "Button",
+                    "id": "2caa4066-ccb1-47fd-8930-762c164e2f30",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=2)"
                 }
             ],
             "bindings": [
@@ -184,7 +192,7 @@
                     "name": "",
                     "id": "8c1f0060-e1bd-435a-b227-79f1eb4819c6",
                     "path": "<Gamepad>/leftTrigger",
-                    "interactions": "Press(behavior=2)",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "XboxController",
                     "action": "Block",
@@ -463,6 +471,17 @@
                     "processors": "",
                     "groups": "XboxController",
                     "action": "DebugDamage",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1814616a-80f2-4ec9-940f-939b0baaac42",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "Press(behavior=1)",
+                    "processors": "",
+                    "groups": "XboxController",
+                    "action": "StopBlock",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

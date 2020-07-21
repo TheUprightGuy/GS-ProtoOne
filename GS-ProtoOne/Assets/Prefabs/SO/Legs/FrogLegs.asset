@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FrogLegs
   m_EditorClassIdentifier: 
   partType: 2
-  sprite: {fileID: 21300000, guid: a57f08d0d50e12746b1049e1776f02b4, type: 3}
+  sprite: {fileID: 21300000, guid: c07e00fce6976ba42ab934de03cfdd4f, type: 3}
   abilityText: Allows the user to jump higher and maintain air control.
   set: 2
   abilityName: 3
