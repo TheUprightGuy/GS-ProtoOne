@@ -61,8 +61,12 @@ public class PlayerAnimation : MonoBehaviour
         {
             animator.SetTrigger("Punching");
             attacking = true;
-            AudioManager.Instance.PlaySound("armSwing");
         }
+    }
+
+    public void PlayPunchSound()
+    {
+        AudioManager.Instance.PlaySound("armSwing");
     }
 
     public void OnKick()
@@ -71,8 +75,12 @@ public class PlayerAnimation : MonoBehaviour
         {
             animator.SetTrigger("Kicking");
             attacking = true;
-            AudioManager.Instance.PlaySound("legSwing");
         }
+    }
+
+    public void PlayKickSound()
+    {
+        AudioManager.Instance.PlaySound("legSwing");
     }
 
     public void ResetAttackState()
@@ -93,5 +101,12 @@ public class PlayerAnimation : MonoBehaviour
     public void FailedGrapple()
     {
         animator.SetTrigger("FrogNoCatch");
+    }
+
+    public void ResetTriggers()
+    {
+        animator.ResetTrigger("Kicking");
+        animator.ResetTrigger("Punching");
+        animator.ResetTrigger("Jumping");
     }
 }

@@ -55684,6 +55684,13 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 0.033333335
+    functionName: PlayKickSound
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.06666667
     functionName: SwitchFeetOn
     data: 
@@ -55693,6 +55700,13 @@ AnimationClip:
     messageOptions: 0
   - time: 0.8333333
     functionName: SwitchFeetOff
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.8666667
+    functionName: ResetTriggers
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
