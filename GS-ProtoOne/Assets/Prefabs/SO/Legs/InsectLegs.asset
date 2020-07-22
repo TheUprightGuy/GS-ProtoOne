@@ -20,6 +20,6 @@ MonoBehaviour:
   abilityPrefab: {fileID: 0}
   implemented: 0
   player: {fileID: 0}
-  maxIntegrity: 100
+  maxIntegrity: 50
   cooldown: 0
   cooldownTimer: 0

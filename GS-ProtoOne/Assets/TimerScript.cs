@@ -9,6 +9,7 @@ public class TimerScript : MonoBehaviour
     public float timer = 60;
     //private startCount;
     private TMPro.TextMeshProUGUI text;
+    public TMPro.TextMeshProUGUI countdown;
 
     public HealthScript p1;
     public HealthScript p2;
@@ -26,10 +27,16 @@ public class TimerScript : MonoBehaviour
         if (initialTimer > 0)
         {
             initialTimer -= Time.deltaTime;
-            text.SetText(((int)initialTimer).ToString());
+            countdown.SetText(((int)initialTimer).ToString());
+
+            if (initialTimer < 1)
+            {
+                countdown.SetText("FIGHT!");
+            }
 
             if (initialTimer <= 0.0f)
             {
+                countdown.gameObject.SetActive(false);
                 EventHandler.instance.ToggleState(true);
             }
         }
